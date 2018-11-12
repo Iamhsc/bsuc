@@ -8,7 +8,7 @@
     @Styles.Render("~/static/admin/css/theme.css")
     @Styles.Render("~/static/admin/css/style.css")
     @Scripts.Render("~/static/layui/layui.js")
-     @Scripts.Render("~/static/admin/js/global.js")
+    @Scripts.Render("~/static/admin/js/global.js")
 </head>
 <body>
     <div class="layui-layout layui-layout-admin">
@@ -120,7 +120,10 @@
                         </div>
                     </ul>
                     <div class="layui-tab-content page-tab-content">
-                        @RenderBody()
+                        <section>
+                            @RenderBody()
+                        </section>
+                        @RenderSection("scripts", required: false)
                     </div>
                 </div>
             </div>
