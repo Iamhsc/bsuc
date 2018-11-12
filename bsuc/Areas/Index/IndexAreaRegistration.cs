@@ -17,7 +17,7 @@ namespace bsuc.Areas.Index
             context.MapRoute(
                 "Index_default",
                 "{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional },
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "bsuc.Areas.Index.Controllers" }
             );
         }
