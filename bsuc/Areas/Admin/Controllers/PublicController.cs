@@ -12,27 +12,42 @@ namespace bsuc.Areas.Admin.Controllers
     public class PublicController : Controller
     {
         private BsucConnectext db = new BsucConnectext();
-        public ActionResult Register() {
-            return View();
-        }
 
-        public ActionResult Login() {
+        public ActionResult Register()
+        {
             return View();
         }
 
         [HttpPost]
-        public object loginpost()
+        public object RegPost(b_user usr)
+        {
+            string salt = Sha1.random_string();
+            usr.salt = salt;
+            usr.password = Sha1.sha1_pwd(usr.password, salt);
+            db.buser.Add(usr);
+            db.SaveChanges();
+            JObject obj = new JObject();
+            obj["code"] = 1;
+            obj["msg"] = "注册成功";
+            return obj;
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public object LoginPost()
         {
             string usr = Request.Form["username"];//用户名
             string pwd = Request.Form["password"];//密码
             JObject obj = new JObject();
-            var us=db.buser.Where(n => n.username == usr);
-            if (us.Count()>0)
+            var us = db.buser.Where(n => n.username == usr);
+            if (us.Count() > 0)
             {
                 var user = us.First();
-                string p = user.password;
-                string u = user.salt;
-                if (Sha1.sha1ComparePassword(pwd, u, p))
+                if (Sha1.comparePassword(pwd, user.salt, user.password))
                 {
                     obj["code"] = 1;
                     obj["msg"] = "登陆成功";
@@ -40,7 +55,8 @@ namespace bsuc.Areas.Admin.Controllers
                     Session["user_id"] = user.id;
                     Session["user_name"] = user.username;
                 }
-                else {
+                else
+                {
 
                     obj["code"] = 0;
                     obj["msg"] = "用户名或密码错误";

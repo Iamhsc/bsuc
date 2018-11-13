@@ -14,7 +14,7 @@ namespace bsuc.common
         /// <param name="salt">随机字符串</param>
         /// <param name="password">加密后的密码</param>
         /// <returns>boot</returns>
-        public static bool sha1ComparePassword(string pwd, string salt, string password)
+        public static bool comparePassword(string pwd, string salt, string password)
         {
             return SHA1(salt + pwd, Encoding.UTF8) == password;
         }
