@@ -11,14 +11,10 @@ namespace bsuc.Areas.Admin.Controllers
     {
         private BsucConnectext db = new BsucConnectext();
         public BsucConnectext DataContext { get { return db; } }
-        //
-        // GET: /Admin/Base/
 
         public BaseController()
         {
-            ViewData["admin_menu"] = from c in DataContext.bmenu.Select(t=>new{t.title,t.url,t.id})
-                                     select c;
+            ViewBag.adminmenu = DataContext.bmenu.ToList();
         }
-
     }
 }

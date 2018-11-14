@@ -1,5 +1,6 @@
-﻿@*@model IEnumerable<bsuc.Areas.Admin.Models.b_menu>*@
-@{var Vmodel = (bsuc.Areas.Admin.Models.b_menu)ViewBag.admin_menu;}
+﻿@{
+    var navmodel = ViewBag.adminmenu as IEnumerable<bsuc.Areas.Admin.Models.b_menu>;
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +19,9 @@
             <div class="fl header-logo">管理控制台</div>
             <div class="fl header-fold"><a href="javascript:;" title="打开/关闭左侧导航" class="aicon ai-caidan" id="foldSwitch"></a></div>
             <ul class="layui-nav fl nobg main-nav">
-                <li class="layui-nav-item">
-                    <a href="javascript:;">首页</a></li>
                 <li class="layui-nav-item layui-this">
+                    <a href="javascript:;">首页</a></li>
+                <li class="layui-nav-item">
                     <a href="javascript:;">系统</a></li>
             </ul>
             <ul class="layui-nav fr nobg head-info">
@@ -41,23 +42,22 @@
         </div>
         <div class="layui-side layui-bg-black" id="switchNav">
             <div class="layui-side-scroll">
-                <ul class="layui-nav layui-nav-tree" style="display: none;">
+                <ul class="layui-nav layui-nav-tree">
                     <li class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:;"><i class="aicon ai-caidan"></i>快捷菜单<span class="layui-nav-more"></span></a>
                         <dl class="layui-nav-child">
-                            @foreach (var item in Vmodel)
+                            @foreach (var item in navmodel)
                             {
-                                <dd><a class="admin-nav-item" data-id="208" href="@Html.DisplayFor(modelItem => item.url)"><i class="aicon ai-icon01"></i>@Html.DisplayFor(modelItem => item.title)</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
+                                <dd>
+                                    <a class="admin-nav-item" data-id="208" href="@Html.DisplayFor(modelItem => item.url)">
+                                        <i class="aicon ai-icon01"></i>@Html.DisplayFor(modelItem => item.title)
+                                    </a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i>
+                                </dd>
                             }
-                            <dd><a class="admin-nav-item" data-id="205" href="#"><i class="aicon ai-chajianguanli"></i>插件管理</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
-                            <dd><a class="admin-nav-item" data-id="209" href="#">
-                                <img src="" width="16" height="16" />
-                                系统配置</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
-                            <dd><a class="admin-nav-item" data-id="206" href="#"><i class="aicon ai-systemmenu"></i>系统菜单</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
-                        </dl>
+                         </dl>
                     </li>
                 </ul>
-                <ul class="layui-nav layui-nav-tree">
+                <ul class="layui-nav layui-nav-tree" style="display: none;">
                     <li class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:;"><i class="aicon ai-gongneng"></i>系统功能<span class="layui-nav-more"></span></a>
                         <dl class="layui-nav-child">
@@ -121,7 +121,7 @@
                         </div>
                     </ul>
                     <div class="layui-tab-content page-tab-content">
-                        <section>
+                         <section>
                             @RenderBody()
                         </section>
                         @RenderSection("scripts", required: false)

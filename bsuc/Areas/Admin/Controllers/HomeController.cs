@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using bsuc.Areas.Admin.Models;
 using System.Web.Mvc;
 
 namespace bsuc.Areas.Admin.Controllers
 {
     public class HomeController : BaseController
     {
-        //
-        // GET: /Admin/Home/
-
+        private BsucConnectext db=new BsucConnectext();
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }
