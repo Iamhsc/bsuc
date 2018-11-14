@@ -1,0 +1,83 @@
+﻿@model bsuc.Areas.Admin.Models.b_menu
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>b_menu</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.url)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.url)
+            @Html.ValidationMessageFor(model => model.url)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.sort)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.sort)
+            @Html.ValidationMessageFor(model => model.sort)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.system)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.system)
+            @Html.ValidationMessageFor(model => model.system)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nav)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nav)
+            @Html.ValidationMessageFor(model => model.nav)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.status)
+            @Html.ValidationMessageFor(model => model.status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ctime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ctime)
+            @Html.ValidationMessageFor(model => model.ctime)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

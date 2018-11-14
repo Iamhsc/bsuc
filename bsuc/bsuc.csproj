@@ -126,9 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Default1Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PublicController.cs" />
     <Compile Include="Areas\Admin\Models\BsucConnectext.cs" />
+    <Compile Include="Areas\Admin\Models\b_menu.cs" />
     <Compile Include="Areas\Admin\Models\b_user.cs" />
     <Compile Include="Areas\Index\Controllers\HomeController.cs" />
     <Compile Include="Areas\Index\IndexAreaRegistration.cs" />
@@ -187,6 +190,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Public\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Default1\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Default1\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Default1\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Default1\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Default1\Delete.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

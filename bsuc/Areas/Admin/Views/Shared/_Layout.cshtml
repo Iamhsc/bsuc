@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@*@model IEnumerable<bsuc.Areas.Admin.Models.b_menu>*@
+@{var Vmodel = (bsuc.Areas.Admin.Models.b_menu)ViewBag.admin_menu;}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -43,16 +45,15 @@
                     <li class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:;"><i class="aicon ai-caidan"></i>快捷菜单<span class="layui-nav-more"></span></a>
                         <dl class="layui-nav-child">
-                            <dd><a class="admin-nav-item" data-id="0" href="#"><i class="aicon ai-shouye"></i>后台首页</a></dd>
-                            <dd><a class="admin-nav-item" data-id="208" href="#"><i class="aicon ai-icon01"></i>系统设置</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
-                            <dd><a class="admin-nav-item" data-id="201" href="#"><i class="aicon ai-mokuaiguanli1"></i>模块管理</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
-                            <dd><a class="admin-nav-item" data-id="204" href="#"><i class="aicon ai-peizhiguanli"></i>配置管理</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
+                            @foreach (var item in Vmodel)
+                            {
+                                <dd><a class="admin-nav-item" data-id="208" href="@Html.DisplayFor(modelItem => item.url)"><i class="aicon ai-icon01"></i>@Html.DisplayFor(modelItem => item.title)</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
+                            }
                             <dd><a class="admin-nav-item" data-id="205" href="#"><i class="aicon ai-chajianguanli"></i>插件管理</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
                             <dd><a class="admin-nav-item" data-id="209" href="#">
                                 <img src="" width="16" height="16" />
                                 系统配置</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
                             <dd><a class="admin-nav-item" data-id="206" href="#"><i class="aicon ai-systemmenu"></i>系统菜单</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
-                            <dd><a class="admin-nav-item" data-id="203" href="#"><i class="aicon ai-iconfontshengji"></i>在线升级</a><i data-href="#" class="layui-icon j-del-menu">&#xe640;</i></dd>
                         </dl>
                     </li>
                 </ul>
