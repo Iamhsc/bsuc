@@ -11,10 +11,15 @@ namespace bsuc.Areas.Admin.Controllers
     {
         private BsucConnectext db = new BsucConnectext();
         public BsucConnectext DataContext { get { return db; } }
-
+        public LayoutView lay;
         public BaseController()
         {
-            ViewBag.adminmenu = DataContext.bmenu.ToList();
+           // ViewBag.adminmenu = DataContext.bmenu.ToList();
+            lay=new LayoutView(DataContext);
+            var t=lay.topmenu;
+            var s = lay.arrls;
+            ViewBag.adminmenu = t;
+            ViewBag.secondmenu = s;
         }
     }
 }

@@ -132,6 +132,7 @@
     <Compile Include="Areas\Admin\Models\BsucConnectext.cs" />
     <Compile Include="Areas\Admin\Models\b_menu.cs" />
     <Compile Include="Areas\Admin\Models\b_user.cs" />
+    <Compile Include="Areas\Admin\Models\LayoutView.cs" />
     <Compile Include="Areas\Index\Controllers\HomeController.cs" />
     <Compile Include="Areas\Index\IndexAreaRegistration.cs" />
     <Compile Include="common\common.cs" />
