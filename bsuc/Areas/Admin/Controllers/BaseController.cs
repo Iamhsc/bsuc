@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace bsuc.Areas.Admin.Controllers
 {
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
         private BsucConnectext db = new BsucConnectext();
         public BsucConnectext DataContext { get { return db; } }
@@ -16,10 +16,8 @@ namespace bsuc.Areas.Admin.Controllers
         {
            // ViewBag.adminmenu = DataContext.bmenu.ToList();
             lay=new LayoutView(DataContext);
-            var t=lay.topmenu;
-            var s = lay.arrls;
-            ViewBag.adminmenu = t;
-            ViewBag.secondmenu = s;
+            ViewBag.adminmenu = lay.topmenu;
+            ViewBag.secondmenu = lay.arrls;
         }
     }
 }
