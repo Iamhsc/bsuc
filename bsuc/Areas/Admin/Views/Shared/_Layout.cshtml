@@ -1,7 +1,9 @@
 ﻿@{
-    var adminmenu = ViewBag.adminmenu as IEnumerable<bsuc.Areas.Admin.Models.b_menu>;
-    //var secondmenu = ViewBag.secondmenu as IEnumerable<bsuc.Areas.Admin.Models.b_menu>;
-    var secondmenu = ViewBag.secondmenu;
+    var modulemenu = ViewBag.modulemenu as IEnumerable<bsuc.Areas.Admin.Models.b_menu>;
+    var topmenu = ViewBag.topmenu;
+    bsuc.Areas.Admin.Models.BsucConnectext db = new bsuc.Areas.Admin.Models.BsucConnectext();
+    int mainmodulemenu = 0;
+    int styledisplay = 0;
 }
 <!DOCTYPE html>
 <html>
@@ -21,9 +23,17 @@
             <div class="fl header-logo">管理控制台</div>
             <div class="fl header-fold"><a href="javascript:;" title="打开/关闭左侧导航" class="aicon ai-caidan" id="foldSwitch"></a></div>
             <ul class="layui-nav fl nobg main-nav">
-                @foreach (var item in adminmenu)
+                @foreach (var item in modulemenu)
                 {
+                    if (mainmodulemenu == 0)
+                    {
                     <li class="layui-nav-item layui-this"><a href="javascript:;">@Html.DisplayFor(modelItem => item.title)</a></li>
+                    }
+                    else
+                    {
+                    <li class="layui-nav-item"><a href="javascript:;">@Html.DisplayFor(modelItem => item.title)</a></li>
+                    }
+                    mainmodulemenu++;
                 }
             </ul>
             <ul class="layui-nav fr nobg head-info">
@@ -41,20 +51,30 @@
         </div>
         <div class="layui-side layui-bg-black" id="switchNav">
             <div class="layui-side-scroll">
-                @for (int i = 0; i < secondmenu.Count; i++)
+                @foreach (var top in topmenu)
                 {
-                    <ul class="layui-nav layui-nav-tree" style="display: none;">
-                        <li class="layui-nav-item ">
-                            <a href="javascript:;"><i class="aicon ai-huiyuanliebiao"></i>会员管理<span class="layui-nav-more"></span></a>
-                            <dl class="layui-nav-child">
-                                @foreach (bsuc.Areas.Admin.Models.b_menu item in secondmenu[i])
-                                {                            
-                                    <dd>
-                                        <a class="admin-nav-item" data-id="20" href="@Html.DisplayFor(items => item.url)"><i class="aicon ai-huiyuandengji"></i>@Html.DisplayFor(modelItem => item.title)</a>
+                    var dis = "none";
+                    if (styledisplay == 0)
+                    {
+                        dis = "block";
+                    }
+                    styledisplay++;
+                    <ul class="layui-nav layui-nav-tree" style="display:@dis;">
+                        @foreach (bsuc.Areas.Admin.Models.b_menu topitem in top)
+                        {
+                            var second = db.bmenu.Where(s => s.parent_id == topitem.id);
+                            <li class="layui-nav-item ">
+                                <a href="javascript:;"><i class="aicon ai-huiyuanliebiao"></i>@Html.DisplayFor(t => topitem.title)<span class="layui-nav-more"></span></a>
+                                <dl class="layui-nav-child">
+                                    @foreach (var item in second)
+                                    {
+                                    <dd><a class="admin-nav-item" data-id="20" href="@Html.DisplayFor(se=>item.url)"><i class="aicon ai-huiyuandengji"></i>
+                                        @Html.DisplayFor(se=>item.title)
+                                    </a>
                                     </dd>
-                                }
-                            </dl>
-                        </li>
+                                    }
+                                </dl>
+                            </li> }
                     </ul>
                 }
             </div>

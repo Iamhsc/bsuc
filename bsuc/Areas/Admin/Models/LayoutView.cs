@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +9,14 @@ namespace bsuc.Areas.Admin.Models
 {
     public class LayoutView
     {
-        public ArrayList arrls=new ArrayList();
-        public List<b_menu> itemls;
-        public List<b_menu> topmenu;
+        public List<b_menu> modulemenu = new List<b_menu>();//模块
+        public ArrayList topmenu = new ArrayList();
         public LayoutView(BsucConnectext db)
         {
-            topmenu = db.bmenu.Where(t => t.parent_id == 0).ToList();
-            foreach (var item in topmenu)
+            modulemenu = db.bmenu.Where(t => t.parent_id == 0).ToList();
+            foreach (var m in modulemenu)
             {
-                itemls=db.bmenu.Where(s => s.parent_id == item.id).ToList();
-                arrls.Add(itemls);
+                topmenu.Add(db.bmenu.Where(t => t.parent_id == m.id).ToList());
             }
         }
     }

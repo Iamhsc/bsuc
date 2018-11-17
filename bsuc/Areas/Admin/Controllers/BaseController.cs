@@ -16,8 +16,8 @@ namespace bsuc.Areas.Admin.Controllers
         {
            // ViewBag.adminmenu = DataContext.bmenu.ToList();
             lay=new LayoutView(DataContext);
-            ViewBag.adminmenu = lay.topmenu;
-            ViewBag.secondmenu = lay.arrls;
+            ViewBag.modulemenu = lay.modulemenu;
+            ViewBag.topmenu = lay.topmenu;
         }
     }
 }
