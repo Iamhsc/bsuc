@@ -1,4 +1,4 @@
-﻿using bsuc.Areas.Admin.Models;
+﻿using bsuc.common.Model;
 using System.Web.Mvc;
 
 namespace bsuc.Areas.Admin.Controllers

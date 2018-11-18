@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace bsuc.Areas.Admin.Models
+namespace bsuc.common.Model
 {
     public class LayoutView
     {
-        public List<b_menu> modulemenu = new List<b_menu>();//模块
+        public List<Bsuc_Menu> modulemenu = new List<Bsuc_Menu>();//模块
         public ArrayList topmenu = new ArrayList();
         public LayoutView(BsucConnectext db)
         {

@@ -1,7 +1,7 @@
 ﻿@{
-    var modulemenu = ViewBag.modulemenu as IEnumerable<bsuc.Areas.Admin.Models.b_menu>;
+    var modulemenu = ViewBag.modulemenu as IEnumerable<bsuc.common.Model.Bsuc_Menu>;
     var topmenu = ViewBag.topmenu;
-    bsuc.Areas.Admin.Models.BsucConnectext db = new bsuc.Areas.Admin.Models.BsucConnectext();
+    bsuc.common.Model.BsucConnectext db = new bsuc.common.Model.BsucConnectext();
     int mainmodulemenu = 0;
     int styledisplay = 0;
 }
@@ -60,7 +60,7 @@
                     }
                     styledisplay++;
                     <ul class="layui-nav layui-nav-tree" style="display:@dis;">
-                        @foreach (bsuc.Areas.Admin.Models.b_menu topitem in top)
+                        @foreach (bsuc.common.Model.Bsuc_Menu topitem in top)
                         {
                             var second = db.bmenu.Where(s => s.parent_id == topitem.id);
                             <li class="layui-nav-item ">

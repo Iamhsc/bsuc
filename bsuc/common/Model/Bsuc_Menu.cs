@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace bsuc.Areas.Admin.Models
+namespace bsuc.common.Model
 {
-    public class b_menu
+    public class Bsuc_Menu
     {
         private BsucConnectext db = new BsucConnectext();
 

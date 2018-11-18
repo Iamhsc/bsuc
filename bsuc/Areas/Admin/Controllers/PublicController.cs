@@ -1,4 +1,4 @@
-﻿using bsuc.Areas.Admin.Models;
+﻿using bsuc.common.Model;
 using bsuc.common;
 using Newtonsoft.Json.Linq;
 using System;
@@ -19,7 +19,7 @@ namespace bsuc.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public object RegPost(b_user usr)
+        public object RegPost(Bsuc_User usr)
         {
             string salt = Sha1.random_string();
             usr.salt = salt;

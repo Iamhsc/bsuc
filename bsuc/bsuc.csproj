@@ -129,13 +129,14 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PublicController.cs" />
-    <Compile Include="Areas\Admin\Models\BsucConnectext.cs" />
-    <Compile Include="Areas\Admin\Models\b_menu.cs" />
-    <Compile Include="Areas\Admin\Models\b_user.cs" />
-    <Compile Include="Areas\Admin\Models\LayoutView.cs" />
     <Compile Include="Areas\Index\Controllers\HomeController.cs" />
     <Compile Include="Areas\Index\IndexAreaRegistration.cs" />
+    <Compile Include="common\Model\Article\Category.cs" />
+    <Compile Include="common\Model\BsucConnectext.cs" />
+    <Compile Include="common\Model\Bsuc_Menu.cs" />
+    <Compile Include="common\Model\Bsuc_User.cs" />
     <Compile Include="common\common.cs" />
+    <Compile Include="common\Model\LayoutView.cs" />
     <Compile Include="common\Sha1.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Index\Models\" />
     <Folder Include="Areas\Index\Views\Shared\" />
   </ItemGroup>
