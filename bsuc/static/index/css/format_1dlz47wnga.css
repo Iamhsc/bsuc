@@ -1,0 +1,206 @@
+/****************************************************************************************************
+模板说明：
+*****************************************************************************************************
+前台显示时，文章正文会放在id为“vsb_content_1011”的div中，为了保证您定义的样式正常显示并不影响其他页面标签的显示效果，请您在定义时使用ID选择符
+您可以为任何标签定义样式，但是必须在样式名称前添加“#vsb_content_1011”标记，否则您定义的样式可能无效。
+
+例如：
+#vsb_content_1011 H2
+{
+    font-size: 14px
+;}
+定义了H2的样式，其中#后面的“vsb_content_1011”为ID选择符，您定义的样式名称必须以“vsb_content_1011”为选择符,"_1011"不能删掉！
+
+******************************************************************************************************/
+/*重置开始*/
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+html {
+    line-height: 1;
+}
+
+input {
+    outline: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+q, blockquote {
+    quotes: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none;
+}
+
+a img {
+    border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+/* 重置样式 */
+a {
+    color: #333;
+}
+
+body {
+    font: 12px tahoma, arial, \5FAE\8F6F\96C5\9ED1, \5b8b\4f53;
+    color: #333;
+    font-family: 微软雅黑;
+}
+
+dl {
+    list-style: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+strong {
+    font-weight: bold;
+}
+
+textarea {
+    resize: none;
+}
+
+/*重置结束*/
+#vsb_content_1011 .box {
+    text-align: left;
+    padding: 10px;
+}
+
+/*定义正文中的H2样式*/
+#vsb_content_1011 h2 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 微软雅黑;
+}
+
+/*定义正文中的段落样式*/
+#vsb_content_1011 P {
+    line-height: 1.75;
+    text-indent: 2em;
+    font-size: 16px;
+    font-family: 微软雅黑;
+}
+
+/*定义正文中的span样式*/
+#vsb_content_1011 span {
+    line-height: 1.75;
+    text-indent: 2em;
+    font-size: 16px;
+    font-family: 微软雅黑;
+}
+
+/*定义正文中的链接样式*/
+#vsb_content_1011 A {
+    color: #1e50a2;
+    text-decoration: underline;
+    font-family: 微软雅黑;
+}
+
+#vsb_content_1011 A:visited {
+    color: #1e50a2;
+    text-decoration: underline;
+    font-family: 微软雅黑;
+}
+
+#vsb_content_1011 A:hover {
+    color: #ba2636;
+    font-family: 微软雅黑;
+}
+
+/*定义正文中的表格样式*/
+
+#vsb_content_1011 TABLE {
+    border-collapse: collapse;
+    border: 1px solid #000;
+    font-family: 微软雅黑;
+}
+
+#vsb_content _1011 TABLE TD {
+    border: 1px solid #000;
+    font-family: 微软雅黑;
+}
+
+#vsb_content_1011 TABLE TD P {
+    text-indent: 0px;
+    margin: 0px;
+    font-size: 16px;
+    font-family: 微软雅黑;
+}
+
+#vsb_content_1011 TABLE TH P {
+    text-indent: 0px;
+    margin: 0px;
+    font-size: 1px;
+    font-family: 微软雅黑;
+}
+
+#vsb_content_1011 TABLE TD IMG {
+    border-bottom-style: none;
+    border-right-style: none;
+    margin: 5px;
+    border-top-style: none;
+    border-left-style: none;
+    font-family: 微软雅黑;
+}
+
+#vsb_content_1011 .vsbcontent_img {
+    margin: 30px auto 10px auto;
+    text-align: center;
+    font-family: 微软雅黑;
+}
+
+.vsbcontent_img img{
+	display: block;
+	margin: 10px auto;
+}
+
+/*
+如果您的正文中可能还包括其他标签，您可按照以下方式增加对应的代码
+#vsb_content$ {newsformat} <html标签>
+{
+    样式内容
+}
+*/
