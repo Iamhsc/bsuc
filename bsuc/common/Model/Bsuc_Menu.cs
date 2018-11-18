@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+﻿
 namespace bsuc.common.Model
 {
     public class Bsuc_Menu
@@ -18,10 +14,5 @@ namespace bsuc.common.Model
         public byte nav { get; set; }
         public byte status { get; set; }
         public int ctime { get; set; }
-
-        public object top_menu()
-        {
-            return db.bmenu.Where(t => t.parent_id == 0).ToList();
-        }
     }
 }

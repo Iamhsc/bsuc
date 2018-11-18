@@ -8,13 +8,33 @@ namespace bsuc.Areas.Index.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Index/Home/
+        
 
+        /// <summary>
+        /// 官网首页
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult jwxt()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult xxjj()
+        {
+            return View();
+        }
     }
 }

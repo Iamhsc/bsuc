@@ -1,0 +1,287 @@
+/* ------------------------------------------------------------------------
+				Global Normalizing Styles   
+------------------------------------------------------------------------- */
+/*
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, a, abbr, 
+acronym, address, cite, code, del, dfn, em, img, 
+ins,strike, strong, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, input, button, object,
+table, col, colgroup, caption, summary, tbody, tfoot, thead, tr, th, td, hr {margin:0; padding:0; border:0; font-size:12px;}
+body {text-align:center; color:#333; font-size:12px;  font-family:"宋体",Verdana, Arial, Helvetica, sans-serif;} 
+table{ font-family:"宋体",Verdana, Arial, Helvetica, sans-serif;} 
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl {text-align:left; color:#000; font-weight:normal; font-family:"宋体",Verdana, Arial, Helvetica, sans-serif;}
+ol, ul {list-style: none;}
+label,select,input[type="submit"] {cursor:pointer;}
+img {border:0; margin:0;}
+textarea {overflow:auto;}
+*/
+:focus {outline:0;}
+/* remember to highlight inserts somehow! */
+ins {text-decoration:none;}
+del {text-decoration:line-through;}
+abbr {cursor:help; border-bottom:1px dotted #999;}
+acronym {cursor:help; border-bottom:1px dotted #999;}
+
+blockquote, q {quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after {content:'';}
+
+/* ----- clear fix for floats ----- */
+/* these styles instruct non-IE browsers to render container elements so that they fully enclose floats */		
+/* without this class applied, a float might hang over the bottom border of it's container */
+.clear {height:0; clear:both; line-height:0; font-size:0;}
+.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clearfix {display:inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix {height:1%;}
+.clearfix {display:block;}
+/* End hide from IE-mac */
+
+
+.main{ width:980px; text-align:center;margin:auto; padding-bottom:5px;} /* 增加margin:auto 在FF下可以 水平居中 */
+
+
+/* ------------------------------------------------------------------------
+				Custom 
+------------------------------------------------------------------------- */
+/* CSS Document */
+a{color:#000; text-decoration:none;}
+a:hover{color:#000;}
+
+
+#header{margin:1px 0 5px;  text-align:left;}
+
+#topnav{height:24px;margin:0 auto 5px;overflow:hidden;padding:0 5px;vertical-align:middle;background:none repeat scroll 0 0 #ECF1F5;}
+#topnav ul{ float:right; list-style-type:none;padding-top:4px; padding-left:20px;}
+#topnav ul li{display:inline; padding-left:2px;}
+
+.logo{ background:#FFF; } /* height:36px; */
+#topbox{height:30px;margin:5px 2px 5px;overflow:hidden;padding:0 2px;vertical-align:middle;background:none repeat scroll 0 0 #ECF1F5;}
+#topbox a{color:#325B0A;float:left;line-height:28px;margin:0;padding:0 7px;text-decoration:none;}
+#topbox a:hover{border-bottom:3px solid #7C9A57;color:#FFFFFF;height:25px;line-height:25px;text-decoration:none;background:none repeat scroll 0 0 #95B274;}
+
+
+.Picture_box{ height:204px; background:url(Picture_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/Picture_bg.gif*/ repeat-x; clear:left;}
+.fla_picture{border-right:1px solid #FFF; float:left; }
+.fla_picture img{ position:absolute;}
+/* FLA图片 */
+
+/* 新闻中心区域 */
+.Content_box{ width:980px; margin:5px 0; float:left; display:inline; vertical-align:top; text-align:center; }
+/* 左边 */
+.Content_left{ width:200px; margin:2px 5px 1px 2px; float:left; display:inline;  }/*  border-right:1px solid #000;*/
+/* 中间 
+.Content_mid{ width:384px;margin:2px 5px 2px 2px;float:left; display:inline; display:block;} */
+/* 右边 */
+.Content_right{ width:771px;margin:2px 0 0 1px; float:left;  min-height:400px!important;_height:400px; } /* border-right:1px solid #000; */
+
+/* 网站公告  */
+.Notice_box{width:200px; clear:both; margin-top:5px;margin-bottom:5px;}
+.Notice_title{width:200px; height:37px; background:url(Notice_title_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/Notice_title_bg.gif*/ no-repeat;}
+.Notice_bottom{width:200px; height:11px; background:url(Notice_bottom_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/Notice_bottom_bg.gif*/ no-repeat;}
+.Notice_Content{width:200px; background:url(Notice_re_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/Notice_re_bg.gif*/ repeat-y; padding-top:4px; height:155px; text-align:center;overflow:hidden;}
+.Notice_Content1{height:150px;overflow:hidden; position:relative;  z-index:0; margin:0 auto;text-align:center;}
+.Notice_text{width:170px; padding-left:10px; margin:0 auto; text-align:center; margin-top:9px; position:relative; z-index:1; }
+.Notice_text li{height:20px;  background:url(ring.gif)/*tpa=http://www.bsuc.cn:8007/images/ring.gif*/ no-repeat 0 8px;}
+.Notice_text a{ font-size:12px; height:24px; line-height:24px; padding-left:10px;}
+.Notice_text a:hover{ background-color:#F2F6FB;}
+.Notice_text span{ font-size:12px; height:24px; line-height:24px; padding-left:10px;}
+
+/* 系统数据 
+.sys_data{width:200px; height:181px; background:url(../images/sys_data_bg.gif) no-repeat;  margin-top:15px;}
+.sys_data_title{width:100px; height:21px; line-height:21px; padding:31px 0 0 42px; color:#FFF; font-size:14px; font-weight:bold; text-align:left; float:left;}
+.sys_data_text{clear:left; float:left; width:100px; margin:25px 0 0 20px; display:inline;}
+.sys_data_text td{height:18px; line-height:18px;}
+*/
+
+/* 通用左侧 区域样式 ==专题、投票、logo连接、会员排行、搜索、==  */
+.leftfun_box{width:200px; clear:both; margin-top:5px; margin-bottom:5px; }
+.leftfun_title{width:200px; height:37px; line-height:37px; background:url(leftfun_title_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/leftfun_title_bg.gif*/ no-repeat;  text-align:center; vertical-align:middle;font-size:16px; font-weight:bold; }
+.leftfun_bottom{width:200px; height:11px; background:url(Notice_bottom_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/Notice_bottom_bg.gif*/ no-repeat;}
+.leftfun_Content{width:200px; background:url(Notice_re_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/Notice_re_bg.gif*/ repeat-y; text-align:center;min-height:105px!important;_height:105px;overflow:visible; }
+/* 内容区域 li有 图片背景 */
+.leftfun_text{width:170px; padding-left:10px; margin:0 auto; text-align:center; }
+.leftfun_text li{height:20px; background:url(ring.gif)/*tpa=http://www.bsuc.cn:8007/images/ring.gif*/ no-repeat 0 8px;}
+.leftfun_text a{display:block;  height:24px; line-height:24px; padding-left:10px;}
+.leftfun_text a:hover{ background-color:#F2F6FB;}
+/* 内容区域 li无 图片背景 */
+.leftfun_text_seach{width:170px; padding-left:10px; margin:0 auto; text-align:center; }
+.leftfun_text_seach li{height:20px; }
+.leftfun_text_seach a{display:block;  height:24px; line-height:24px; padding-left:10px;}
+.leftfun_text_seach a:hover{ background-color:#F2F6FB;}
+/* 专门用于栏目分类--- 大类 有背景图片  */
+.leftfun_text_Columnsbig{ background:url(ring.gif)/*tpa=http://www.bsuc.cn:8007/images/ring.gif*/ no-repeat 0 8px;} 
+.leftfun_text_Columnsbig a{display:block;  height:24px; line-height:24px; padding-left:10px;}
+.leftfun_text_Columnsbig a:hover{ background-color:#F2F6FB;}
+/* 专门用于栏目分类--- 小类 无背景图片  */
+.leftfun_text_Columnssmall{ } 
+.leftfun_text_Columnssmall a{display:block;  height:24px; line-height:24px; padding-left:20px;}
+.leftfun_text_Columnssmall a:hover{ background-color:#F2F6FB;}
+
+
+/* 跑马灯公告 
+.Marquee_Bulletin{ width:771px;  height:25px; line-height:25px; vertical-align:middle; overflow:hidden;  clear:both;}
+.Marquee_Bulletin_text_box{ float:left; width:671px; position:relative;  z-index:0; margin:0 auto;overflow:hidden;}
+.Marquee_Bulletin_text{ position:relative; z-index:1; }
+.Marquee_Bulletin_time{float:right;  display:block; width:50px;}
+*/
+
+/* 今日导读 */
+.Content_Today{ width:771px; float:left; }
+
+.TodayGuide{ width:421px; padding:0 5px 0 2px; float:left; display:block;}
+.guide_title{width:400px; height:15px; text-align:left; padding-left:11px;}
+.guide_pic{width:398px; height:250px; border:6px solid #f5f6f8;}
+
+#play_text {position:relative;margin:230px 0 0 0px;height:20px;width:398px;z-index:1002; }   
+#play_text ul {list-style-type:none;display:block;padding-top:1px;_padding-top:0px;filter: Alpha(Opacity=80);opacity:0.8;float:right;}   
+#play_text ul li {width:14px;height:14px;float:left;background-color:#000;display:block;color:#FFF;text-align:center;margin:1px;cursor:pointer;font-family:"Courier New";}   
+#play_list{  float:left;}
+#play_list a{display:block;position:absolute;overflow:hidden; }   
+#play_list a img{width:398px; height:250px; }  
+
+.TodayGuide_text{width:328px; height:250px; border:6px solid #f5f6f8; margin-top:15px; float:left;}
+
+.TodayGuide_Opt{ padding-left:10px; margin-left:auto; margin-right:auto; margin-top:6px; overflow:hidden;}
+.TodayGuide_Opt li{background:url(ring.gif)/*tpa=http://www.bsuc.cn:8007/images/ring.gif*/ no-repeat 0 8px; }
+.TodayGuide_Opt a{display:block; color:#565656; height:24px; line-height:24px; padding-left:15px;}
+.TodayGuide_Opt a:hover{ background-color:#F2F6FB;}
+/*  今日导读  */
+
+
+/* 栏目+文章内容 =======在首页====== */
+.Psy_sense{width:380px; margin:4px 0 0 2px; float:left; border:1px solid #D0DBE7; }
+.Psy_sense_box td{vertical-align:top;}
+.Psy_sense_box a:hover,Psy_sense_box a:active{color:#FF6600;}
+.Psy_sense_title{height:25px;line-height:25px;font-weight:bold; background:#F2F6FB; border-bottom:1px solid #D0DBE7; clear:both;color:#1F3A87;text-align:left;padding-left:10px; display:block;}
+.Psy_sense_More{ height:11px; float:right; padding-top:2px; padding-right:5px; color:#1F3A87;}
+.Psy_sense_nav{display:inline;text-align:left; display:block;clear:both;  }/* height:250px;  */
+         /* GridView */
+.For_tab{width:100%; text-align:left;  border-collapse:collapse; border-spacing:inherit; margin-bottom:5px; }/*margin-top:1px; _margin-top:0;*//**/
+.For_tab td{height:24px;line-height:24px; text-indent:2px; padding-left:5px; }
+
+/*
+.Psy_sense_nav li{display:inline; float:left; text-align:center;}
+.Psy_sense_nav a{display:block; width:64px; height:17px; line-height:17px; background:url(../images/Psy_sense_hui.gif) no-repeat; margin-top:4px; color:#6b6b6b; padding-right:1px;}
+.Psy_sense_nav a:hover{width:68px; height:21px; line-height:21px; background:url(../images/Psy_sense_lan.gif) no-repeat; margin-top:0; color:#FFF;}
+.Psy_sense_More{width:49px; height:11px; float:right; margin-top:3px; border-left:1px solid #e6e6e6; padding-top:7px;}
+.Psy_sense_text{width:330px; margin-top:4px;}
+.Psy_sense_text td{height:21px; line-height:21px; text-align:left;}
+.Psy_aa{background:url(../images/Psy_sense_li.gif) no-repeat 8px 10px; display:block; height:22px; padding-left:15px;}
+.Psy_sense_text a:hover{color:#366984; text-decoration:underline;}
+*/
+/* 栏目+文章内容 =======在二级====== */
+.Psy_type{width:765px; margin:4px 0 0 2px; float:left; border:1px solid #D0DBE7; }
+.Psy_type_nav{display:inline;text-align:left; display:block;clear:both;  }
+
+/* 文章内容 */
+.Psy_text{width:765px; margin:4px 0 0 2px; float:left; border:1px solid #D0DBE7; }
+.Psy_text_title{background:#F2F6FB; clear:both;color:#1F3A87;text-align:center;  font-size:x-large;}
+.Psy_text_title1{background:#F2F6FB; border-bottom:1px dotted #D0DBE7; clear:both;color:#1F3A87;text-align:center; }
+.Psy_text_nav{display:inline;text-align:left; display:block;clear:both; } /* background:url(../images/wenzhangyd-bg.gif); */
+
+/*
+.Search_index{width:187px; height:167px; background:url(../images/Search_rg_bg.gif) repeat-y; float:left; clear:both; margin-top:15px; padding:7px;}
+.Search_Content{width:167px; height:155px; background:#FFF; padding:12px 10px 0 10px; text-align:left;}
+.Search_title{width:89px; height:17px; margin-bottom:4px;}
+.Search_Content select{float:left; width:162px; height:18px; margin-top:10px;}
+.Search_textbox{float:left; width:95px; height:15px; border:1px solid #7f9db9; margin-top:10px; padding-top:3px;  padding-left:2px;}
+.Search_ok{width:56px; height:20px; background:url(../images/Search_bg.gif) no-repeat; float:left; margin-left:5px; color:#FFF; margin-top:10px;}
+/*文章搜索 */
+
+
+/* 底部 */
+.bottom{clear:left; height:61px; margin:0 5px; background:url(bottom_re_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/bottom_re_bg.gif*/ repeat-x;}
+.bottom_left{width:7px; height:61px; background:url(bottom_left_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/bottom_left_bg.gif*/ no-repeat;}
+.bottom_Content{height:61px; text-align:center;}
+.bottom_right{width:7px; height:61px; background:url(bottom_right_bg.gif)/*tpa=http://www.bsuc.cn:8007/images/bottom_right_bg.gif*/ no-repeat;}
+.bottom_text{padding-left:320px; height:40px; color:#525157;}
+.bottom_text a{color:#008cc6;}
+.bottom_text a:hover{color:#008cc6; text-decoration:underline;}
+
+
+/* 友情链接 */
+.friendlinks{  margin:5px 2px 2px 2px; padding:0 5px 2px 5px;}/* border:1px solid #D0DBE7; */ /* border-bottom:1px solid #D0DBE7; */
+.friendlinks h2 {background:url("friendline.gif")/*tpa=http://www.bsuc.cn:8007/images/friendline.gif*/ repeat-x scroll 0 45% transparent;height:28px;margin:0 15px;text-align:center;}
+.friendlinks h2 span {color:#003494;display:block;font-size:12px;font-weight:bold;line-height:28px;margin:0 auto;width:62px;}
+.friendlinks a{ font-size:12px; color:#333333; line-height:24px; margin-right:2px; }
+.friendlinks a:hover{ color:#14869C; }
+
+
+/* 站点导航 */
+.SiteMain{ clear:both; text-align:left; vertical-align:middle; background:url("Site_bg.gif")/*tpa=http://www.bsuc.cn:8007/images/Site_bg.gif*/ repeat-x 0 0 transparent; height:38px; line-height:40px;
+             padding-left:20px; margin:0 auto; }
+.SiteMain span { color:#008800;font-size:12px;font-weight:bold;margin:0 1px;}
+.SiteMain a{font-size:12px;  margin-top:5px;}
+
+
+/*
+.Psy_sense{width:350px; padding:0 10px; float:left; margin-top:10px;}
+.Psy_sense_title{width:330px; height:21px; padding-bottom:1px; border-bottom:1px solid #d4d4d4;}
+.Psy_sense_nav li{display:inline; float:left; text-align:center;}
+.Psy_sense_nav a{display:block; width:64px; height:17px; line-height:17px; background:url(../images/Psy_sense_hui.gif) no-repeat; margin-top:4px; color:#6b6b6b; padding-right:1px;}
+.Psy_sense_nav a:hover{width:68px; height:21px; line-height:21px; background:url(../images/Psy_sense_lan.gif) no-repeat; margin-top:0; color:#FFF;}
+.Psy_sense_More{width:49px; height:11px; float:right; margin-top:3px; border-left:1px solid #e6e6e6; padding-top:7px;}
+.Psy_sense_text{width:330px; margin-top:4px;}
+.Psy_sense_text td{height:21px; line-height:21px; text-align:left;}
+.Psy_aa{background:url(../images/Psy_sense_li.gif) no-repeat 8px 10px; display:block; height:22px; padding-left:15px;}
+.Psy_sense_text a:hover{color:#366984; text-decoration:underline;}
+/*心理常识 */
+
+/*
+.links{width:215px; float:left; margin-top:15px;}
+.links_title{width:201px; height:18px; border-bottom:1px solid #e9e9e9; text-align:left; padding-left:14px; padding-top:4px;}
+.links_img{text-align:center; margin-top:2px;}
+.links_img li{width:215px; border-bottom:1px solid #e9e9e9; height:41px; padding-top:10px;}
+/*友情链接 */
+
+/*
+#Floating{position:absolute; left:895px; top:350px; width:85px; z-index:1; background:url(../images/Floating_re_bg.gif) repeat-y;}
+.Floating_Content{width:85px; height:330px;}
+.Floating_title{width:71px; margin:0 auto; height:23px; line-height:23px; text-align:center; font-size:14px; font-weight:bold; color:#008cc6; border-bottom:1px dashed #008cc6;}
+.Floating_text{width:71px; margin:0 auto; margin-top:6px;}
+.Floating_In{background:#FFF;}
+.Floating_img{margin:3px auto; width:61px; height:58px;}
+.Floating_nav{width:61px; margin:0 auto; margin-bottom:2px;}
+.Floating_nav li{width:61px; height:22px; line-height:22px; text-align:center; border-bottom:1px solid #c7e4f8;}
+.Floating_nav a:hover{color:#008cc6;}
+.Floating_Toplink{width:71px; height:26px; padding-top:6px; border-top:1px dashed #008cc6; margin:0 auto; margin-top:6px;}
+.Floating_Toplink_button{display:block; width:71px; height:20px; line-height:20px; background:url(../images/Floating_Toplink.gif) no-repeat; color:#FFF; text-align:center;}
+/*漂浮层 */
+
+
+/*
+.top_box{height:60px; background:url(../images/top_bg.gif) repeat-x; }
+.top_Set{height:17px; padding-top:3px; padding-left:20px; background:#adaead; float:right;}
+.top_Set li{width:62px; display:inline; padding-left:2px;}
+.top_Set a{color:#000;}
+.top_Set a:hover{color:#FFF;}
+
+
+.top_comun{ height:30px;  float:left; margin:0 auto 5px; padding:0 5px}
+.top_right{height:68px; border-right:1px solid #FFF; float:left; }
+.top_nav{height:30px; padding-top:18px; clear:right;}
+.top_nav li{width:62px; padding-left:40px; float:left;}
+.top_nav a{display:block; height:30px; width:62px; color:#555; font-size:14px; font-weight:bold;}
+.top_nav a:hover{color:#008cc6; background:url(../images/Triangle.gif) no-repeat bottom center}
+
+.top_nav_under{height:20px; width:667px; padding-top:10px; margin-left:213px; float:left; display:inline;}
+.top_nav_under ul{ width:600px;}
+.top_nav_under li{width:65px; float:left; color:#999;}
+.top_nav_under a{color:#999;}
+.top_nav_under a:hover{color:#008cc6;}
+*/
+/*顶部*/
+
+/*
+.Login_box{width:201px; float:left; margin-top:8px;}
+.Login_Title{height:33px; background:url(../images/Login_Title.gif) no-repeat;}
+.Login_bottom{height:13px; background:url(../images/Login_bottom.gif) no-repeat;}
+.login_Content{height:129px; padding:10px 15px 0 15px; width:171px; background:url(../images/Login_re_bg.gif) repeat-y;}
+.login_Content_tab td{height:29px;}
+.f_login_name,.f_login_pass{width:110px; height:15px; padding-top:2px; border:1px #6b6d6b solid; float:left; background:#f7f3f7;}
+.f_login_Auth{width:50px; height:15px; padding-top:2px; border:1px #6b6d6b solid; float:left; background:#f7f3f7;}
+.auth_img{width:48px; height:17px; background:#CCC; font-weight:bold; line-height:17px; float:left;}
+.f_login_ok{width:91px; height:25px; line-height:25px; font-weight:bold; color:#FFF; margin-top:11px; margin-left:50px; background:url(../images/Login_button.gif) no-repeat;  float:left; clear:left;}
+/*管理员登录
+**/

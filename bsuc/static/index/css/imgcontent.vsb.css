@@ -1,0 +1,58 @@
+/* 可以修改的样式 */  
+/* 窗体样式 */
+.pagepic_tablestyle_0
+{
+    width:960px;}
+/* 组图标题样式 */
+.pagepic_newtitle_0
+{
+    font-size:22px;
+    line-height: 150%; 
+    font-weight: bold;
+    text-align:center;}    
+/* 组图简介样式 */
+.pagepic_newdesc_0
+{
+    font-size:13px;
+    line-height: 150%;}  
+/* 当前页总页数样式 */
+.pagepic_currenttotalsize_0
+{
+    font-size:14px; 
+    float:left;
+    padding-top:8px;
+    width:70px;
+    text-align:center;  
+    font-weight: bold;}  
+/* 图片行样式 */
+.pagepic_imgcontentstyle_0
+{
+    height:500px;}
+/* 单个图片标题样式 */
+.pagepic_titlecontent_0
+{
+    font-size:9pt;
+    text-align:left;
+    font-weight: bold  
+;}  
+/* 单个图片内容样式 */
+.pagepic_desccontent_0
+{
+    font-size:9pt;
+    line-height:28px 
+    text-align:left;  
+    overflow:auto;
+    height:500px;
+    width:260px;}  
+
+/* 无需修改的样式 */  
+.pagepic_tdstyle_0
+{
+    height:500px;}
+.pagepic_borstyle_0
+{
+    border:1px solid #d6d6d6; 
+    padding:5px
+;}
+
+.fs0{font-size:0;}

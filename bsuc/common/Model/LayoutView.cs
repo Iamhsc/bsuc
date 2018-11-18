@@ -13,10 +13,10 @@ namespace bsuc.common.Model
         public ArrayList topmenu = new ArrayList();
         public LayoutView(BsucConnectext db)
         {
-            modulemenu = db.bmenu.Where(t => t.parent_id == 0).ToList();
+            modulemenu = db.bmenu.Where(t => t.parent_id == 0 && t.nav == 1).ToList();
             foreach (var m in modulemenu)
             {
-                topmenu.Add(db.bmenu.Where(t => t.parent_id == m.id).ToList());
+                topmenu.Add(db.bmenu.Where(t => t.parent_id == m.id && t.nav == 1).ToList());
             }
         }
     }
