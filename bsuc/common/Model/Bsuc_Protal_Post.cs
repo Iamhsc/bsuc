@@ -6,8 +6,6 @@ namespace bsuc.common.Model
     /// </summary>
     public class Bsuc_Protal_Post
     {
-        private BsucConnectext db = new BsucConnectext();
-
         public long id { get; set; }
         public string post_title { get; set; }
         public string post_excerpt { get; set; }//摘要

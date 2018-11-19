@@ -1,0 +1,47 @@
+﻿@model IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>
+@{
+    bsuc.common.Model.BsucConnectext db=new bsuc.common.Model.BsucConnectext();
+    ViewBag.Title = "文章列表";
+}
+<div class="layui-form">
+    <table class="layui-table mt10" lay-even="" lay-skin="row">
+        <colgroup>
+            <col width="50">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" lay-skin="primary" lay-filter="allChoose"></th>
+                <th>文章标题</th>
+                <th>关键字</th>
+                <th>查看数</th>
+                <th>发布者</th>
+                <th>发布时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var usr=db.buser.First(u=>u.id==item.user_id).username;
+                <tr>
+                    <td>
+                        <input type="checkbox" class="layui-checkbox checkbox-ids" name="ids[]" lay-skin="primary"></td>
+                     <td>@Html.DisplayFor(menu => item.post_title)</td>
+                    <td>@Html.DisplayFor(menu => item.post_ketwords)</td>
+                    <td>@Html.DisplayFor(menu => item.post_hits)</td>
+                    <td>@usr</td>
+                    <td>@Html.DisplayFor(menu => item.published_time)</td>
+                    <td>
+                        <div class="layui-btn-group">
+                            <div class="layui-btn-group">
+                                <a data-href="" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">编辑 &#xe642;</i></a>
+                                <a data-href="" class="layui-btn layui-btn-primary layui-btn-sm j-tr-del"><i class="layui-icon">删除 &#xe640;</i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

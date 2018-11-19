@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+@Styles.Render("~/static/kindeditor/themes/default/default.css")
+@Styles.Render("~/static/kindeditor/plugins/code/prettify.css")
+@Scripts.Render("~/static/kindeditor/kindeditor-all.js")
+@Scripts.Render("~/static/kindeditor/lang/zh-CN.js")
+@Scripts.Render("~/static/kindeditor/plugins/code/prettify.js")
+<script>
+    KindEditor.ready(function (K) {
+        var editor1 = K.create('#UMeditor2', {
+            //cssPath: '~/static/kindeditor/plugins/code/prettify.css',
+            //uploadJson: '~/static/kindeditor/asp.net/upload_json.ashx',
+            //fileManagerJson: '~/static/kindeditor/asp.net/file_manager_json.ashx',
+            allowFileManager: true,
+            afterCreate: function () {
+                var self = this;
+                K.ctrl(document, 13, function () {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+                K.ctrl(self.edit.doc, 13, function () {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+            }
+        });
+        prettyPrint();
+    });
+</script>
+<form class="layui-form layui-form-pane" action="{:url('/kids/news/add_news')}" id="editForm" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">新闻类别</label>
+        <div class="layui-input-inline">
+            <select name="news_class" class="field-role_id" type="select">
+                <option value="错错错">错错错</option>
+                <option value="嗖嗖嗖" selected="">嗖嗖嗖</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">新闻标题</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input field-username" name="news_title" lay-verify="title"
+                autocomplete="off" placeholder="请输入新闻标题">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">新闻作者</label>
+        <div class="layui-input-inline">
+
+            <select name="news_writer" class="field-role_id" type="select">
+                <option value="未注名" selected="">请选择</option>
+                {volist name="teacher_list" id="vo"}
+                <option value="{$vo['nick']}">{$vo['nick']}</option>
+                {/volist}
+            </select>
+
+        </div>
+    </div>
+    <!--图片-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">缩略图</label>
+        <div class="layui-input-inline upload">
+            <button type="button" name="upload" class="layui-btn layui-btn-primary layui-upload" lay-type="image"
+                lay-data="{accept:'image'}">
+                请上传图片
+            </button>
+            <input type="hidden" class="upload-input" name="image" value="">
+            <img src="" style="display: none; border-radius: 5px; border: 1px solid #ccc" width="36" height="36">
+        </div>
+        <div class="layui-form-mid layui-word-aux"></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">关键字</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input field-nick" name="news_keywords" lay-verify="title"
+                autocomplete="off">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">新闻摘要</label>
+        <div class="layui-input-block">
+            <textarea class="layui-textarea" id="" name="news_intro"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">新闻内容</label>
+        <div class="layui-input-block">
+            <textarea id="UMeditor2" name="news_content"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input type="hidden" class="field-id" name="id">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="formSubmit">提交</button>
+            <a href="{:url('/kids/news/news_manage')}" class="layui-btn layui-btn-primary ml10"><i
+                class="aicon ai-fanhui"></i>返回</a>
+        </div>
+    </div>
+</form>
