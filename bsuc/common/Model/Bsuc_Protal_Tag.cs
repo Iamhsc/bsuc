@@ -10,5 +10,7 @@ namespace bsuc.common.Model
     /// </summary>
     public class Bsuc_Protal_Tag
     {
+        public int id { get; set; }//id
+        public string anme { get; set; }//标签名称
     }
 }

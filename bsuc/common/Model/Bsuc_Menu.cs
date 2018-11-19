@@ -3,8 +3,6 @@ namespace bsuc.common.Model
 {
     public class Bsuc_Menu
     {
-        private BsucConnectext db = new BsucConnectext();
-
         public int id { get; set; }
         public string title { get; set; }
         public string url { get; set; }

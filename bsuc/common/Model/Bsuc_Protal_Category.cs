@@ -11,8 +11,9 @@ namespace bsuc.common.Model
     public class Bsuc_Protal_Category
     {
         public int id { get; set; }//id
-        public int cid { get; set; }
+        public int parent { get; set; } //分类父id
         public string catname { get; set; }//分类名
+        public string description { get; set; }//分类描述
         public int ctime { get; set; }//创建时间
         public byte is_del { get; set; }//是否删除
     }
