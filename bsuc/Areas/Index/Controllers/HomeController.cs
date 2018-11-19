@@ -20,21 +20,13 @@ namespace bsuc.Areas.Index.Controllers
         }
 
         /// <summary>
-        /// 
+        /// 学校概况
         /// </summary>
         /// <returns></returns>
-        public ActionResult jwxt()
+        public ActionResult xxgk()
         {
             return View();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult xxjj()
-        {
-            return View();
-        }
     }
 }
