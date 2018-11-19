@@ -673,7 +673,9 @@
     <Content Include="Areas\Admin\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Index\Views\Web.config" />
+    <Content Include="Areas\Index\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
@@ -707,13 +709,20 @@
     <Content Include="Areas\Index\Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Index\Views\Home\jwxt.cshtml" />
+    <Content Include="Areas\Index\Views\Home\xxgk.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Sys\MenuAdd.cshtml" />
+    <Content Include="Areas\Admin\Views\Sys\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\Sys\Index.cshtml" />
+    <Content Include="Areas\Index\Views\Home\zzjg.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Index\Views\Home\kxyj.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Index\Views\Home\xyfg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Article\Index.cshtml" />

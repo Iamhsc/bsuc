@@ -20,19 +20,38 @@ namespace bsuc.Areas.Index.Controllers
         }
 
         /// <summary>
-        /// 
+        /// 学校概况
         /// </summary>
         /// <returns></returns>
-        public ActionResult jwxt()
+        public ActionResult xxgk()
+        {
+            return View();
+        }
+
+
+        /// <summary>
+        /// 组织结构
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult zzjg()
         {
             return View();
         }
 
         /// <summary>
-        /// 
+        /// 科学研究
         /// </summary>
         /// <returns></returns>
-        public ActionResult xxjj()
+        public ActionResult kxyj()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 校园风光
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult xyfg()
         {
             return View();
         }
