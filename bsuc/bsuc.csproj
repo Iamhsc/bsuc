@@ -468,7 +468,9 @@
     <Content Include="Areas\Admin\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Index\Views\Web.config" />
+    <Content Include="Areas\Index\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
@@ -510,6 +512,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Index\Views\Home\zzjg.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Index\Views\Home\kxyj.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Index\Views\Home\xyfg.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

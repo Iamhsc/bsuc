@@ -38,5 +38,22 @@ namespace bsuc.Areas.Index.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 科学研究
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult kxyj()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 校园风光
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult xyfg()
+        {
+            return View();
+        }
     }
 }
