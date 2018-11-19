@@ -1,7 +1,7 @@
 ﻿@{
-    var modulemenu = ViewBag.modulemenu as IEnumerable<bsuc.Areas.Admin.Models.b_menu>;
+    var modulemenu = ViewBag.modulemenu as IEnumerable<bsuc.common.Model.Bsuc_Menu>;
     var topmenu = ViewBag.topmenu;
-    bsuc.Areas.Admin.Models.BsucConnectext db = new bsuc.Areas.Admin.Models.BsucConnectext();
+    bsuc.common.Model.BsucConnectext db = new bsuc.common.Model.BsucConnectext();
     int mainmodulemenu = 0;
     int styledisplay = 0;
 }
@@ -60,18 +60,18 @@
                     }
                     styledisplay++;
                     <ul class="layui-nav layui-nav-tree" style="display:@dis;">
-                        @foreach (bsuc.Areas.Admin.Models.b_menu topitem in top)
+                        @foreach (bsuc.common.Model.Bsuc_Menu topitem in top)
                         {
-                            var second = db.bmenu.Where(s => s.parent_id == topitem.id);
+                            var second = db.bmenu.Where(s => s.parent_id == topitem.id && s.nav == 1);
                             <li class="layui-nav-item ">
                                 <a href="javascript:;"><i class="aicon ai-huiyuanliebiao"></i>@Html.DisplayFor(t => topitem.title)<span class="layui-nav-more"></span></a>
                                 <dl class="layui-nav-child">
                                     @foreach (var item in second)
                                     {
-                                    <dd><a class="admin-nav-item" data-id="20" href="@Html.DisplayFor(se=>item.url)"><i class="aicon ai-huiyuandengji"></i>
-                                        @Html.DisplayFor(se=>item.title)
-                                    </a>
-                                    </dd>
+                                        <dd><a class="admin-nav-item" data-id="20" href="@Html.DisplayFor(se => item.url)"><i class="aicon ai-huiyuandengji"></i>
+                                            @Html.DisplayFor(se => item.title)
+                                        </a>
+                                        </dd>
                                     }
                                 </dl>
                             </li> }
@@ -87,26 +87,11 @@
                 <li><a href="#" title="添加到首页快捷菜单" class="j-ajax">[+]</a></li>
             </ul>
             <div style="padding: 0 10px;" class="mcolor"></div>
-            <div class="page-body">
+            <section>
+                @RenderBody()
+            </section>
+            @RenderSection("scripts", required: false)
 
-                <div class="layui-tab layui-tab-card">
-                    <ul class="layui-tab-title">
-                        <li class="layui-this">
-                            <a href="#">基础</a>
-                        </li>
-                        <div class="tool-btns">
-                            <a href="javascript:location.reload();" title="刷新当前页面" class="aicon ai-shuaxin2 font18"></a>
-                            <a href="javascript:;" class="aicon ai-quanping1 font18" id="fullscreen-btn" title="打开/关闭全屏"></a>
-                        </div>
-                    </ul>
-                    <div class="layui-tab-content page-tab-content">
-                        <section>
-                            @RenderBody()
-                        </section>
-                        @RenderSection("scripts", required: false)
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="layui-footer footer">
             <span class="fl">Powered by <a target="_blank">HisiPHP</a> v1.0.9</span>

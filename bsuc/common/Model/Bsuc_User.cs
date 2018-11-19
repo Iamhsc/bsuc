@@ -4,9 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
-namespace bsuc.Areas.Admin.Models
+namespace bsuc.common.Model
 {
-    public class b_user
+    public class Bsuc_User
     {
         public int id { get; set; }
         public string username { get; set; }
@@ -16,7 +16,6 @@ namespace bsuc.Areas.Admin.Models
         public string email { get; set; }
         public string avatar { get; set; }
         public string password { get; set; }
-
         public string salt { get; set; }
     }
 }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace bsuc.Areas.Admin.Models
+﻿
+namespace bsuc.common.Model
 {
-    public class b_menu
+    public class Bsuc_Menu
     {
         private BsucConnectext db = new BsucConnectext();
 
@@ -18,10 +14,5 @@ namespace bsuc.Areas.Admin.Models
         public byte nav { get; set; }
         public byte status { get; set; }
         public int ctime { get; set; }
-
-        public object top_menu()
-        {
-            return db.bmenu.Where(t => t.parent_id == 0).ToList();
-        }
     }
 }
