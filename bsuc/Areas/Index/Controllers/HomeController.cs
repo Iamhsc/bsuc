@@ -28,5 +28,15 @@ namespace bsuc.Areas.Index.Controllers
             return View();
         }
 
+
+        /// <summary>
+        /// 组织结构
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult zzjg()
+        {
+            return View();
+        }
+
     }
 }
