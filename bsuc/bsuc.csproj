@@ -505,10 +505,14 @@
     <Content Include="Areas\Index\Views\Home\xxgk.cshtml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\Sys\MenuAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Sys\Index.cshtml" />
+=======
+    <Content Include="Areas\Index\Views\Home\zzjg.cshtml" />
+>>>>>>> shf
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
