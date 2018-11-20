@@ -14,8 +14,14 @@ namespace bsuc.Areas.Admin.Controllers
         public LayoutView lay;
         public BaseController()
         {
-           // ViewBag.adminmenu = DataContext.bmenu.ToList();
-            lay=new LayoutView(DataContext);
+            if (Session["user_id"] == null)
+            {
+                Response.Redirect("/admin/public/login");
+                //Response.Write("<script>location.href=''</script>");
+               return;
+            }
+            // ViewBag.adminmenu = DataContext.bmenu.ToList();
+            lay = new LayoutView(DataContext);
             ViewBag.modulemenu = lay.modulemenu;
             ViewBag.topmenu = lay.topmenu;
         }

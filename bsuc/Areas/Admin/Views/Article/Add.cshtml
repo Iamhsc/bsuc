@@ -1,5 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Add";
+    var cate = ViewBag.cate as IEnumerable<bsuc.common.Model.Bsuc_Protal_Category>;
+    var tag = ViewBag.tag as IEnumerable<bsuc.common.Model.Bsuc_Protal_Tag>;
+    var usr = ViewBag.usr as IEnumerable<bsuc.common.Model.Bsuc_User>;
+    ViewBag.Title = "文章添加";
 }
 @Styles.Render("~/static/kindeditor/themes/default/default.css")
 @Styles.Render("~/static/kindeditor/plugins/code/prettify.css")
@@ -30,16 +33,19 @@
 </script>
 <form class="layui-form layui-form-pane" action="{:url('/kids/news/add_news')}" id="editForm" method="post">
     <div class="layui-form-item">
-        <label class="layui-form-label">新闻类别</label>
+        <label class="layui-form-label">文章类别</label>
         <div class="layui-input-inline">
             <select name="news_class" class="field-role_id" type="select">
-                <option value="错错错">错错错</option>
-                <option value="嗖嗖嗖" selected="">嗖嗖嗖</option>
+                <option value="" selected=""></option>
+                @foreach (var item in cate)
+                {
+                <option value="@Html.DisplayFor(val=>item.id)">@Html.DisplayFor(val=>item.catname)</option>
+                }
             </select>
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">新闻标题</label>
+        <label class="layui-form-label">文章标题</label>
         <div class="layui-input-inline">
             <input type="text" class="layui-input field-username" name="news_title" lay-verify="title"
                 autocomplete="off" placeholder="请输入新闻标题">
@@ -48,12 +54,8 @@
     <div class="layui-form-item">
         <label class="layui-form-label">新闻作者</label>
         <div class="layui-input-inline">
-
             <select name="news_writer" class="field-role_id" type="select">
-                <option value="未注名" selected="">请选择</option>
-                {volist name="teacher_list" id="vo"}
-                <option value="{$vo['nick']}">{$vo['nick']}</option>
-                {/volist}
+                @*<option value="@Session["user_id"]">@Session["user_name"]</option>*@
             </select>
 
         </div>
@@ -63,7 +65,7 @@
         <label class="layui-form-label">缩略图</label>
         <div class="layui-input-inline upload">
             <button type="button" name="upload" class="layui-btn layui-btn-primary layui-upload" lay-type="image"
-                lay-data="{accept:'image'}">
+                lay-data="">
                 请上传图片
             </button>
             <input type="hidden" class="upload-input" name="image" value="">
@@ -87,7 +89,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">新闻内容</label>
         <div class="layui-input-block">
-            <textarea id="UMeditor2" name="news_content"></textarea>
+            <textarea id="UMeditor2" cols="100" rows="8" style="width:700px;height:200px;visibility:hidden;" name="news_content"></textarea>
         </div>
     </div>
     <div class="layui-form-item">

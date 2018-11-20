@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace bsuc.Areas.Admin.Controllers
 {
-    public class PublicController : BaseController
+    public class PublicController : Controller
     {
         private BsucConnectext db = new BsucConnectext();
 

@@ -19,6 +19,8 @@ namespace bsuc.Areas.Admin.Controllers
 
         public ActionResult Add()
         {
+            ViewBag.cate = db.bsuc_protal_category.ToList();
+            ViewBag.tag = db.bsuc_protal_tag.ToList();
             return View();
         }
 
