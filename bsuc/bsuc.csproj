@@ -734,6 +734,9 @@
     <Content Include="static\kindeditor\asp.net\file_manager_json.ashx" />
     <Content Include="static\kindeditor\asp.net\upload_json.ashx" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Index\Views\Home\xxjj.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -750,7 +753,11 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
+<<<<<<< HEAD
           <DevelopmentServerPort>59651</DevelopmentServerPort>
+=======
+          <DevelopmentServerPort>36872</DevelopmentServerPort>
+>>>>>>> 7b0253a1cedcda388c62aa6059668ab73f86bfde
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:12233/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

@@ -8,8 +8,8 @@ namespace bsuc.Areas.Index.Controllers
 {
     public class HomeController : Controller
     {
+        ///一级目录
         
-
         /// <summary>
         /// 官网首页
         /// </summary>
@@ -55,5 +55,17 @@ namespace bsuc.Areas.Index.Controllers
         {
             return View();
         }
+
+        ///二级目录
+
+        /// <summary>
+        /// 学校简介
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult xxjj()
+        {
+            return View();
+        }
+
     }
 }
