@@ -67,5 +67,14 @@ namespace bsuc.Areas.Index.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 校园要闻
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult xxyw()
+        {
+            return View();
+        }
+
     }
 }
