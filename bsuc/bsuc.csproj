@@ -756,11 +756,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-<<<<<<< HEAD
-          <DevelopmentServerPort>59651</DevelopmentServerPort>
-=======
           <DevelopmentServerPort>36872</DevelopmentServerPort>
->>>>>>> 7b0253a1cedcda388c62aa6059668ab73f86bfde
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:12233/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
