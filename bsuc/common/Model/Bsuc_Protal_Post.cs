@@ -6,20 +6,73 @@ namespace bsuc.common.Model
     /// </summary>
     public class Bsuc_Protal_Post
     {
+        /// <summary>
+        /// id
+        /// </summary>
         public long id { get; set; }
+        /// <summary>
+        /// 文章标题
+        /// </summary>
         public string post_title { get; set; }
-        public string post_excerpt { get; set; }//摘要
-        public string post_ketwords { get; set; }//关键字
-        public string post_content { get; set; }//内容
-        public long post_hits { get; set; }//查看数
-        public long post_like { get; set; }//点赞数
-        public long user_id { get; set; }//发布者id
-        public int published_time { get; set; }//发布时间
-        public int update_time { get; set; }//更新时间
-        public int delete_time { get; set; }//删除时间
-        public long comment_count { get; set; }//评论数
-        public byte comment_status { get; set; }//是否允许评论
-        public byte is_top { get; set; }//是否制置顶
-        public byte post_status { get; set; }//是否发布
+        /// <summary>
+        /// 文章类别
+        /// </summary>
+        public string cates { get; set; }
+        /// <summary>
+        /// 文章标签
+        /// </summary>
+        public string tags { get; set; }
+        /// <summary>
+        /// 摘要
+        /// </summary>
+        public string post_excerpt { get; set; }
+        /// <summary>
+        /// 关键字
+        /// </summary>
+        public string post_ketwords { get; set; }
+        /// <summary>
+        /// 内容
+        /// </summary>
+        public string post_content { get; set; }
+        /// <summary>
+        /// 查看数
+        /// </summary>
+        public long post_hits { get; set; }
+        /// <summary>
+        /// 点赞数
+        /// </summary>
+        public long post_like { get; set; }
+        /// <summary>
+        /// 发布者id
+        /// </summary>
+        public long user_id { get; set; }
+        /// <summary>
+        /// 发布时间
+        /// </summary>
+        public int published_time { get; set; }
+        /// <summary>
+        /// 更新时间
+        /// </summary>
+        public int update_time { get; set; }
+        /// <summary>
+        /// 删除时间
+        /// </summary>
+        public int delete_time { get; set; }
+        /// <summary>
+        /// 评论数
+        /// </summary>
+        public long comment_count { get; set; }
+        /// <summary>
+        /// 是否允许评论
+        /// </summary>
+        public byte comment_status { get; set; }
+        /// <summary>
+        /// 是否制置顶
+        /// </summary>
+        public byte is_top { get; set; }
+        /// <summary>
+        /// 是否发布
+        /// </summary>
+        public byte post_status { get; set; }
     }
 }

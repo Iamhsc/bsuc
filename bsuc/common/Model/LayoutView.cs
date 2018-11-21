@@ -13,9 +13,9 @@ namespace bsuc.common.Model
         public ArrayList topmenu = new ArrayList();
         public LayoutView(BsucConnectext db)
         {
-            db.bsuc_protal_category.ToList();
-            db.bsuc_protal_post.ToList();
-            db.bsuc_protal_tag.ToList();
+            ////db.bsuc_protal_category.ToList();
+            ////db.bsuc_protal_post.ToList();
+            ////db.bsuc_protal_tag.ToList();
             modulemenu = db.bmenu.Where(t => t.parent_id == 0 && t.nav == 1).ToList();
             foreach (var m in modulemenu)
             {

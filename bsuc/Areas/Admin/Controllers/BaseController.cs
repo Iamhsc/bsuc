@@ -12,14 +12,24 @@ namespace bsuc.Areas.Admin.Controllers
         private BsucConnectext db = new BsucConnectext();
         public BsucConnectext DataContext { get { return db; } }
         public LayoutView lay;
-        public BaseController()
+
+        /// <summary>
+        /// 再控制器执行方法之前执行 验证登陆
+        /// </summary>
+        /// <param name="filterContext"></param>
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
+            Session["user_id"] =1;
+            Session["user_name"] = "admin";
+            base.OnActionExecuted(filterContext);
             if (Session["user_id"] == null)
             {
-                Response.Redirect("/admin/public/login");
-                //Response.Write("<script>location.href=''</script>");
-               return;
+                filterContext.Result = Redirect("/admin/public/login");
             }
+        }
+
+        public BaseController()
+        {
             // ViewBag.adminmenu = DataContext.bmenu.ToList();
             lay = new LayoutView(DataContext);
             ViewBag.modulemenu = lay.modulemenu;

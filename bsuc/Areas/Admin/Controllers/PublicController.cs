@@ -69,6 +69,11 @@ namespace bsuc.Areas.Admin.Controllers
             }
             return obj;
         }
+
+        public ActionResult Logout() {
+            Session.Clear();
+            return View("Login");
+        }
         //
         // GET: /Admin/Public/
 

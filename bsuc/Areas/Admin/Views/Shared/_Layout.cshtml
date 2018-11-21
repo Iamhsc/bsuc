@@ -23,17 +23,17 @@
             <div class="fl header-logo">管理控制台</div>
             <div class="fl header-fold"><a href="javascript:;" title="打开/关闭左侧导航" class="aicon ai-caidan" id="foldSwitch"></a></div>
             <ul class="layui-nav fl nobg main-nav">
-                @foreach (var item in modulemenu)
+               @foreach (var item in modulemenu)
                 {
-                    if (mainmodulemenu == 0)
+                    @* if (mainmodulemenu == 0)
                     {
                     <li class="layui-nav-item layui-this"><a href="javascript:;">@Html.DisplayFor(modelItem => item.title)</a></li>
                     }
                     else
-                    {
+                    {*@
                     <li class="layui-nav-item"><a href="javascript:;">@Html.DisplayFor(modelItem => item.title)</a></li>
-                    }
-                    mainmodulemenu++;
+                   @* }
+                    mainmodulemenu++;*@
                 }
             </ul>
             <ul class="layui-nav fr nobg head-info">
@@ -41,10 +41,10 @@
                 <li class="layui-nav-item"><a href="#" class="j-ajax aicon ai-qingchu" refresh="yes" title="清缓存"></a></li>
                 <li class="layui-nav-item"><a href="javascript:void(0);" class="aicon ai-suo" id="lockScreen" title="锁屏"></a></li>
                 <li class="layui-nav-item">
-                    <a href="javascript:void(0);">超级管理员&nbsp;&nbsp;</a>
+                    <a href="javascript:void(0);">@Session["user_name"]&nbsp;&nbsp;</a>
                     <dl class="layui-nav-child">
                         <dd><a data-id="00" class="admin-nav-item top-nav-item" href="#">个人设置</a></dd>
-                        <dd><a href="#">退出登陆</a></dd>
+                        <dd><a href="/admin/public/logout">退出登陆</a></dd>
                     </dl>
                 </li>
             </ul>
