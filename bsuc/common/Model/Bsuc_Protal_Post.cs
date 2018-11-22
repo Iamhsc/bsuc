@@ -17,7 +17,7 @@ namespace bsuc.common.Model
         /// <summary>
         /// 文章类别
         /// </summary>
-        public string cates { get; set; }
+        public int cates { get; set; }
         /// <summary>
         /// 文章标签
         /// </summary>
