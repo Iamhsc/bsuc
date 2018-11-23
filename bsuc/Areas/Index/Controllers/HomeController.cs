@@ -19,19 +19,19 @@ namespace bsuc.Areas.Index.Controllers
         public ActionResult Index()
         {
             //获取文章类别为1（学校要闻）的文章；
-            ViewBag.news = db.bsuc_protal_post.Where(p => p.cates == 1).Take(10).ToList();
+            ViewBag.news = db.bsuc_protal_post.Where(p => p.cates == 1).Take(10).OrderByDescending(p=>p.id).ToList();
             //获取文章类别为2（通知公告）的文章;
-            ViewBag.newa = db.bsuc_protal_post.Where(p => p.cates == 2).Take(8).ToList();
+            ViewBag.newa = db.bsuc_protal_post.Where(p => p.cates == 2).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为3（招标信息）的文章;
-            ViewBag.newb = db.bsuc_protal_post.Where(p => p.cates == 3).Take(8).ToList();
+            ViewBag.newb = db.bsuc_protal_post.Where(p => p.cates == 3).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为4（部门动态）的文章
-            ViewBag.bmdt = db.bsuc_protal_post.Where(p => p.cates == 4).Take(8).ToList();
+            ViewBag.bmdt = db.bsuc_protal_post.Where(p => p.cates == 4).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为5（部门动态）的文章
-            ViewBag.ztbd = db.bsuc_protal_post.Where(p => p.cates == 5).Take(8).ToList();
+            ViewBag.ztbd = db.bsuc_protal_post.Where(p => p.cates == 5).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为6（百院媒体）的文章
-            ViewBag.bymt = db.bsuc_protal_post.Where(p => p.cates == 6).Take(8).ToList();
+            ViewBag.bymt = db.bsuc_protal_post.Where(p => p.cates == 6).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为7（科学研究）的文章
-            ViewBag.kxyj = db.bsuc_protal_post.Where(p => p.cates == 7).Take(8).ToList();
+            ViewBag.kxyj = db.bsuc_protal_post.Where(p => p.cates == 7).Take(8).OrderByDescending(p => p.id).ToList();
             return View();
         }
 
@@ -91,6 +91,7 @@ namespace bsuc.Areas.Index.Controllers
         /// <returns></returns>
         public ActionResult xxyw()
         {
+            ViewBag.catnameA = db.bsuc_protal_category.ToList();         
             return View();
         }
 

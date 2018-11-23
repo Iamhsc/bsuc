@@ -1,4 +1,5 @@
 ﻿@{
+    var natnameA = ViewBag.natnameA as IEnumerable<bsuc.common.Model.Bsuc_Protal_Category>;//科学研究
     ViewBag.Title = "xxyw";
 }
 
@@ -7,10 +8,13 @@
     <div class="column_name">
       <h4>新闻中心<span class="songti pl10"></span></h4>
     </div>
+      @foreach(var item in natnameA)
+      {
     <ul>
-            <li class="active"><a href="~/home/xxyw"  title="学校要闻">学校要闻</a></li>
-            <li><a href="~/home/kxyj"  title="科学研究">科学研究</a></li>
+            <li class="active"><a href="~/home/xxyw"  title="@Html.DisplayFor( n => item.catname)">@Html.DisplayFor( n => item.catname)</a></li>
+          @*  <li><a href="~/home/kxyj"  title="科学研究">科学研究</a></li>*@
         </ul>
+      }
 </div>
   <div class="right_main">
     <div class="menu-name pr">
