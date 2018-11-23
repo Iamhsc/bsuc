@@ -1,0 +1,34 @@
+﻿@model bsuc.common.Model.Bsuc_Protal_Post
+<style>
+.box-centent .title h3{margin:0 0 30px;color:#033333;text-align:center;font-weight:700;font-size:24px;line-height:1.4}
+.box-centent .title .news-msg span{padding-right:4px;padding-left:4px;color:#a5a5a5;font-size:14px;line-height:1}
+.box-centent .con-txt{margin-top:50px}
+.box-centent .con-txt a,.box-centent .con-txt p,.box-centent .con-txt span{color:#033;font-size:1pc;line-height:2}
+.box-centent .fn{margin-top:30px;padding-bottom:8px;border-bottom:1px solid #ccc}
+.box-centent .fn div.fl{width:50%}
+.box-centent .fn span .icon{color:#e6e6e6;vertical-align:middle;font-size:2em}
+.box-centent .fn a{padding-left:6px;color:#033;font-size:1pc;line-height:1}
+</style>
+
+<div class="right_main">
+     <form name="_newscontent_fromname">
+        <div class="box-centent">
+            <div class="title">
+                <h3>@Html.DisplayFor(model=>model.post_title)</h3>
+                <div class="news-msg text-center" style="text-align: center;">
+                    <span>来源：百色学院</span>
+                    <span>编辑：邓民胜</span>
+                    <span>作者：@ViewBag.author</span>
+                    <span>发布时间：@ViewBag.PushTime</span>
+                    <span>浏览量：@Html.DisplayFor(model=>model.post_hits)
+                </div>
+            </div>
+            <div style="border-bottom: 1px solid #e8e8e8; margin-top: 10px;"></div>
+            <div class="con-txt" id="vsb_content">
+                <p class="indent2"></p>
+                @Html.DisplayTextFor(model=>model.post_content)
+                <p></p>
+            </div>
+        </div>
+    </form>
+</div>

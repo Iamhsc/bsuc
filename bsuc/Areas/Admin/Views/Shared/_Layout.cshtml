@@ -2,7 +2,6 @@
     var modulemenu = ViewBag.modulemenu as IEnumerable<bsuc.common.Model.Bsuc_Menu>;
     var topmenu = ViewBag.topmenu;
     bsuc.common.Model.BsucConnectext db = new bsuc.common.Model.BsucConnectext();
-    int mainmodulemenu = 0;
     int styledisplay = 0;
 }
 <!DOCTYPE html>
@@ -23,17 +22,16 @@
             <div class="fl header-logo">管理控制台</div>
             <div class="fl header-fold"><a href="javascript:;" title="打开/关闭左侧导航" class="aicon ai-caidan" id="foldSwitch"></a></div>
             <ul class="layui-nav fl nobg main-nav">
-               @foreach (var item in modulemenu)
+                @foreach (var item in modulemenu)
                 {
-                    @* if (mainmodulemenu == 0)
-                    {
+                    if (item.id == ViewBag.id)
+                    {                                                 
                     <li class="layui-nav-item layui-this"><a href="javascript:;">@Html.DisplayFor(modelItem => item.title)</a></li>
                     }
                     else
-                    {*@
+                    {                            
                     <li class="layui-nav-item"><a href="javascript:;">@Html.DisplayFor(modelItem => item.title)</a></li>
-                   @* }
-                    mainmodulemenu++;*@
+                    }
                 }
             </ul>
             <ul class="layui-nav fr nobg head-info">
@@ -80,13 +78,6 @@
             </div>
         </div>
         <div class="layui-body" id="switchBody">
-            <ul class="bread-crumbs">
-                <li><a href="javascript:void(0);">系统功能</a></li>
-                <li>></li>
-                <li><a href="javascript:void(0);">系统设置</a></li>
-                <li><a href="#" title="添加到首页快捷菜单" class="j-ajax">[+]</a></li>
-            </ul>
-            <div style="padding: 0 10px;" class="mcolor"></div>
             <div class="page-body">
                 <div class="layui-tab layui-tab-card">
                     <ul class="layui-tab-title">
@@ -103,14 +94,13 @@
                             @RenderBody()
                         </section>
                         @RenderSection("scripts", required: false)
-
                     </div>
                 </div>
             </div>
         </div>
         <div class="layui-footer footer">
-            <span class="fl">Powered by <a target="_blank">HisiPHP</a> v1.0.9</span>
-            <span class="fr">© 2017-2018 <a target="_blank">HisiPHP.com</a> All Rights Reserved.</span>
+            <span class="fl">Powered by <a>BSUC Back-stage Management</a> v1.0</span>
+            <span class="fr">© 2018 <a>bsuc.imhsc.cn</a> All Rights Reserved.</span>
         </div>
     </div>
 </body>

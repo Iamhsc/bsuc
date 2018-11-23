@@ -1,12 +1,17 @@
 ﻿@model IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>
 @{
     bsuc.common.Model.BsucConnectext db=new bsuc.common.Model.BsucConnectext();
-    ViewBag.Title = "文章列表";
 }
 <div class="layui-form">
     <table class="layui-table mt10" lay-even="" lay-skin="row">
         <colgroup>
             <col width="50">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col width="90">
+            <col width="200">
         </colgroup>
         <thead>
             <tr>
@@ -24,6 +29,7 @@
             @foreach (var item in Model)
             {
                 var usr=db.buser.First(u=>u.id==item.user_id).username;
+                var t=bsuc.common.Common.IntToDateTime(item.published_time);
                 <tr>
                     <td>
                         <input type="checkbox" class="layui-checkbox checkbox-ids" name="ids[]" lay-skin="primary"></td>
@@ -31,12 +37,13 @@
                     <td>@Html.DisplayFor(menu => item.post_ketwords)</td>
                     <td>@Html.DisplayFor(menu => item.post_hits)</td>
                     <td>@usr</td>
-                    <td>@Html.DisplayFor(menu => item.published_time)</td>
+                    <td>@t</td>
                     <td>
                         <div class="layui-btn-group">
                             <div class="layui-btn-group">
-                                <a data-href="" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">编辑 &#xe642;</i></a>
-                                <a data-href="" class="layui-btn layui-btn-primary layui-btn-sm j-tr-del"><i class="layui-icon">删除 &#xe640;</i></a>
+                                <a href="/admin/article/details?id=@Html.DisplayFor(itemmodel=>item.id)" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">详情</i></a>
+                                <a href="/admin/article/edit?id=@Html.DisplayFor(itemmodel=>item.id)" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">编辑</i></a>
+                                <a data-href="Delete?id=@Html.DisplayFor(itemmodel=>item.id)" class="layui-btn layui-btn-primary layui-btn-sm j-tr-del"><i class="layui-icon">删除</i></a>
                             </div>
                         </div>
                     </td>

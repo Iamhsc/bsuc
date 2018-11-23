@@ -1,4 +1,5 @@
 ﻿@{
+    bsuc.common.Model.Bsuc_Protal_Post postInfo = ViewBag.postInfo;
     var cate = ViewBag.cate as IEnumerable<bsuc.common.Model.Bsuc_Protal_Category>;
 }
 @Styles.Render("~/static/kindeditor/themes/default/default.css")
@@ -18,22 +19,28 @@
         });
     });
 </script>
-<form class="layui-form layui-form-pane" action="AddPost" method="post">
+<form class="layui-form layui-form-pane" action="EditPost" method="post">
     <div class="layui-form-item">
         <label class="layui-form-label">文章标题</label>
         <div class="layui-input-inline">
             <input type="text" class="layui-input" name="post_title"
-                autocomplete="off" placeholder="请输入新闻标题">
+                autocomplete="off" value="@Html.DisplayFor(model => postInfo.post_title)" placeholder="请输入新闻标题">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">文章类别</label>
         <div class="layui-input-inline">
             <select name="cates" class="field-role_id" type="select">
-                <option value="" selected=""></option>
                 @foreach (var item in cate)
                 {
+                    if (item.id == postInfo.cates)
+                    {
+                    <option selected value="@Html.DisplayFor(val => item.id)">@Html.DisplayFor(val => item.catname)</option>
+                    }
+                    else
+                    {
                     <option value="@Html.DisplayFor(val => item.id)">@Html.DisplayFor(val => item.catname)</option>
+                    }
                 }
             </select>
         </div>
@@ -49,58 +56,59 @@
     <div class="layui-form-item">
         <label class="layui-form-label">关键字</label>
         <div class="layui-input-inline">
-            <input type="text" class="layui-input field-nick" name="post_ketwords" lay-verify="title"
+            <input type="text" class="layui-input field-nick" name="post_ketwords" lay-verify="title" value="@Html.DisplayFor(model => postInfo.post_ketwords)"
                 autocomplete="off">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">新闻摘要</label>
         <div class="layui-input-block">
-            <textarea class="layui-textarea" id="" name="post_excerpt"></textarea>
+            <textarea class="layui-textarea" id="" name="post_excerpt">@Html.DisplayFor(model => postInfo.post_excerpt)</textarea>
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">新闻内容</label>
         <div class="layui-input-block">
-            <textarea id="UMeditor" name="post_content"></textarea>
+            <textarea id="UMeditor" name="post_content">@Html.DisplayFor(model => postInfo.post_content)</textarea>
         </div>
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="addArticle" >立即提交</button>
+            <input name="id" value="@Html.DisplayFor(model => postInfo.id)" type="hidden"/>
+            <button class="layui-btn" lay-submit lay-filter="editArticle">立即提交</button>
             <button class="layui-btn layui-btn-primary" type="reset">重置</button>
         </div>
     </div>
 </form>
-    <script>
-        layui.define('form', function (exports) {
-            var $ = layui.jquery, layer = layui.layer, form = layui.form;
-            form.on('submit(addArticle)', function (data) {
-                var _form = $(this).parents('form');
-                layer.msg('数据提交中...', { time: 500000 });
-                $.ajax({
-                    type: "POST",
-                    url: _form.attr('action'),
-                    dataType: 'json',
-                    data: _form.serialize(),
-                    success: function (res) {
-                        console.log(res);
-                        layer.msg(res.msg, {}, function () {
-                            if (res.code == 1) {
-                                if (typeof (res.url) != 'undefined' && res.url != null && res.url != '') {
-                                    location.href = res.url;
-                                } else {
-                                    location.reload();
-                                }
+<script>
+    layui.define('form', function (exports) {
+        var $ = layui.jquery, layer = layui.layer, form = layui.form;
+        form.on('submit(editArticle)', function (data) {
+            var _form = $(this).parents('form');
+            layer.msg('数据提交中...', { time: 500000 });
+            $.ajax({
+                type: "POST",
+                url: _form.attr('action'),
+                dataType: 'json',
+                data: _form.serialize(),
+                success: function (res) {
+                    console.log(res);
+                    layer.msg(res.msg, {}, function () {
+                        if (res.code == 1) {
+                            if (typeof (res.url) != 'undefined' && res.url != null && res.url != '') {
+                                location.href = res.url;
                             } else {
                                 location.reload();
                             }
-                        });
-                    }, error: function (er) {
-                        console.log(er);
-                    }
-                });
-                return false;
+                        } else {
+                            location.reload();
+                        }
+                    });
+                }, error: function (er) {
+                    console.log(er);
+                }
             });
+            return false;
         });
-    </script>
+    });
+</script>

@@ -19,16 +19,15 @@ namespace bsuc.common
         }
 
         /// <summary>
-        /// 
+        /// 时间戳转换时间
         /// </summary>
-        /// <param name="d"></param>
+        /// <param name="timestamp">当前时间戳</param>
+        /// <param name="format">转换格式 默认MM-dd</param>
         /// <returns></returns>
-        public static System.DateTime ConvertIntDateTime(double d)
+        public static string IntToDateTime(int timestamp, string format = "MM-dd")
         {
-            System.DateTime time = System.DateTime.MinValue;
-            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
-            time = startTime.AddMilliseconds(d);
-            return time;
+            var datetime=TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1)).AddSeconds(timestamp);
+            return datetime.ToString(format);
         }
     }
 }

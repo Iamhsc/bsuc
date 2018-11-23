@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*文字列表开始*/
 .news-tab{
     background-color: #fafafa;
@@ -90,12 +90,12 @@
 }
 .box-main{
     padding-top: 50px;
-    overflow: hidden;;
+    overflow: hidden;
 }
 .box-main .left_nav{
     width: 25%;
     float: left;
-	background: #f7f7f7 url(nav_bg.gif)/*tpa=http://www.bsuc.cn/images/nav_bg.gif*/ bottom no-repeat;
+	background: #f7f7f7 url(nav_bg.gif) bottom no-repeat;
 	
 }
 .box-main .left_nav .column_name{
