@@ -18,5 +18,17 @@ namespace bsuc.common
             return Convert.ToInt32(ts.TotalSeconds);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        public static System.DateTime ConvertIntDateTime(double d)
+        {
+            System.DateTime time = System.DateTime.MinValue;
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+            time = startTime.AddMilliseconds(d);
+            return time;
+        }
     }
 }
