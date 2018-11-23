@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+using System.Linq;
 namespace bsuc.common.Model
 {
     /// <summary>
@@ -17,11 +19,7 @@ namespace bsuc.common.Model
         /// <summary>
         /// 文章类别
         /// </summary>
-        public string cates { get; set; }
-        /// <summary>
-        /// 文章标签
-        /// </summary>
-        public string tags { get; set; }
+        public int cates { get; set; }
         /// <summary>
         /// 摘要
         /// </summary>
@@ -74,5 +72,6 @@ namespace bsuc.common.Model
         /// 是否发布
         /// </summary>
         public byte post_status { get; set; }
+
     }
 }

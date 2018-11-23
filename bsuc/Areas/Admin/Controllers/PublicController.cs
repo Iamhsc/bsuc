@@ -29,6 +29,7 @@ namespace bsuc.Areas.Admin.Controllers
             JObject obj = new JObject();
             obj["code"] = 1;
             obj["msg"] = "注册成功";
+            obj["url"] = "/admin/public/login";
             return obj;
         }
 

@@ -1,6 +1,5 @@
 ﻿@{
     var cate = ViewBag.cate as IEnumerable<bsuc.common.Model.Bsuc_Protal_Category>;
-    var tag = ViewBag.tag as IEnumerable<bsuc.common.Model.Bsuc_Protal_Tag>;
     var usr = ViewBag.usr as IEnumerable<bsuc.common.Model.Bsuc_User>;
     ViewBag.Title = "文章添加";
 }
@@ -9,28 +8,28 @@
 @Scripts.Render("~/static/kindeditor/kindeditor-all.js")
 @Scripts.Render("~/static/kindeditor/lang/zh-CN.js")
 @Scripts.Render("~/static/kindeditor/plugins/code/prettify.js")
-	<script>
-	    var editor;
-	    KindEditor.ready(function (K) {
-	        editor = K.create('#UMeditor', {
-	            allowFileManager: false,
-	            afterCreate: function () {
-	                var self = this;
-	                K.ctrl(document, 13, function () {
-	                    self.sync();
-	                    K('form[name=example]')[0].submit();
-	                });
-	                K.ctrl(self.edit.doc, 13, function () {
-	                    self.sync();
-	                    K('form[name=example]')[0].submit();
-	                });
-	            },
-	            afterBlur: function () { this.sync(); }
-	        });
-	        prettyPrint();
-	    });
+<script>
+    var editor;
+    KindEditor.ready(function (K) {
+        editor = K.create('#UMeditor', {
+            allowFileManager: false,
+            //afterCreate: function () {
+            //    var self = this;
+            //    K.ctrl(document, 13, function () {
+            //        self.sync();
+            //        K('form[name=example]')[0].submit();
+            //    });
+            //    K.ctrl(self.edit.doc, 13, function () {
+            //        self.sync();
+            //        K('form[name=example]')[0].submit();
+            //    });
+            //},
+            afterBlur: function () { this.sync(); }
+        });
+        prettyPrint();
+    });
 
-	</script>
+</script>
 @*<script>
     var editor;
     KindEditor.ready(function (K) {
@@ -42,11 +41,11 @@
         });
     });
 </script>*@
-<form class="layui-form layui-form-pane" action="AddPost" id="editForm" method="post">
+<form class="layui-form layui-form-pane" action="AddPost" method="post">
     <div class="layui-form-item">
         <label class="layui-form-label">文章标题</label>
         <div class="layui-input-inline">
-            <input type="text" class="layui-input field-username" name="post_title" lay-verify="title"
+            <input type="text" class="layui-input" name="post_title"
                 autocomplete="off" placeholder="请输入新闻标题">
         </div>
     </div>
@@ -63,15 +62,6 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">文章标签</label>
-        <div class="layui-input-block">
-            @foreach (var item in tag)
-            {
-                <input type="checkbox" name="tags" value="@Html.DisplayFor(t => item.id)" title="@Html.DisplayFor(t => item.name)" />
-            }
-        </div>
-    </div>
-    <div class="layui-form-item">
         <label class="layui-form-label">新闻作者</label>
         <div class="layui-input-inline">
             <select name="user_id" class="field-role_id" type="select">
@@ -79,19 +69,6 @@
             </select>
         </div>
     </div>
-    <!--图片-->
-    @* <div class="layui-form-item">
-        <label class="layui-form-label">缩略图</label>
-        <div class="layui-input-inline upload">
-            <button type="button" name="upload" class="layui-btn layui-btn-primary layui-upload" lay-type="image"
-                lay-data="">
-                请上传图片
-            </button>
-            <input type="hidden" class="upload-input" name="image" value="">
-            <img src="" style="display: none; border-radius: 5px; border: 1px solid #ccc" width="36" height="36">
-        </div>
-        <div class="layui-form-mid layui-word-aux"></div>
-    </div>*@
     <div class="layui-form-item">
         <label class="layui-form-label">关键字</label>
         <div class="layui-input-inline">
@@ -113,10 +90,40 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <input type="hidden" class="field-id" name="id">
-            <input type="submit" class="layui-btn" lay-submit="" lay-filter="formSubmit" value="提交" />
-            <a href="/admin/arcitle/index" class="layui-btn layui-btn-primary ml10"><i
-                class="aicon ai-fanhui"></i>返回</a>
+            <button class="layui-btn" lay-submit lay-filter="addArticle" >立即提交</button>
+            <button class="layui-btn layui-btn-primary" type="reset">重置</button>
         </div>
     </div>
 </form>
+    <script>
+        layui.define('form', function (exports) {
+            var $ = layui.jquery, layer = layui.layer, form = layui.form;
+            form.on('submit(addArticle)', function (data) {
+                var _form = $(this).parents('form');
+                layer.msg('数据提交中...', { time: 500000 });
+                $.ajax({
+                    type: "POST",
+                    url: _form.attr('action'),
+                    dataType: 'json',
+                    data: _form.serialize(),
+                    success: function (res) {
+                        console.log(res);
+                        layer.msg(res.msg, {}, function () {
+                            if (res.code == 1) {
+                                if (typeof (res.url) != 'undefined' && res.url != null && res.url != '') {
+                                    location.href = res.url;
+                                } else {
+                                    location.reload();
+                                }
+                            } else {
+                                location.reload();
+                            }
+                        });
+                    }, error: function (er) {
+                        console.log(er);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>

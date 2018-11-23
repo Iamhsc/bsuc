@@ -1,6 +1,7 @@
 ﻿using bsuc.common;
 using bsuc.common.Model;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,25 +16,28 @@ namespace bsuc.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            List<Bsuc_Protal_Post> post = db.bsuc_protal_post.ToList();
+            List<Bsuc_Protal_Post> post = db.bsuc_protal_post.OrderByDescending(p=>p.id).ToList();
             return View(post);
         }
 
         public ActionResult Add()
         {
             ViewBag.cate = db.bsuc_protal_category.ToList();
-            ViewBag.tag = db.bsuc_protal_tag.ToList();
             return View();
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddPost(Bsuc_Protal_Post posts) {
-            posts.tags =Request.Form["tags"];
+        public object AddPost(Bsuc_Protal_Post posts)
+        {
             posts.published_time = Common.GetTimeStamp();
             db.bsuc_protal_post.Add(posts);
             db.SaveChanges();
-            return View("Index");
+            JObject obj = new JObject();
+            obj["code"] = 1;
+            obj["msg"] = "添加成功";
+            obj["url"] = "/admin/article";
+            return obj;
         }
 
         public ActionResult Edit()

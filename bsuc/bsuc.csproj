@@ -137,7 +137,6 @@
     <Compile Include="common\Model\Bsuc_Protal_Post.cs" />
     <Compile Include="common\Model\BsucConnectext.cs" />
     <Compile Include="common\Model\Bsuc_Menu.cs" />
-    <Compile Include="common\Model\Bsuc_Protal_Tag.cs" />
     <Compile Include="common\Model\Bsuc_User.cs" />
     <Compile Include="common\Common.cs" />
     <Compile Include="common\Model\LayoutView.cs" />
