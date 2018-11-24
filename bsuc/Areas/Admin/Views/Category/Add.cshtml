@@ -1,0 +1,52 @@
+﻿<form class="layui-form" action="AddPost" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i>*</i>标签名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="catname" required placeholder="请输入标签名"
+                autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i>*</i>标签描述</label>
+        <div class="layui-input-inline">
+            <input type="text" name="description" required placeholder="请输入标签描述"
+                autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-filter="cateAdd" lay-submit>立即提交</button>
+            <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    layui.define('form', function (exports) {
+        var $ = layui.jquery, layer = layui.layer, form = layui.form;
+        form.on('submit(cateAdd)', function (data) {
+            var _form = $(this).parents('form');
+            layer.msg('数据提交中...', { time: 500000 });
+            $.ajax({
+                type: "POST",
+                url: _form.attr('action'),
+                dataType: 'json',
+                data: _form.serialize(),
+                success: function (res) {
+                    console.log(res);
+                    layer.msg(res.msg, {}, function () {
+                        if (res.code == 1) {
+                            if (typeof (res.url) != 'undefined' && res.url != null && res.url != '') {
+                                location.href = res.url;
+                            } else {
+                                location.reload();
+                            }
+                        } else {
+                            location.reload();
+                        }
+                    });
+                }
+            });
+            return false;
+        });
+    });
+</script>
