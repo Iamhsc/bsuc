@@ -19,8 +19,6 @@ namespace bsuc.Areas.Admin.Controllers
         /// <param name="filterContext"></param>
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            Session["user_id"] =1;
-            Session["user_name"] = "admin";
             base.OnActionExecuted(filterContext);
             if (Session["user_id"] == null)
             {
@@ -30,7 +28,6 @@ namespace bsuc.Areas.Admin.Controllers
 
         public BaseController()
         {
-            // ViewBag.adminmenu = DataContext.bmenu.ToList();
             lay = new LayoutView(DataContext);
             ViewBag.modulemenu = lay.modulemenu;
             ViewBag.topmenu = lay.topmenu;
