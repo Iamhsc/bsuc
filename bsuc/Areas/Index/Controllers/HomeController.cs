@@ -1,4 +1,5 @@
-﻿using bsuc.common.Model;
+﻿using bsuc.common;
+using bsuc.common.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -95,5 +96,30 @@ namespace bsuc.Areas.Index.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 文章内容
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult wznr()
+        {
+            ViewBag.catnameA = db.bsuc_protal_category.ToList();    
+            return View();
+        }
+
+        public ActionResult Details(int id) {
+            Bsuc_Protal_Post content = db.bsuc_protal_post.Find(id);
+            if (content == null)
+            {
+                return HttpNotFound();
+            }
+            long count = content.post_hits;
+            content.post_hits = count + 1;//浏览量加一
+            db.SaveChanges();
+            ViewBag.Title = content.post_title;
+            ViewBag.pushTime = Common.IntToDateTime(content.published_time, "yyyy-MM-dd HH:mm:ss");
+            ViewBag.author = db.buser.Find(content.user_id).nickname;
+            ViewBag.catename = db.bsuc_protal_category.First(c => c.id == content.cates).catname;
+            return View(content);
+        }
     }
 }

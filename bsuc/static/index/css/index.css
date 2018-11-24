@@ -47,12 +47,12 @@
     filter:alpha(opacity=40);
 }
 .banner .fullSlide .prev{
-    background: url("prevBtnTop.png") no-repeat center;
+    background: url("../images/prevBtnTop.png") no-repeat center;
     left: 6%;
 
 }
 .banner .fullSlide .next{
-    background: url("nextBtnTop.png") no-repeat center;
+    background: url("../images/nextBtnTop.png") no-repeat center;
     right: 6%;
 }
 .banner .fullSlide .bd ul li .title{
@@ -61,7 +61,7 @@
     left: 18%;
     bottom: 3%;
     padding: 0 20px;
-    background: url("bg_black_50.png");
+    background: url("../images/bg_black_50.png");
     font-size: 20px;
     color: white;
     font-weight: bold;
@@ -127,7 +127,7 @@
 }
 .mod1 .wrap-list ul li{
     padding-left: 15px;
-    background: url("news_title_list_icon.png") no-repeat 0px 16px;
+    background: url("../images/news_title_list_icon.png") no-repeat 0px 16px;
     line-height: 30px;
 }
 /*mod2*/
@@ -167,7 +167,7 @@
     background: #267bd4;
 }
 .mod2 .wrap-list ul li .time{
-    background: url("index_icons.png") no-repeat 0 -185px;
+    background: url("../images/index_icons.png") no-repeat 0 -185px;
     width: 59px;
     height: 48px;
 }
@@ -189,7 +189,7 @@
 /*row1 end*/
 /*row2 start*/
 .row2{
-    background:#8cc0fd url("m_bg.png") no-repeat center center;
+    background:#8cc0fd url("../images/m_bg.png") no-repeat center center;
     height: 710px;
     width: 100%;
 }
@@ -234,7 +234,7 @@
 }
 .news-tab .tab-content .wrap ul li{
     padding-left: 15px;
-    background: url("news_title_list_icon.png") no-repeat 0px 16px;
+    background: url("../images/news_title_list_icon.png") no-repeat 0px 16px;
     line-height: 31px;
 }
 /*mod3 start*/
@@ -257,7 +257,7 @@
 }
 .mod3 ul li .icon{
     display: block;
-    background: url("index_icons.png") no-repeat 0 0;
+    background: url("../images/index_icons.png") no-repeat 0 0;
     width: 69px;
     height: 69px;
     margin-left: auto;

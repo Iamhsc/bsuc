@@ -1,28 +1,30 @@
 ﻿@{
     var natnameA = ViewBag.catnameA as IEnumerable<bsuc.common.Model.Bsuc_Protal_Category>;//科学研究
+   
     ViewBag.Title = "xxyw";
 }
-
 <div class="box-main container mlra">
   <div class="left_nav">
     <div class="column_name">
       <h4>新闻中心<span class="songti pl10"></span></h4>
     </div>
-      @foreach(var item in natnameA)
-      {
     <ul>
-            <li class="active"><a href="~/home/xxyw"  title="@Html.DisplayFor( n => item.catname)">@Html.DisplayFor( n => item.catname)</a></li>
-          @*  <li><a href="~/home/kxyj"  title="科学研究">科学研究</a></li>*@
-        </ul>
-      }
-</div>
+        <li><a href="xxyw1.htm"  title="学校要闻">学校要闻</a></li>
+        <li><a href="bmdt.htm"  title="部门动态">部门动态</a></li>
+        <li><a href="zbxx.htm"  title="招标信息">招标信息</a></li>
+        <li><a href="ztbd.htm"  title="专题报道">专题报道</a></li>
+        <li><a href="mtby.htm"  title="媒体百院">媒体百院</a></li>
+        <li><a href="ztlm.htm"  title="专题栏目">专题栏目</a></li>
+        <li><a href="kxyj.htm"  title="科学研究">科学研究</a></li>
+   </ul>
+ </div>
   <div class="right_main">
     <div class="menu-name pr">
       <h3>学校要闻</h3>
       <div class="position">当前位置: 
                         <a href="~/home/index" >首页</a>
                 >>
-                <a href="~/home/xxyw" >学校要闻</a>
+                <a href="~/home/xxyw">学校要闻</a>
 </div>
     </div>
     <div class="box-list">
