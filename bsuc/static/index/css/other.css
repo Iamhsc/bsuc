@@ -95,7 +95,7 @@
 .box-main .left_nav{
     width: 25%;
     float: left;
-	background: #f7f7f7 url(nav_bg.gif) bottom no-repeat;
+	background: #f7f7f7 url(../images/nav_bg.gif) bottom no-repeat;
 	
 }
 .box-main .left_nav .column_name{

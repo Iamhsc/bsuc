@@ -126,7 +126,7 @@ div.ps-toolbar div div.ps-toolbar-content
 	width: 44px;
 	height: 44px;
 	margin: 0 auto 0;
-	background-image: url(icons.png)/*tpa=http://www.bsuc.cn/system/resource/js/photoswipe/3.0.5.1/icons.png*/;
+	background-image: url(../images/icons.png)/*tpa=http://www.bsuc.cn/system/resource/js/photoswipe/3.0.5.1/icons.png*/;
 	background-repeat: no-repeat;
 }
 

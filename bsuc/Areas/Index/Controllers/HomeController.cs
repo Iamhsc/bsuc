@@ -19,6 +19,7 @@ namespace bsuc.Areas.Index.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
+            ViewBag.Title = "欢迎光临百色学院官网";
             //获取文章类别为1（学校要闻）的文章；
             ViewBag.news = db.bsuc_protal_post.Where(p => p.cates == 1).Take(10).OrderByDescending(p=>p.id).ToList();
             //获取文章类别为2（通知公告）的文章;
@@ -96,12 +97,10 @@ namespace bsuc.Areas.Index.Controllers
             return View();
         }
 
-        /// <summary>
-        /// 文章内容
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult wznr()
+        public ActionResult wznr(int id,string title)
         {
+            ViewBag.postList = db.bsuc_protal_post.Where(p => p.cates == id).ToList();
+            ViewBag.Title = title;
             ViewBag.catnameA = db.bsuc_protal_category.ToList();    
             return View();
         }
@@ -112,6 +111,7 @@ namespace bsuc.Areas.Index.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.catnameB = db.bsuc_protal_category.ToList();
             long count = content.post_hits;
             content.post_hits = count + 1;//浏览量加一
             db.SaveChanges();

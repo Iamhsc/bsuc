@@ -1,4 +1,8 @@
 ﻿@model bsuc.common.Model.Bsuc_Protal_Post
+@{
+    var natnameB = ViewBag.catnameB as IEnumerable<bsuc.common.Model.Bsuc_Protal_Category>;//科学研究
+    ViewBag.Title = "Details";
+}
 @Scripts.Render("~/static/index/js/dynclicks.js")
 <div class="bannerT">
     <div class="bannerT">
@@ -9,12 +13,7 @@
     <div class="page-centent text-left">
         <div class="menu-name pr">
             <div class="this-place txtleft">
-                <p>
-                    当前位置: 
-                        <a href="~/home/index">首页</a>
-                    >>
-                正文
-                </p>
+                <p>当前位置: <a href="~/home/index">首页</a>>>正文</p>
             </div>
         </div>
     </div>
@@ -22,36 +21,33 @@
         <div class="column_name">
             <h4>新闻中心<span class="songti pl10"></span></h4>
         </div>
-        <ul>
-            <li><a href="xxyw1.htm" title="学校要闻">学校要闻</a></li>
-            <li><a href="bmdt.htm" title="部门动态">部门动态</a></li>
-            <li><a href="zbxx.htm" title="招标信息">招标信息</a></li>
-            <li><a href="ztbd.htm" title="专题报道">专题报道</a></li>
-            <li><a href="mtby.htm" title="媒体百院">媒体百院</a></li>
-            <li><a href="ztlm.htm" title="专题栏目">专题栏目</a></li>
-            <li><a href="kxyj.htm" title="科学研究">科学研究</a></li>
-        </ul>
+        @foreach (var item in natnameB)
+        {
+            <ul>
+                <li><a href="/home/wznr?id=@Html.DisplayFor(n => item.id)&title=@Html.DisplayFor(n => item.catname)" title="@Html.DisplayFor(n => item.catname)">@Html.DisplayFor(n => item.catname)</a></li>
+            </ul>
+        }
     </div>
     <div class="right_main">
-     <form name="_newscontent_fromname">
-        <div class="box-centent">
-            <div class="title">
-                <h3>@Html.DisplayFor(model=>model.post_title)</h3>
-                <div class="news-msg text-center" style="text-align: center;">
-                    <span>来源：百色学院</span>
-                    <span>编辑：邓民胜</span>
-                    <span>作者：@ViewBag.author</span>
-                    <span>发布时间：@ViewBag.PushTime</span>
-                    <span>浏览量：@Html.DisplayFor(model=>model.post_hits)</span>
+        <form name="_newscontent_fromname">
+            <div class="box-centent">
+                <div class="title">
+                    <h3>@Html.DisplayFor(model => model.post_title)</h3>
+                    <div class="news-msg text-center" style="text-align: center;">
+                        <span>来源：百色学院</span>
+                        <span>编辑：邓民胜</span>
+                        <span>作者：@ViewBag.author</span>
+                        <span>发布时间：@ViewBag.PushTime</span>
+                        <span>浏览量：@Html.DisplayFor(model => model.post_hits)</span>
+                    </div>
+                </div>
+                <div style="border-bottom: 1px solid #e8e8e8; margin-top: 10px;"></div>
+                <div class="con-txt" id="vsb_content">
+                    <p class="indent2"></p>
+                    @Html.DisplayTextFor(model => model.post_content)
+                    <p></p>
                 </div>
             </div>
-            <div style="border-bottom: 1px solid #e8e8e8; margin-top: 10px;"></div>
-            <div class="con-txt" id="vsb_content">
-                <p class="indent2"></p>
-                @Html.DisplayTextFor(model=>model.post_content)
-                <p></p>
-            </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 </div>

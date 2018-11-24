@@ -6,7 +6,6 @@
     var ztbd = ViewBag.ztbd as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//专题报道
     var bymt = ViewBag.bymt as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//百院媒体
     var kxyj = ViewBag.kxyj as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//科学研究
-    ViewBag.Title = "Index";
 }
 @Styles.Render("~/static/index/css/index.css")
 @Scripts.Render("~/static/index/js/jquery.min.js")
@@ -107,7 +106,7 @@
                         {
                             var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
                             <li class="oh">
-                                <a class="fl fs14 c333" href="~/home/details?id=@Html.DisplayFor(n => item.id)"  target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="font-weight:bold;width:266.233px; text-align:left; color:#f20a25;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                                <a class="fl fs14 c333" href="/home/Details?id=@Html.DisplayFor(n => item.id)"  target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="font-weight:bold;width:266.233px; text-align:left; color:#f20a25;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
                                 <a class="fr fs14 c333" href="#">@pushTime</a>
                             </li>
                         }
@@ -211,7 +210,7 @@
                         var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
                     <ul>
                         <li class="oh">
-                            <a class="fl block title c333 fs14" href="~/home/details?id=@Html.DisplayFor(n =>item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                            <a class="fl block title c333 fs14" href="~/home/Details?id=@Html.DisplayFor(n =>item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
                             <a class="fr time c333 fs14" href="#">@pushTime</a>
                         </li>
                     </ul>

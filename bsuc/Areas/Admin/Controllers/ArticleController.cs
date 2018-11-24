@@ -14,9 +14,9 @@ namespace bsuc.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            string url=Request.RawUrl;
-            int id=db.bmenu.First(m => m.url== url).id;
-            ViewBag.id = id;
+            //string url=Request.RawUrl;
+            //int id=db.bmenu.First(m => m.url== url).id;
+            //ViewBag.id = id;
             ViewBag.Title = "文章列表";
             List<Bsuc_Protal_Post> post = db.bsuc_protal_post.OrderByDescending(p=>p.id).ToList();
             return View(post);

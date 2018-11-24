@@ -112,7 +112,7 @@
     z-index: 99;
 }
 .mod1 .fullSlide .wrap-mak{
-    background: url("bg_black_50.png");
+    background: url("../images/bg_black_50.png");
     height: 45px;
     width: 100%;
     position: absolute;

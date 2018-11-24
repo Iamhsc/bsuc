@@ -1,86 +1,54 @@
-﻿
+﻿@{
+    var postList = ViewBag.postList as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;
+    var catnameA = ViewBag.catnameA as IEnumerable<bsuc.common.Model.Bsuc_Protal_Category>;
+}
 @Scripts.Render("~/static/index/js/dynclicks.js")
 <div class="bannerT">
     <div class="bannerT">
-    	<img class="imgfull" src="~/static/index/images/bannerT.jpg"   alt="">
+        <img class="imgfull" src="~/static/index/images/bannerT.jpg" alt="">
     </div>
 </div>
 <div class="box-main container mlra">
-  <div class="page-centent text-left">
-    <div class="menu-name pr">
-      <div class="this-place txtleft">
-        <p>当前位置: 
-                        <a href="~/home/index" >首页</a>
-                >>
-                正文
-</p>
-      </div>
-    </div>
-  </div>
-  <div class="left_nav">
-    <div class="column_name">
-      <h4>新闻中心<span class="songti pl10"></span></h4>
-    </div>
-    <ul>
-            <li><a href="xxyw1.htm"  title="学校要闻">学校要闻</a></li>
-            <li><a href="bmdt.htm"  title="部门动态">部门动态</a></li>
-            <li><a href="zbxx.htm"  title="招标信息">招标信息</a></li>
-            <li><a href="ztbd.htm"  title="专题报道">专题报道</a></li>
-            <li><a href="mtby.htm"  title="媒体百院">媒体百院</a></li>
-            <li><a href="ztlm.htm"  title="专题栏目">专题栏目</a></li>
-            <li><a href="kxyj.htm"  title="科学研究">科学研究</a></li>
-        </ul>
-</div>
- <div class="right_main">
-<div class="box-centent">
-            <div class="title">
-                <h3>领导干部任前公示</h3>
-                <div class="news-msg text-center" style="text-align: center;">
-                    <span>来源：</span>
-                    <span>编辑：zzb</span>
-                    <span>作者：党委组织部</span>
-                    <span>发布时间：2018-11-02 11:09:19</span>
-                    <span>浏览量：<script>_showDynClicks("wbnews", 1445304395, 42557)</script></span>
-                </div>
-            </div>
-	    <div style="border-bottom:1px solid #e8e8e8;margin-top: 10px;"></div>
- <div class="con-txt" id="vsb_content">
 
- </div>
-    <div id="div_vote_id"></div>
-                <div class="fn oh">
-                <div class="fl colse">
-                    <span>
-                        <svg class="icon" aria-hidden="true">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-guanbi3"></use>
-                        </svg>
-                    </span>
-                    <a href="javascript:void();" onclick="window.opener=null;window.open('','_self');window.close();">关闭</a>
-                </div>
-                <div class="fr">
-                    <div class="top0 fr" id="top0">
-                            <span>
-                                <svg class="icon" aria-hidden="true">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-fanhuidingbu2"></use>
-                                </svg>
-                            </span>
-                        <a href="javascript:;">返回顶部</a>
-                    </div>
-                    <div class="Print fr pr24" id="Print">
-                            <span>
-                                <svg class="icon" aria-hidden="true">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-print"></use>
-                                </svg>
-                            </span>
-                        <a href="javascript:;">打印</a>
-                    </div>
-                </div>
-            </div>
-            <ul class="page pt20">
-            <li class="mb15 fs16 lh1">上一条：<a class="fs16 lh1" href="42583.htm" >百色学院招聘金属粉体材料研究所工作人员的启事</a></li>
-            <li class="fs16 lh1">下一条：<a class="fs16 lh1" href="37076.htm" >干部试用期满考核预告</a></li>
-            </ul>
-	<br /><br />
+    <div class="left_nav">
+        <div class="column_name">
+            <h4>新闻中心<span class="songti pl10"></span></h4>
         </div>
-        </form></div>
+        @foreach (var item in catnameA)
+        {
+            <ul>
+                <li style="border-bottom: 1px solid #ccc;"><a href="~/home/wznr?id=@Html.DisplayFor(n => item.id)&title=@Html.DisplayFor(n => item.catname)"  title="@Html.DisplayFor(n => item.catname)">@Html.DisplayFor(n => item.catname)</a></li>
+            </ul>
+        }
+    </div>
+
+    <div class="right_main">
+        <div class="menu-name pr">
+            <h3>@ViewBag.Title</h3>
+            <div class="position">
+                当前位置:<a href="~/home/index">首页</a>>><a>@ViewBag.Title</a>
+            </div>
+        </div>
+        <div class="box-list">
+            <script language="javascript" src="~/static/index/js/statpagedown.js"></script>
+            <ol class="pt20" id="news-title-img-icon">
+                @foreach (var item in postList)
+                {
+                    <li id="line_u10_0" class="oh txtleft">
+                    <a class="fl fs14 c333" href="/home/Details?id=@Html.DisplayFor( p => item.id)" target="_blank">@Html.DisplayFor(p=>item.post_title)</a>
+                    <a class="fr fs14 c333" href="#" target="_blank">2018年11月09日</a>
+                </li>
+                }
+            </ol>
+            <div class="pageId text-center" align="center">
+                <p>
+                    <link rel="stylesheet" content-type="text/css" href="sys.css">
+                    <div class="pb_sys_common pb_sys_normal pb_sys_style1" style="margin-top: 10px; text-align: center;"><span class="p_pages"><span class="p_first_d p_fun_d">首页</span><span class="p_prev_d p_fun_d">上页</span><span class="p_no_d">1</span><span class="p_no"><a href="#">2</a></span><span class="p_no"><a href="#">3</a></span><span class="p_no"><a href="#">4</a></span><span class="p_no"><a href="#">5</a></span><span class="p_dot">...</span><span class="p_no"><a href="#">476</a></span><span class="p_next p_fun"><a href="#">下页</a></span><span class="p_last p_fun"><a href="#">尾页</a></span></span></div>
+                </p>
+            </div>
+            <br>
+            <br>
+            <script>_showDynClickBatch(['dynclicks_u10_42596', 'dynclicks_u10_42590', 'dynclicks_u10_42581', 'dynclicks_u10_42577', 'dynclicks_u10_42568', 'dynclicks_u10_42565', 'dynclicks_u10_42564', 'dynclicks_u10_42561', 'dynclicks_u10_42587', 'dynclicks_u10_42591', 'dynclicks_u10_42558', 'dynclicks_u10_42569', 'dynclicks_u10_37088', 'dynclicks_u10_37085', 'dynclicks_u10_37070'], [42596, 42590, 42581, 42577, 42568, 42565, 42564, 42561, 42587, 42591, 42558, 42569, 37088, 37085, 37070], "wbnews", 1445304395)</script>
+        </div>
+    </div>
 </div>
