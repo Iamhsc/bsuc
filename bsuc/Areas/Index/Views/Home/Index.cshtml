@@ -13,6 +13,8 @@
 @Scripts.Render("~/static/index/js/jquery.SuperSlide.2.1.2.js")
 @Scripts.Render("~/static/index/js/dynclicks.js")
 
+
+
 <div class="banner">
     <div class="fullSlide pr">
         <div class="bd">
@@ -103,10 +105,10 @@
                     <ul>
                         @foreach (var item in news)
                         {
-                            //var pushtime = bsuc.common.Common.ConvertIntDateTime(item.published_time);
+                            var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
                             <li class="oh">
-                                <a class="fl fs14 c333" href="#"  target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="font-weight:bold;width:266.233px; text-align:left; color:#f20a25;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
-                                <a class="fr fs14 c333" href="#">09-25</a>
+                                <a class="fl fs14 c333" href="~/home/details?id=@Html.DisplayFor(n => item.id)"  target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="font-weight:bold;width:266.233px; text-align:left; color:#f20a25;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                                <a class="fr fs14 c333" href="#">@pushTime</a>
                             </li>
                         }
                     </ul>
@@ -125,12 +127,14 @@
                             <ul>
                                 @foreach (var item in newa)
                                 {
+                                     var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "yyyy-MM");
+                                     var pushTime1 = bsuc.common.Common.IntToDateTime(item.published_time, "dd");
                                 <li class="oh">
                                     <div class="fl time mr10">
-                                        <p class="y fs12">2018-11</p>
-                                        <p class="d fs20">08</p>
+                                        <p class="y fs12">@pushTime</p>
+                                        <p class="d fs20">@pushTime1</p>
                                     </div>
-                                    <a class="fr title fs14 black txtleft" href="42582.htm" target="_blank" title="@Html.DisplayFor(n => item.post_title)">@Html.DisplayFor(n => item.post_title)</a>
+                                    <a class="fr title fs14 black txtleft" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)">@Html.DisplayFor(n => item.post_title)</a>
                                 </li>  
                                 }        
                             </ul>
@@ -142,12 +146,14 @@
                             <ul>
                                 @foreach (var item in newb)
                                 {
+                                     var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "yyyy-MM");
+                                     var pushTime1 = bsuc.common.Common.IntToDateTime(item.published_time, "dd");
                                 <li class="oh">
                                     <div class="fl time mr10">
-                                        <p class="y fs12">2018-10</p>
-                                        <p class="d fs20">25</p>
+                                        <p class="y fs12">@pushTime</p>
+                                        <p class="d fs20">@pushTime1</p>
                                     </div>
-                                    <a class="fr title fs14 black txtleft" href="37049.htm" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                                    <a class="fr title fs14 black txtleft" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
                                 </li>
                                 }
                             </ul>
@@ -202,10 +208,11 @@
                 <div class="wrap pt25">
                     @foreach (var item in bmdt)
                     {
+                        var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
                     <ul>
                         <li class="oh">
-                            <a class="fl block title c333 fs14" href="42596.htm" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
-                            <a class="fr time c333 fs14" href="42596.htm">11-09</a>
+                            <a class="fl block title c333 fs14" href="~/home/details?id=@Html.DisplayFor(n =>item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                            <a class="fr time c333 fs14" href="#">@pushTime</a>
                         </li>
                     </ul>
                     }
@@ -214,10 +221,11 @@
                 <div class="wrap pt25">
                     @foreach (var item in ztbd)
                     {
+                        var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
                     <ul>
                         <li class="oh">
-                            <a class="fl block title c333 fs14" href="36882.htm" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
-                            <a class="fr time c333 fs14" href="36882.htm">09-30</a>
+                            <a class="fl block title c333 fs14" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                            <a class="fr time c333 fs14" href="36882.htm">@pushTime</a>
                         </li>
 
                     </ul>
@@ -235,10 +243,11 @@
                 <div class="wrap pt25">
                     @foreach(var item in bymt)
                     {
+                        var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
                     <ul>
                         <li class="oh">
-                            <a class="fl block title c333 fs14" href="#" target="_blank" title=" @Html.DisplayFor( n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
-                            <a class="fr time c333 fs14" href="#">11-08</a>
+                            <a class="fl block title c333 fs14" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title=" @Html.DisplayFor( n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                            <a class="fr time c333 fs14" href="#">@pushTime</a>
                         </li>
 
                     </ul>
@@ -248,10 +257,11 @@
                 <div class="wrap pt25">
                     @foreach(var item in kxyj)
                     {
+                        var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
                     <ul>
                         <li class="oh">
-                            <a class="fl block title c333 fs14" href="36788.htm" target="_blank" title=" @Html.DisplayFor( n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor( n => item.post_title)</a>
-                            <a class="fr time c333 fs14" href="36788.htm">09-19</a>
+                            <a class="fl block title c333 fs14" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title=" @Html.DisplayFor( n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor( n => item.post_title)</a>
+                            <a class="fr time c333 fs14" href="#">@pushTime</a>
                         </li>
                     </ul>
                     }
@@ -264,13 +274,32 @@
                 <span class="fl fs20 white bold">快速导航</span>
                 <a class="block oh" href="#"><span class="fr fs20 white bold">+</span></a>
             </div>
-            <ul class="bcwhite oh pt20 pb20">
-                <li class="pos1">
-                    <a class="icon" target="_blank" href="#"></a>
-                    <a class="title block fs14 c333 mlra" href="#" target="_blank">百院易班</a>
-                </li>
-
-            </ul>
+<ul class="bcwhite oh pt20 pb20">
+    <li class="pos1">
+    <a class="icon" target="_blank" href="http://www.yiban.cn/school/index/id/5000120"></a>
+    <a class="title block fs14 c333 mlra" href="http://www.yiban.cn/school/index/id/5000120" target="_blank">百院易班</a>
+    </li>
+    <li class="pos2">
+    <a class="icon" href="http://jwgl.bsuc.edu.cn/jwweb/" target="_blank"></a>
+    <a class="title block fs14 c333 mlra" href="http://jwgl.bsuc.edu.cn/jwweb/" target="_blank">教务系统</a>
+    </li>
+    <li class="pos3">
+    <a class="icon" href="http://zs.bsuc.edu.cn/" target="_blank"></a>
+    <a class="title block fs14 c333 mlra" target="_blank" href="http://zs.bsuc.edu.cn/">招生网</a>
+    </li>
+    <li class="pos4">
+    <a class="icon" href="http://bsuc.cn/" target="_blank"></a>
+    <a class="title block fs14 c333 mlra" href="http://bsuc.cn/" target="_blank">邮件系统</a>
+    </li>
+    <li class="pos5">
+    <a class="icon" href="http://bsuc.fanya.chaoxing.com/portal" target="_blank"></a>
+    <a class="title block fs14 c333 mlra" target="_blank" href="http://bsuc.fanya.chaoxing.com/portal" >精品课程</a>
+    </li>
+    <li class="pos6">
+    <a class="icon" target="_blank" href="http://tsg.bsuc.edu.cn/"></a>
+    <a class="title block fs14 c333 mlra" href="http://tsg.bsuc.edu.cn/" target="_blank">图书馆</a>
+    </li>
+</ul>
         </div>
     </div>
     <div class="w1200 mlra oh">
@@ -287,7 +316,19 @@
                 <ul class="oh">
                     <li><a href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37045)" target="_blank">
                         <img src="~/static/index/images/l81.jpg" alt=""></a></li>
-                </ul>
+	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37002)" target="_blank">
+                        <img src="~/static/index/images/xhw.png"  alt=""></a></li>
+	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36500)" target="_blank">
+                        <img src="~/static/index/images/l5.jpg"  alt=""></a></li>
+	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36499)" target="_blank">
+                        <img src="~/static/index/images/l4.jpg"  alt=""></a></li>
+	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36498)" target="_blank">
+                        <img src="~/static/index/images/l3.jpg"  alt=""></a></li>
+	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36497)" target="_blank">
+                        <img src="~/static/index/images/l2.jpg"  alt=""></a></li>
+	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36496)" target="_blank">
+                        <img src="~/static/index/images/l1.jpg"  alt=""></a></li>
+                                </ul>
             </div>
         </div>
     </div>

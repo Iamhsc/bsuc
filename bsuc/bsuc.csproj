@@ -725,8 +725,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Article\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Article\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Article\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Article\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -735,15 +735,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Index\Views\Home\xxjj.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\Index\Views\Home\xxyw.cshtml" />
+    <Content Include="Areas\Index\Views\Home\wznr.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\Article\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\Article\Details.cshtml" />
+    <Content Include="Areas\Index\Views\Home\Details.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
