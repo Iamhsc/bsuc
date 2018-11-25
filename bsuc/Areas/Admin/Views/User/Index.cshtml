@@ -1,0 +1,65 @@
+﻿@{var users = ViewBag.user as IEnumerable<bsuc.common.Model.Bsuc_User>;}
+<div class="layui-form">
+    <table class="layui-table mt10" lay-even="" lay-skin="row">
+        <colgroup>
+            <col width="40">
+            <col>
+            <col>
+            <col>
+            <col >
+            <col >
+            <col >
+            <col >
+            <col >
+        </colgroup>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" lay-skin="primary" lay-filter="allChoose"></th>
+                <th>用户名</th>
+                <th>用户类型</th>
+                <th>昵称</th>
+                <th>性别</th>
+                <th>生日</th>
+                <th>最后登录时间</th>
+                <th>是否启用</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in users)
+            {
+                var t = bsuc.common.Common.IntToDateTime(item.last_login_time, "MM-dd HH:mm:ss");
+                <tr>
+                    <td>
+                        <input type="checkbox" class="layui-checkbox checkbox-ids" name="ids[]" lay-skin="primary"></td>
+                    <td>@Html.DisplayFor(menu => item.username)</td>
+                    <td>@Html.DisplayFor(menu => item.user_type)</td>
+                    <td>@Html.DisplayFor(menu => item.nickname)</td>
+                    <td>@Html.DisplayFor(menu => item.sex)</td>
+                    <td>@item.birthday.ToString("yyyy-MM-dd")</td>
+                    <td>@t</td>
+                    @{
+                var check = "";
+                if (item.status == 1)
+                {
+                    check = "checked";
+                }
+                    }
+                    <td>
+                        <input type="checkbox" name="status" @check
+                value="@Html.DisplayFor(s => item.status)" lay-skin="switch"
+                lay-filter="switchStatus" lay-text="正常|禁用" data-href="/admin/user/status?id=@Html.DisplayFor(s=>item.id)"></td>
+                    <td>
+                        <div class="layui-btn-group">
+                            <div class="layui-btn-group">
+                                <a href="/admin/article/edit?id=@Html.DisplayFor(itemmodel => item.id)" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">编辑</i></a>
+                                <a data-href="Delete?id=@Html.DisplayFor(itemmodel => item.id)" class="layui-btn layui-btn-primary layui-btn-sm j-tr-del"><i class="layui-icon">删除</i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -90,7 +90,7 @@ layui.define(['element', 'form', 'table'], function(exports) {
     $('.help-tips').click(function(){
         layer.tips($(this).attr('data-title'), this, {
             tips: [3, '#009688'],
-            time: 5000
+            time: 2000
         });
         return false;
     });
@@ -212,7 +212,8 @@ layui.define(['element', 'form', 'table'], function(exports) {
         if (this.checked) {
             status = 1;
         }
-        $.get(that.attr('data-href'), {val:status}, function(res) {
+        $.get(that.attr('data-href'), { val: status }, function (res) {
+            res = JSON.parse(res);
             layer.msg(res.msg);
             if (res.code == 0) {
                 that.trigger('click');
