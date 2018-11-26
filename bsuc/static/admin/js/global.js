@@ -273,7 +273,8 @@ layui.define(['element', 'form', 'table'], function(exports) {
                 layer.msg('请设置data-href参数');
                 return false;
             }
-            $.get(href, function(res) {
+            $.get(href, function (res) {
+                res = JSON.parse(res);
                 if (res.code == 0) {
                     layer.msg(res.msg);
                 } else {

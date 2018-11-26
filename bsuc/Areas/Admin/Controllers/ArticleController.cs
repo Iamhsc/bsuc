@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Mvc;
+using PagedList;
 
 namespace bsuc.Areas.Admin.Controllers
 {
@@ -12,14 +13,22 @@ namespace bsuc.Areas.Admin.Controllers
     {
         private BsucConnectext db = new BsucConnectext();
 
-        public ActionResult Index()
+        public ActionResult Index(string q,int? page)
         {
-            //string url=Request.RawUrl;
-            //int id=db.bmenu.First(m => m.url== url).id;
-            //ViewBag.id = id;
             ViewBag.Title = "文章列表";
-            List<Bsuc_Protal_Post> post = db.bsuc_protal_post.OrderByDescending(p=>p.id).ToList();
-            return View(post);
+            var posts = from s in db.bsuc_protal_post
+                        select s;
+                ViewBag.searchString = q;
+           // List<Bsuc_Protal_Post> post = db.bsuc_protal_post.OrderByDescending(p=>p.id).ToList();
+            if (!string.IsNullOrEmpty(q))
+            {
+                posts = posts.Where(s=>s.post_title.ToUpper().Contains(q.ToUpper())
+                    ||s.post_ketwords.ToUpper().Contains(q.ToUpper())||s.post_excerpt.ToUpper().Contains(q.ToUpper()));
+            }
+            posts = posts.OrderByDescending(s => s.id);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(posts.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Add()

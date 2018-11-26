@@ -44,34 +44,40 @@ namespace bsuc.Areas.Admin.Controllers
             string usr = Request.Form["username"];//用户名
             string pwd = Request.Form["password"];//密码
             JObject obj = new JObject();
+            obj["code"] = 0;
             var us = db.buser.Where(n => n.username == usr);
-            if (us.Count() > 0)
+            //判断用户是否存在
+            if (us.Count() <1)
             {
-                var user = us.First();
-                if (Sha1.comparePassword(pwd, user.salt, user.password))
-                {
-                    obj["code"] = 1;
-                    obj["msg"] = "登陆成功";
-                    obj["url"] = "/admin";
-                    Session["user_id"] = user.id;
-                    Session["user_name"] = user.username;
-                }
-                else
-                {
-
-                    obj["code"] = 0;
-                    obj["msg"] = "用户名或密码错误";
-                }
-            }
-            else
-            {
-                obj["code"] = 0;
                 obj["msg"] = "用户不存在";
+                return obj;
             }
+            //判断用户状态
+            Bsuc_User user = us.First();
+            if (user.status != 1)
+            {
+                obj["msg"] = "用户已被拉黑";
+                return obj;
+            }
+            //比较密码
+            if (Sha1.comparePassword(pwd, user.salt, user.password) == false)
+            {
+                obj["msg"] = "用户名或密码错误";
+                return obj;
+            }
+            user.last_login_ip = Request.UserHostAddress;
+            user.last_login_time = Common.GetTimeStamp();
+            db.SaveChanges();
+            obj["code"] = 1;
+            obj["msg"] = "登陆成功";
+            obj["url"] = "/admin";
+            Session["user_id"] = user.id;
+            Session["user_name"] = user.username;
             return obj;
         }
 
-        public ActionResult Logout() {
+        public ActionResult Logout()
+        {
             Session.Clear();
             return View("Login");
         }

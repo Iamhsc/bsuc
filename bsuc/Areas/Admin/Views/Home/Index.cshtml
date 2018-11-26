@@ -11,12 +11,12 @@
         </thead>
         <tbody>
             <tr>
-                <td>系统版本</td>
-                <td> v1.0</td>
+                <td>系统</td>
+                @*<td>@Request.ServerVariables["OS"].ToString()</td>*@
             </tr>
             <tr>
-                <td>服务器环境</td>
-                <td>.NET CLR @Environment.Version.ToString()</td>
+                <td>IIS版本</td>
+                <td>@Request.ServerVariables["SERVER_SOFTWARE"].ToString()</td>
             </tr>
             <tr>
                 <td>数据库</td>

@@ -6,11 +6,11 @@
             <col>
             <col>
             <col>
-            <col >
-            <col >
-            <col >
-            <col >
-            <col >
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
         </colgroup>
         <thead>
             <tr>
@@ -20,7 +20,7 @@
                 <th>用户类型</th>
                 <th>昵称</th>
                 <th>性别</th>
-                <th>生日</th>
+                <th>最后登陆ip</th>
                 <th>最后登录时间</th>
                 <th>是否启用</th>
                 <th>操作</th>
@@ -30,14 +30,16 @@
             @foreach (var item in users)
             {
                 var t = bsuc.common.Common.IntToDateTime(item.last_login_time, "MM-dd HH:mm:ss");
+                var sex = item.sex == 1 ? "男" : "女";
+                var utp = item.user_type == 1 ? "超级管理员" : item.user_type == 2 ? "管理员" : "普通用户";
                 <tr>
                     <td>
                         <input type="checkbox" class="layui-checkbox checkbox-ids" name="ids[]" lay-skin="primary"></td>
-                    <td>@Html.DisplayFor(menu => item.username)</td>
-                    <td>@Html.DisplayFor(menu => item.user_type)</td>
-                    <td>@Html.DisplayFor(menu => item.nickname)</td>
-                    <td>@Html.DisplayFor(menu => item.sex)</td>
-                    <td>@item.birthday.ToString("yyyy-MM-dd")</td>
+                    <td>@Html.DisplayFor(info => item.username)</td>
+                    <td>@utp</td>
+                    <td>@Html.DisplayFor(info => item.nickname)</td>
+                    <td>@sex</td>
+                    <td>@Html.DisplayFor(info => item.last_login_ip)</td> 
                     <td>@t</td>
                     @{
                 var check = "";
@@ -46,10 +48,20 @@
                     check = "checked";
                 }
                     }
-                    <td>
-                        <input type="checkbox" name="status" @check
+                    @if (item.id == 1)
+                    {
+                        <td>
+                            <input type="checkbox" name="status" @check
                 value="@Html.DisplayFor(s => item.status)" lay-skin="switch"
-                lay-filter="switchStatus" lay-text="正常|禁用" data-href="/admin/user/status?id=@Html.DisplayFor(s=>item.id)"></td>
+                lay-filter="switchStatus" disabled lay-text="正常|禁用" data-href="/admin/user/status?id=@Html.DisplayFor(s => item.id)"></td>
+                    }
+                    else
+                    {
+                        <td>
+                            <input type="checkbox" name="status" @check
+                value="@Html.DisplayFor(s => item.status)" lay-skin="switch"
+                lay-filter="switchStatus" lay-text="正常|禁用" data-href="/admin/user/status?id=@Html.DisplayFor(s => item.id)"></td>
+                    }
                     <td>
                         <div class="layui-btn-group">
                             <div class="layui-btn-group">
