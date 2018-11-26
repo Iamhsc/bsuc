@@ -420,7 +420,8 @@ layui.define(['element', 'form', 'table'], function(exports) {
                 }
 
                 layer.msg('数据提交中...',{time:500000});
-                $.post(href, query, function(res) {
+                $.post(href, query, function (res) {
+                    res = JSON.parse(res);
                     layer.msg(res.msg, {}, function(){
                         if (res.code != 0) {
                             location.reload();

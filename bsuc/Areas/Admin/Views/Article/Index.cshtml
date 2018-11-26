@@ -24,19 +24,18 @@
     </div>
 <form class="page-list-form">
     <div class="layui-btn-group fl">
-        <a href="{:url('addUser')}" class="layui-btn layui-btn-primary"><i class="aicon ai-tianjia"></i>添加新文章</a>
-        <a data-href="{:url('status?table=admin_user&val=1')}" class="layui-btn layui-btn-primary j-page-btns"><i class="aicon ai-qiyong"></i>启用</a>
-        <a data-href="{:url('status?table=admin_user&val=0')}" class="layui-btn layui-btn-primary j-page-btns"><i class="aicon ai-jinyong1"></i>禁用</a>
-        <a data-href="{:url('delUser')}" class="layui-btn layui-btn-primary j-page-btns confirm"><i class="aicon ai-jinyong"></i>删除</a>
+        <a href="/admin/article/add" class="layui-btn layui-btn-primary"><i class="aicon ai-tianjia"></i>添加新文章</a>
+        @*<a data-href="{:url('status?table=admin_user&val=1')}" class="layui-btn layui-btn-primary j-page-btns"><i class="aicon ai-qiyong"></i>启用</a>*@
+        @*<a data-href="{:url('status?table=admin_user&val=0')}" class="layui-btn layui-btn-primary j-page-btns"><i class="aicon ai-jinyong1"></i>禁用</a>*@
+        <a data-href="/admin/article/dels" class="layui-btn layui-btn-primary j-page-btns confirm"><i class="aicon ai-jinyong"></i>删除</a>
     </div>
-    </form>
 </div>
 <div class="layui-form">
     <table class="layui-table mt10" lay-even="" lay-skin="row">
         <colgroup>
-            <col width="50">
+            <col width="40">
             <col>
-            <col>
+            <col width="110">
             <col>
             <col>
             <col width="90">
@@ -57,16 +56,17 @@
         <tbody>
             @foreach (var item in Model)
             {
-                var usr=db.buser.First(u=>u.id==item.user_id).username;
-                var t=bsuc.common.Common.IntToDateTime(item.published_time);
                 <tr>
                     <td>
-                        <input type="checkbox" class="layui-checkbox checkbox-ids" name="ids[]" lay-skin="primary"></td>
+                        <input type="checkbox" class="layui-checkbox checkbox-ids" value="@item.id" name="ids" lay-skin="primary"></td>
                     <td>@Html.DisplayFor(menu => item.post_title)</td>
-                    <td>@Html.DisplayFor(menu => item.post_ketwords)</td>
+                    <td>
+                        <input type="checkbox" name="status" @(item.post_status == 1 ? "checked" : "")
+                value="@Html.DisplayFor(s => item.post_status)" lay-skin="switch"
+                lay-filter="switchStatus" lay-text="已发布|未发布" data-href="/admin/article/status?id=@Html.DisplayFor(s => item.id)"></td>
                     <td>@Html.DisplayFor(menu => item.post_hits)</td>
-                    <td>@usr</td>
-                    <td>@t</td>
+                    <td>@(db.buser.First(u=>u.id==item.user_id).username)</td>
+                    <td>@(bsuc.common.Common.IntToDateTime(item.published_time))</td>
                     <td>
                         <div class="layui-btn-group">
                             <div class="layui-btn-group">
@@ -82,3 +82,4 @@
     </table>
 @Html.PagedListPager( Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter }) )
 </div>
+</form>

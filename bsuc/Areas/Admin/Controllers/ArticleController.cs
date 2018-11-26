@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Web.Mvc;
 using PagedList;
+using System;
 
 namespace bsuc.Areas.Admin.Controllers
 {
@@ -16,7 +17,7 @@ namespace bsuc.Areas.Admin.Controllers
         public ActionResult Index(string q,int? page)
         {
             ViewBag.Title = "文章列表";
-            var posts = from s in db.bsuc_protal_post
+            var posts = from s in db.bsuc_protal_post.Where(p=>p.delete_time==0)
                         select s;
                 ViewBag.searchString = q;
            // List<Bsuc_Protal_Post> post = db.bsuc_protal_post.OrderByDescending(p=>p.id).ToList();
@@ -69,13 +70,27 @@ namespace bsuc.Areas.Admin.Controllers
         [ValidateInput(false)]
         public object EditPost(Bsuc_Protal_Post post)
         {
-            post.published_time = Common.GetTimeStamp();
+            post.update_time = Common.GetTimeStamp();
             db.Entry(post).State = EntityState.Modified;
             db.SaveChanges();
             JObject obj = new JObject();
             obj["code"] = 1;
             obj["msg"] = "文章修改成功";
             obj["url"] = "/admin/article";
+            return obj;
+        }
+
+        public object dels() {
+            var ids =  Request.Form["ids"].Split(',');
+            foreach (var item in ids)
+            {
+            Bsuc_Protal_Post post = db.bsuc_protal_post.Find(Convert.ToInt32(item));
+            post.delete_time= Common.GetTimeStamp();
+            }
+            db.SaveChanges();
+            JObject obj = new JObject();
+            obj["code"] = 1;
+            obj["msg"] = "删除成功";
             return obj;
         }
 
