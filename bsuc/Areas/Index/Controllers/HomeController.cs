@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace bsuc.Areas.Index.Controllers
 {
@@ -87,22 +88,26 @@ namespace bsuc.Areas.Index.Controllers
             return View();
         }
 
-        /// <summary>
-        /// 校园要闻
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult xxyw()
-        {
-            ViewBag.catnameA = db.bsuc_protal_category.ToList();         
-            return View();
-        }
 
-        public ActionResult wznr(int id,string title)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="title"></param>
+        /// <param name="q"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public ActionResult wznr(int id, string title,int? page)
         {
-            ViewBag.postList = db.bsuc_protal_post.Where(p => p.cates == id).ToList();
             ViewBag.Title = title;
-            ViewBag.catnameA = db.bsuc_protal_category.ToList();    
-            return View();
+            var posts = from s in db.bsuc_protal_post.Where(p => p.delete_time == 0&&p.post_status==1&&p.cates==id)
+                        select s;
+            ViewBag.catnameA = db.bsuc_protal_category.ToList();
+            ViewBag.id = id;
+            posts = posts.OrderByDescending(s => s.id);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(posts.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Details(int id) {
@@ -121,5 +126,7 @@ namespace bsuc.Areas.Index.Controllers
             ViewBag.catename = db.bsuc_protal_category.First(c => c.id == content.cates).catname;
             return View(content);
         }
+
+
     }
 }
