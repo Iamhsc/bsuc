@@ -744,7 +744,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Index\Views\Home\xxjj.cshtml" />
-    <Content Include="Areas\Index\Views\Home\xxyw.cshtml" />
     <Content Include="Areas\Index\Views\Home\wznr.cshtml" />
   </ItemGroup>
   <ItemGroup>
