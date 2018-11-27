@@ -14,17 +14,17 @@ namespace bsuc.Areas.Admin.Controllers
     {
         private BsucConnectext db = new BsucConnectext();
 
-        public ActionResult Index(string q,int? page)
+        public ActionResult Index(string q, int? page)
         {
             ViewBag.Title = "文章列表";
-            var posts = from s in db.bsuc_protal_post.Where(p=>p.delete_time==0)
+            var posts = from s in db.bsuc_protal_post.Where(p => p.delete_time == 0)
                         select s;
-                ViewBag.searchString = q;
-           // List<Bsuc_Protal_Post> post = db.bsuc_protal_post.OrderByDescending(p=>p.id).ToList();
+            ViewBag.searchString = q;
+            // List<Bsuc_Protal_Post> post = db.bsuc_protal_post.OrderByDescending(p=>p.id).ToList();
             if (!string.IsNullOrEmpty(q))
             {
-                posts = posts.Where(s=>s.post_title.ToUpper().Contains(q.ToUpper())
-                    ||s.post_ketwords.ToUpper().Contains(q.ToUpper())||s.post_excerpt.ToUpper().Contains(q.ToUpper()));
+                posts = posts.Where(s => s.post_title.ToUpper().Contains(q.ToUpper())
+                    || s.post_ketwords.ToUpper().Contains(q.ToUpper()) || s.post_excerpt.ToUpper().Contains(q.ToUpper()));
             }
             posts = posts.OrderByDescending(s => s.id);
             int pageSize = 10;
@@ -53,10 +53,10 @@ namespace bsuc.Areas.Admin.Controllers
             return obj;
         }
 
-        public ActionResult Edit(int id=0)
+        public ActionResult Edit(int id = 0)
         {
             Bsuc_Protal_Post post = db.bsuc_protal_post.Find(id);
-            if (post==null)
+            if (post == null)
             {
                 return HttpNotFound();
             }
@@ -72,20 +72,21 @@ namespace bsuc.Areas.Admin.Controllers
         {
             post.update_time = Common.GetTimeStamp();
             db.Entry(post).State = EntityState.Modified;
-            db.SaveChanges();
             JObject obj = new JObject();
+            db.SaveChanges();
             obj["code"] = 1;
             obj["msg"] = "文章修改成功";
             obj["url"] = "/admin/article";
             return obj;
         }
 
-        public object dels() {
-            var ids =  Request.Form["ids"].Split(',');
+        public object dels()
+        {
+            var ids = Request.Form["ids"].Split(',');
             foreach (var item in ids)
             {
-            Bsuc_Protal_Post post = db.bsuc_protal_post.Find(Convert.ToInt32(item));
-            post.delete_time= Common.GetTimeStamp();
+                Bsuc_Protal_Post post = db.bsuc_protal_post.Find(Convert.ToInt32(item));
+                post.delete_time = Common.GetTimeStamp();
             }
             db.SaveChanges();
             JObject obj = new JObject();
@@ -94,7 +95,21 @@ namespace bsuc.Areas.Admin.Controllers
             return obj;
         }
 
-       
+        public object stu(int val)
+        {
+            var ids = Request.Form["ids"].Split(',');
+            foreach (var item in ids)
+            {
+                Bsuc_Protal_Post post = db.bsuc_protal_post.Find(Convert.ToInt32(item));
+                post.post_status = Convert.ToByte(val);
+            }
+            db.SaveChanges();
+            JObject obj = new JObject();
+            obj["code"] = 1;
+            obj["msg"] = "成功";
+            return obj;
+        }
+
         public object Delete(int id)
         {
             Bsuc_Protal_Post post = db.bsuc_protal_post.Find(id);
@@ -117,8 +132,22 @@ namespace bsuc.Areas.Admin.Controllers
             ViewBag.Title = "文章详情";
             ViewBag.De = Common.IntToDateTime(post.published_time, "yyyy-MM-dd HH:mm:ss");
             ViewBag.author = db.buser.Find(post.user_id).nickname;
-            ViewBag.catename = db.bsuc_protal_category.First(c=>c.id==post.cates).catname;
+            ViewBag.catename = db.bsuc_protal_category.First(c => c.id == post.cates).catname;
             return View(post);
+        }
+
+        public object status(int id)
+        {
+            Bsuc_Protal_Post post = db.bsuc_protal_post.Find(id);
+            int sta = post.post_status;
+            sta = 1 - sta;
+            post.post_status = (byte)sta;
+            db.SaveChanges();
+
+            JObject obj = new JObject();
+            obj["code"] = 1;
+            obj["msg"] = "成功";
+            return obj;
         }
     }
 }
