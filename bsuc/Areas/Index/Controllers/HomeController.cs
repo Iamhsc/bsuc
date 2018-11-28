@@ -34,9 +34,10 @@ namespace bsuc.Areas.Index.Controllers
             ViewBag.bymt = db.bsuc_protal_post.Where(p => p.cates == 6 && p.post_status == 1 && p.delete_time == 0).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为7（科学研究）的文章
             ViewBag.kxyj = db.bsuc_protal_post.Where(p => p.cates == 7).Take(8).OrderByDescending(p => p.id).ToList();
-            ViewBag.sali = db.bsuc_protal_photo.Where(ph => ph.phototype == 1).Take(10).ToList();
-            ViewBag.sull = db.bsuc_protal_photo.Where(s => s.phototype == 2).Take(10).ToList();
+            ViewBag.sali = db.bsuc_protal_photo.Where(ph => ph.phototype == 1).Take(10).ToList();//幻灯片
+            ViewBag.sull = db.bsuc_protal_photo.Where(s => s.phototype == 2).Take(10).ToList();//首页底部滚动图
             ViewBag.kxyj = db.bsuc_protal_post.Where(p => p.cates == 7 && p.post_status == 1 && p.delete_time == 0).Take(8).OrderByDescending(p => p.id).ToList();
+            ViewBag.postsali = db.bsuc_protal_post.Where(p => p.cates == 9 && p.post_status == 1 && p.delete_time == 0).Take(8).OrderByDescending(p => p.id).ToList();
             return View();
         }
 

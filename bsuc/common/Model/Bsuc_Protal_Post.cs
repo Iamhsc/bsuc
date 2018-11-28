@@ -21,6 +21,10 @@ namespace bsuc.common.Model
         /// </summary>
         public int cates { get; set; }
         /// <summary>
+        /// 图片链接
+        /// </summary>
+        public string cober { get; set; }
+        /// <summary>
         /// 摘要
         /// </summary>
         public string post_excerpt { get; set; }

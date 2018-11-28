@@ -27,6 +27,14 @@
                 autocomplete="off" value="@Html.DisplayFor(model => postInfo.post_title)" placeholder="请输入新闻标题">
         </div>
     </div>
+        <div class="layui-form-item">
+        <label class="layui-form-label">封面</label>
+        <div class="layui-upload">
+            <button class="layui-btn layui-btn-normal" id="test8" type="button">添加图片</button>
+            <a id="uploadimg"></a>
+            <a id="imgpath"></a>
+        </div>
+    </div>
     <div class="layui-form-item">
         <label class="layui-form-label">文章类别</label>
         <div class="layui-input-inline">
@@ -84,15 +92,18 @@
             <input name="id" value="@Html.DisplayFor(model => postInfo.id)" type="hidden"/>
             <input name="post_hits" value="@Html.DisplayFor(model => postInfo.post_hits)" type="hidden"/>
             <input name="published_time" value="@Html.DisplayFor(model => postInfo.published_time)" type="hidden"/>
-            <button class="layui-btn" lay-submit lay-filter="editArticle">立即提交</button>
+              <button type="button" class="layui-btn" id="upload">立即提交</button>
+            <button id="sub" lay-submit lay-filter="editArticle" style="display: none;"></button>
             <button class="layui-btn layui-btn-primary" type="reset">重置</button>
         </div>
     </div>
 </form>
 <script>
-    layui.define('form', function (exports) {
-        var $ = layui.jquery, layer = layui.layer, form = layui.form;
+    layui.use(['form', 'upload'], function () {
+        var $ = layui.jquery, layer = layui.layer, form = layui.form
+        , upload = layui.upload;
         form.on('submit(editArticle)', function (data) {
+            delete data.field.fileData;
             var _form = $(this).parents('form');
             layer.msg('数据提交中...', { time: 500000 });
             $.ajax({
@@ -119,5 +130,26 @@
             });
             return false;
         });
+        upload.render({
+            elem: '#test8'
+          , url: '/admin/upload/upload'
+          , auto: false
+          , field: "fileData"
+          , bindAction: '#upload'
+          , choose: function (obj) {
+              //读取本地文件
+              obj.preview(function (index, file, result) {
+                  var img = '<img src="' + result + '" alt="' + file.name + '" style="width:65px;height:38px;margin:0 5px;" class="layui-upload-img">';
+                  $("#uploadimg").append(img);
+              });
+          }
+          , done: function (res) {
+              console.log(res);
+              $("#imgpath").append('<input name="cober" value=' + res.data.path + '>');
+              document.getElementById("sub").click();
+              return;
+          }
+        });
     });
+
 </script>

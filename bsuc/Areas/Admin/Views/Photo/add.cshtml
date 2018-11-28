@@ -43,7 +43,7 @@
         var demoListView = $('#demoList')
             , uploadListIns = upload.render({
                 elem: '#testList'
-            , url: '/admin/photo/upload'
+            , url: '/admin/upload/upload'
             , method: 'post'
             , accept: 'image'
             , multiple: true
@@ -80,9 +80,6 @@
                 layer.msg('图片上传中。。。', { time: 3000000 });
             }
             , done: function (res, index, upload) {
-                console.log('上传成功res', res);
-                console.log('上传成功index', index);
-                console.log('上传成功upload', upload);
                 console.log(res);
                 if (res.code == 1) { //上传成功
                     var a = demoListView.find('tr#upload-' + index).children().eq(0).html();

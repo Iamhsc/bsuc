@@ -18,12 +18,20 @@
         });
     });
 </script>
-<form class="layui-form layui-form-pane" action="AddPost" method="post">
+<form class="layui-form layui-form-pane" id="addposts" action="AddPost" method="post">
     <div class="layui-form-item">
         <label class="layui-form-label">文章标题</label>
         <div class="layui-input-inline">
             <input type="text" class="layui-input" name="post_title"
                 autocomplete="off" placeholder="请输入新闻标题">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">封面</label>
+        <div class="layui-upload">
+            <button class="layui-btn layui-btn-normal" id="test8" type="button">添加图片</button>
+            <a id="uploadimg"></a>
+            <a id="imgpath"></a>
         </div>
     </div>
     <div class="layui-form-item">
@@ -75,40 +83,64 @@
     <br />
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="addArticle" >立即提交</button>
+            <button type="button" class="layui-btn" id="upload">立即提交</button>
+            <button id="sub" lay-submit lay-filter="addArticle" style="display: none;"></button>
             <button class="layui-btn layui-btn-primary" type="reset">重置</button>
         </div>
     </div>
 </form>
-    <script>
-        layui.define('form', function (exports) {
-            var $ = layui.jquery, layer = layui.layer, form = layui.form;
-            form.on('submit(addArticle)', function (data) {
-                var _form = $(this).parents('form');
-                layer.msg('数据提交中...', { time: 500000 });
-                $.ajax({
-                    type: "POST",
-                    url: _form.attr('action'),
-                    dataType: 'json',
-                    data: _form.serialize(),
-                    success: function (res) {
-                        console.log(res);
-                        layer.msg(res.msg, {}, function () {
-                            if (res.code == 1) {
-                                if (typeof (res.url) != 'undefined' && res.url != null && res.url != '') {
-                                    location.href = res.url;
-                                } else {
-                                    location.reload();
-                                }
+<script>
+    layui.use(['form','upload'], function () {
+        var $ = layui.jquery, layer = layui.layer, form = layui.form
+        , upload = layui.upload;
+        form.on('submit(addArticle)', function (data) {
+            delete data.field.fileData;
+            var _form = $(this).parents('form');
+            layer.msg('数据提交中...', { time: 500000 });
+            $.ajax({
+                type: "POST",
+                url: _form.attr('action'),
+                dataType: 'json',
+                data: _form.serialize(),
+                success: function (res) {
+                    console.log(res);
+                    layer.msg(res.msg, {}, function () {
+                        if (res.code == 1) {
+                            if (typeof (res.url) != 'undefined' && res.url != null && res.url != '') {
+                                location.href = res.url;
                             } else {
                                 location.reload();
                             }
-                        });
-                    }, error: function (er) {
-                        console.log(er);
-                    }
-                });
-                return false;
+                        } else {
+                            location.reload();
+                        }
+                    });
+                }, error: function (er) {
+                    console.log(er);
+                }
             });
+            return false;
         });
-    </script>
+        upload.render({
+            elem: '#test8'
+          , url: '/admin/upload/upload'
+          , auto: false
+          , field: "fileData"
+          , bindAction: '#upload'
+          , choose: function (obj) {
+              //读取本地文件
+              obj.preview(function (index, file, result) {
+                  var img = '<img src="' + result + '" alt="' + file.name + '" style="width:65px;height:38px;margin:0 5px;" class="layui-upload-img">';
+                  $("#uploadimg").append(img);
+              });
+          }
+          , done: function (res) {
+              console.log(res);
+              $("#imgpath").append('<input name="cober" value=' + res.data.path + '>');
+              document.getElementById("sub").click();
+              return;
+          }
+        });
+    });
+
+</script>

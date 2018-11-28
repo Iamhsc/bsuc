@@ -30,6 +30,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <PrecompileBeforePublish>true</PrecompileBeforePublish>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -139,6 +141,7 @@
     <Compile Include="Areas\Admin\Controllers\PhotoController.cs" />
     <Compile Include="Areas\Admin\Controllers\PublicController.cs" />
     <Compile Include="Areas\Admin\Controllers\SysController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UploadController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Index\Controllers\HomeController.cs" />
     <Compile Include="Areas\Index\IndexAreaRegistration.cs" />

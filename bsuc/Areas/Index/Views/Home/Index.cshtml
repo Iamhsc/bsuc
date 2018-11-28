@@ -6,6 +6,7 @@
     var ztbd = ViewBag.ztbd as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//专题报道
     var bymt = ViewBag.bymt as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//百院媒体
     var kxyj = ViewBag.kxyj as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//科学研究
+    var postsali = ViewBag.postsali as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//科学研究
 
     var sali = ViewBag.sali as IEnumerable<bsuc.common.Model.Bsuc_Protal_Photo>;
     var sull = ViewBag.sull as IEnumerable<bsuc.common.Model.Bsuc_Protal_Photo>; 
@@ -21,16 +22,14 @@
     <div class="fullSlide pr">
         <div class="bd">
             <ul>
+                @foreach (var item in sali)
+                {
                 <li class="pr">
                     <a href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37077)" target="_blank">
-                        <img class="imgfull" src="~/static/index/images/69zngqdt2.jpg" alt=""></a>
+                        <img class="imgfull" src="@Html.DisplayFor(p=>item.photourl)" alt=""></a>
                     <a class="title" href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37077)" target="_blank"></a>
                 </li>
-                <li class="pr">
-                    <a href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37078)" target="_blank">
-                        <img class="imgfull" src="~/static/index/images/69zngqdt1.jpg" alt=""></a>
-                    <a class="title" href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37078)" target="_blank"></a>
-                </li>
+                }
             </ul>
         </div>
         <div class="hd">
@@ -73,12 +72,12 @@
                     <div class="fullSlide pr">
                         <div class="bd">
                             <ul>
-                                @foreach (var item in sali)
+                                @foreach (var item in postsali)
                                 {
                                 <li class="pr">
-                                    <a href="#" target="_blank" title="">
-                                        <img height="300" src="@Html.DisplayFor(so=>item.photourl)" alt=""></a>
-                                    <a class="title" href="#" target="_blank" title="">...</a>
+                                    <a href="~/home/Details?id=@Html.DisplayFor( so => item.id)" target="_blank" title="">
+                                        <img height="300" src="@Html.DisplayFor(so=>item.cober)" alt=""></a>
+                                    <a class="title" href="~/home/Details?id=@Html.DisplayFor( so => item.id)" target="_blank" title="">@Html.DisplayFor(so=>item.post_title)</a>
                                 </li>
                                 }
                             </ul>
