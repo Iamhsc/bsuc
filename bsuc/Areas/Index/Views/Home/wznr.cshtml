@@ -3,6 +3,7 @@
 @model PagedList.IPagedList<Bsuc_Protal_Post>
 @{
     var catnameA = ViewBag.catnameA as IEnumerable<Bsuc_Protal_Category>;
+    ViewBag.Title = "文章列表";
 }
 @Scripts.Render("~/static/index/js/dynclicks.js")
 <div class="bannerT">

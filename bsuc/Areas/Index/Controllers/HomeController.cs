@@ -46,7 +46,7 @@ namespace bsuc.Areas.Index.Controllers
         public ActionResult xxgk()
         {
             ViewBag.Title = "欢迎光临百色学院官网";
-            ViewBag.Title = "学校概括";
+       
             return View();
         }
 
@@ -56,9 +56,7 @@ namespace bsuc.Areas.Index.Controllers
         /// </summary>
         /// <returns></returns>
         public ActionResult zzjg()
-        {
-            ViewBag.Title = "欢迎光临百色学院官网";
-            ViewBag.Title = "组织结构";
+        {  
             return View();
         }
 
@@ -69,7 +67,7 @@ namespace bsuc.Areas.Index.Controllers
         public ActionResult kxyj()
         {
             ViewBag.Title = "欢迎光临百色学院官网";
-            ViewBag.Title = "科学研究";
+
             return View();
         }
 
@@ -79,8 +77,7 @@ namespace bsuc.Areas.Index.Controllers
         /// <returns></returns>
         public ActionResult xyfg()
         {
-            ViewBag.Title = "欢迎光临百色学院官网";
-            ViewBag.Title = "校园风光";
+  
             return View();
         }
 
@@ -91,8 +88,6 @@ namespace bsuc.Areas.Index.Controllers
         /// <returns></returns>
         public ActionResult xxjj()
         {
-            ViewBag.Title = "欢迎光临百色学院官网";
-            ViewBag.Title = "学校简介";
             return View();
         }
 
@@ -107,7 +102,7 @@ namespace bsuc.Areas.Index.Controllers
         /// <returns></returns>
         public ActionResult wznr(int id, string title,int? page)
         {
-            ViewBag.Title = "文章列表";
+     
             ViewBag.Title = title;
             var posts = from s in db.bsuc_protal_post.Where(p => p.delete_time == 0&&p.post_status==1&&p.cates==id)
                         select s;
@@ -125,7 +120,7 @@ namespace bsuc.Areas.Index.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         public ActionResult Details(int id) {
-            ViewBag.Title = "文章内容";
+
             Bsuc_Protal_Post content = db.bsuc_protal_post.Find(id);
             if (content == null)
             {
