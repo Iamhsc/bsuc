@@ -12,7 +12,7 @@
         <tbody>
             <tr>
                 <td>系统</td>
-                @*<td>@Request.ServerVariables["OS"].ToString()</td>*@
+                <td>@bsuc.common.Common.GetOSVersion()</td>
             </tr>
             <tr>
                 <td>IIS版本</td>
@@ -21,10 +21,6 @@
             <tr>
                 <td>数据库</td>
                 <td>SQL server</td>
-            </tr>
-            <tr>
-                <td>ThinkPHP版本</td>
-                <td>@Request.ServerVariables["SERVER_SOFTWARE"];</td>
             </tr>
         </tbody>
     </table>
@@ -46,13 +42,13 @@
                 <td>百色学院后台管理</td>
             </tr>
              <tr>
-                <td>产品名称</td>
-                <td>Server.MachineName</td>
+                <td>产品版本</td>
+                <td>v1.0</td>
             </tr
             
             <tr>
                 <td>联系我们</td>
-                <td><a href="#" target="_blank" rel="noreferrer"></a></td>
+                <td><a href="#" target="_blank" rel="noreferrer">1038036246@qq.com</a></td>
             </tr>
         </tbody>
     </table>
