@@ -3,6 +3,7 @@
 @model PagedList.IPagedList<Bsuc_Protal_Post>
 @{
     var catnameA = ViewBag.catnameA as IEnumerable<Bsuc_Protal_Category>;
+    ViewBag.Title = "文章列表";
 }
 @Scripts.Render("~/static/index/js/dynclicks.js")
 <div class="bannerT">
@@ -19,7 +20,7 @@
         @foreach (var item in catnameA)
         {
             <ul>
-                <li style="border-bottom: 1px solid #ccc;"><a href="~/home/wznr?id=@Html.DisplayFor(n => item.id)&title=@Html.DisplayFor(n => item.catname)"  title="@Html.DisplayFor(n => item.catname)">@Html.DisplayFor(n => item.catname)</a></li>
+                <li style="border-bottom: 1px solid #ccc;"><a href="/home/wznr?id=@Html.DisplayFor(n => item.id)&title=@Html.DisplayFor(n => item.catname)"  title="@Html.DisplayFor(n => item.catname)">@Html.DisplayFor(n => item.catname)</a></li>
             </ul>
         }
     </div>
@@ -36,9 +37,10 @@
             <ol class="pt20" id="news-title-img-icon">
                 @foreach (var item in Model)
                 {
+                    var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
                     <li id="line_u10_0" class="oh txtleft">
                         <a class="fl fs14 c333" href="/home/Details?id=@Html.DisplayFor(p => item.id)" target="_blank">@Html.DisplayFor(p => item.post_title)</a>
-                        <a class="fr fs14 c333" href="#" target="_blank">2018年11月09日</a>
+                        <a class="fr fs14 c333" href="#" target="_blank">@pushTime</a>
                     </li>
                 }
             </ol>

@@ -12,8 +12,7 @@ namespace bsuc.Areas.Index.Controllers
     public class HomeController : Controller
     {
         private BsucConnectext db = new BsucConnectext();
-        ///一级目录
-        
+
         /// <summary>
         /// 官网首页
         /// </summary>
@@ -22,21 +21,22 @@ namespace bsuc.Areas.Index.Controllers
         {
             ViewBag.Title = "欢迎光临百色学院官网";
             //获取文章类别为1（学校要闻）的文章；
-            ViewBag.news = db.bsuc_protal_post.Where(p => p.cates == 1).Take(10).OrderByDescending(p=>p.id).ToList();
+            ViewBag.news = db.bsuc_protal_post.Where(p => p.cates == 1 && p.post_status==1&&p.delete_time==0).Take(10).OrderByDescending(p=>p.id).ToList();
             //获取文章类别为2（通知公告）的文章;
-            ViewBag.newa = db.bsuc_protal_post.Where(p => p.cates == 2).Take(8).OrderByDescending(p => p.id).ToList();
+            ViewBag.newa = db.bsuc_protal_post.Where(p => p.cates == 2 && p.post_status == 1 && p.delete_time == 0).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为3（招标信息）的文章;
-            ViewBag.newb = db.bsuc_protal_post.Where(p => p.cates == 3).Take(8).OrderByDescending(p => p.id).ToList();
+            ViewBag.newb = db.bsuc_protal_post.Where(p => p.cates == 3 && p.post_status == 1 && p.delete_time == 0).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为4（部门动态）的文章
-            ViewBag.bmdt = db.bsuc_protal_post.Where(p => p.cates == 4).Take(8).OrderByDescending(p => p.id).ToList();
+            ViewBag.bmdt = db.bsuc_protal_post.Where(p => p.cates == 4 && p.post_status == 1 && p.delete_time == 0).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为5（部门动态）的文章
-            ViewBag.ztbd = db.bsuc_protal_post.Where(p => p.cates == 5).Take(8).OrderByDescending(p => p.id).ToList();
+            ViewBag.ztbd = db.bsuc_protal_post.Where(p => p.cates == 5 && p.post_status == 1 && p.delete_time == 0).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为6（百院媒体）的文章
-            ViewBag.bymt = db.bsuc_protal_post.Where(p => p.cates == 6).Take(8).OrderByDescending(p => p.id).ToList();
+            ViewBag.bymt = db.bsuc_protal_post.Where(p => p.cates == 6 && p.post_status == 1 && p.delete_time == 0).Take(8).OrderByDescending(p => p.id).ToList();
             //获取文章类别为7（科学研究）的文章
             ViewBag.kxyj = db.bsuc_protal_post.Where(p => p.cates == 7).Take(8).OrderByDescending(p => p.id).ToList();
             ViewBag.sali = db.bsuc_protal_photo.Where(ph => ph.phototype == 1).Take(10).ToList();
             ViewBag.sull = db.bsuc_protal_photo.Where(s => s.phototype == 2).Take(10).ToList();
+            ViewBag.kxyj = db.bsuc_protal_post.Where(p => p.cates == 7 && p.post_status == 1 && p.delete_time == 0).Take(8).OrderByDescending(p => p.id).ToList();
             return View();
         }
 
@@ -48,6 +48,8 @@ namespace bsuc.Areas.Index.Controllers
         /// <returns></returns>
         public ActionResult xxgk()
         {
+            ViewBag.Title = "欢迎光临百色学院官网";
+       
             return View();
         }
 
@@ -57,7 +59,7 @@ namespace bsuc.Areas.Index.Controllers
         /// </summary>
         /// <returns></returns>
         public ActionResult zzjg()
-        {
+        {  
             return View();
         }
 
@@ -67,6 +69,8 @@ namespace bsuc.Areas.Index.Controllers
         /// <returns></returns>
         public ActionResult kxyj()
         {
+            ViewBag.Title = "欢迎光临百色学院官网";
+
             return View();
         }
 
@@ -76,10 +80,10 @@ namespace bsuc.Areas.Index.Controllers
         /// <returns></returns>
         public ActionResult xyfg()
         {
+  
             return View();
         }
 
-        ///二级目录
 
         /// <summary>
         /// 学校简介
@@ -101,6 +105,7 @@ namespace bsuc.Areas.Index.Controllers
         /// <returns></returns>
         public ActionResult wznr(int id, string title,int? page)
         {
+     
             ViewBag.Title = title;
             var posts = from s in db.bsuc_protal_post.Where(p => p.delete_time == 0&&p.post_status==1&&p.cates==id)
                         select s;
@@ -112,7 +117,13 @@ namespace bsuc.Areas.Index.Controllers
             return View(posts.ToPagedList(pageNumber, pageSize));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Details(int id) {
+
             Bsuc_Protal_Post content = db.bsuc_protal_post.Find(id);
             if (content == null)
             {
