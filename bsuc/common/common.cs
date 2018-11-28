@@ -39,15 +39,7 @@ namespace bsuc.common
             //UserAgent   
             var userAgent = HttpContext.Current.Request.ServerVariables["HTTP_USER_AGENT"];
 
-            var osVersion = "未知";
-            if (userAgent.Contains("NT 10.0"))
-            {
-                osVersion = "Windows 10";
-            }
-            if (userAgent.Contains("NT 8.0"))
-            {
-                osVersion = "Windows 8";
-            }
+            var osVersion = userAgent;
             if (userAgent.Contains("NT 6.1"))
             {
                 osVersion = "Windows 7";
