@@ -1,4 +1,5 @@
-﻿@model bsuc.common.Model.Bsuc_Protal_Post
+﻿
+@model bsuc.common.Model.Bsuc_Protal_Post
 @{
     var natnameB = ViewBag.catnameB as IEnumerable<bsuc.common.Model.Bsuc_Protal_Category>;//科学研究
     ViewBag.Title = "Details";
@@ -47,7 +48,14 @@
                     @Html.DisplayTextFor(model => model.post_content)
                     <p></p>
                 </div>
-            </div>
+         
+@*                    <ul class="page pt20">
+                    <li class="mb15 fs16 lh1">上一条：<a class="fs16 lh1" href="/home/Details?id=@Html.DisplayFor(p => item.id)"</a></li>
+                    <li class="fs16 lh1">下一条：<a class="fs16 lh1" href="42699.htm">【80周年校庆】音乐学院舞蹈学专业教学成果展演汇报演出精彩上演</a></li>
+                    </ul>*@
+                
+	<br /><br />
+            </div>2
         </form>
     </div>
 </div>
