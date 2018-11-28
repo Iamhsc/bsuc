@@ -6,6 +6,9 @@
     var ztbd = ViewBag.ztbd as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//专题报道
     var bymt = ViewBag.bymt as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//百院媒体
     var kxyj = ViewBag.kxyj as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//科学研究
+
+    var sali = ViewBag.sali as IEnumerable<bsuc.common.Model.Bsuc_Protal_Photo>;
+    var sull = ViewBag.sull as IEnumerable<bsuc.common.Model.Bsuc_Protal_Photo>; 
 }
 @Styles.Render("~/static/index/css/index.css")
 @Scripts.Render("~/static/index/js/jquery.min.js")
@@ -70,11 +73,14 @@
                     <div class="fullSlide pr">
                         <div class="bd">
                             <ul>
+                                @foreach (var item in sali)
+                                {
                                 <li class="pr">
                                     <a href="#" target="_blank" title="">
-                                        <img height="300" src="~/static/index/images/1BC2A66B67C7290B989D45785A6_682D5277_1D1F3.jpg" alt=""></a>
-                                    <a class="title" href="#" target="_blank" title="我校开展2018年光荣退役返校大学生欢迎仪式">我校开展2018年光荣退役返校大学生欢迎仪…</a>
+                                        <img height="300" src="@Html.DisplayFor(so=>item.photourl)" alt=""></a>
+                                    <a class="title" href="#" target="_blank" title="">...</a>
                                 </li>
+                                }
                             </ul>
                         </div>
                         <div class="hd">
@@ -313,20 +319,11 @@
             </div>
             <div class="bd oh pr">
                 <ul class="oh">
+                    @foreach (var item in sull)
+                    {
                     <li><a href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37045)" target="_blank">
-                        <img src="~/static/index/images/l81.jpg" alt=""></a></li>
-	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37002)" target="_blank">
-                        <img src="~/static/index/images/xhw.png"  alt=""></a></li>
-	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36500)" target="_blank">
-                        <img src="~/static/index/images/l5.jpg"  alt=""></a></li>
-	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36499)" target="_blank">
-                        <img src="~/static/index/images/l4.jpg"  alt=""></a></li>
-	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36498)" target="_blank">
-                        <img src="~/static/index/images/l3.jpg"  alt=""></a></li>
-	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36497)" target="_blank">
-                        <img src="~/static/index/images/l2.jpg"  alt=""></a></li>
-	                <li><a href="#"  title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 36496)" target="_blank">
-                        <img src="~/static/index/images/l1.jpg"  alt=""></a></li>
+                        <img src="@Html.DisplayFor(s=>item.photourl)" alt=""></a></li>
+                    }
                                 </ul>
             </div>
         </div>

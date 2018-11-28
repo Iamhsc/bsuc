@@ -672,7 +672,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Index\Models\" />
-    <Folder Include="Public\upload\" />
+    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -700,12 +700,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\Public\Register.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\Public\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Index\Views\Shared\_Layout.cshtml" />
@@ -755,9 +749,6 @@
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\Public\Add.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -765,6 +756,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Photo\add.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Public\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Public\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Public\Register.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

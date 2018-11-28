@@ -20,10 +20,10 @@ namespace bsuc.Areas.Admin.Controllers
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             base.OnActionExecuted(filterContext);
-            //if (Session["user_id"] == null)
-            //{
-            //    filterContext.Result = Redirect("/admin/public/login");
-            //}
+            if (Session["user_id"] == null)
+            {
+                filterContext.Result = Redirect("/admin/public/login");
+            }
         }
 
         public BaseController()
