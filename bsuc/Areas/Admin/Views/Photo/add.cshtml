@@ -86,7 +86,7 @@
                     $.ajax({
                         type: "POST",
                         url: "/admin/photo/add",
-                        data: { 'phototype': $("#phototype").value, 'photoname': res.data.name, 'photourl': res.data.path },
+                        data: { 'phototype': document.getElementById("phototp").value, 'photoname': res.data.name, 'photourl': res.data.path },
                         dataType: "json",
                         success: function (result) {
                             if (result['code'] == 1) {

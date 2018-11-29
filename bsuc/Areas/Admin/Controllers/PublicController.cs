@@ -73,6 +73,7 @@ namespace bsuc.Areas.Admin.Controllers
             obj["url"] = "/admin";
             Session["user_id"] = user.id;
             Session["user_name"] = user.username;
+            Session["nick_name"] = user.nickname;
             return obj;
         }
 

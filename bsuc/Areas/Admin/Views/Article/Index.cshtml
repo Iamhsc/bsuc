@@ -56,7 +56,7 @@
                         <input type="checkbox" class="layui-checkbox checkbox-ids" value="@item.id" name="ids" lay-skin="primary"></td>
                     <td>@Html.DisplayFor(menu => item.post_title)</td>
                     <td>@Html.DisplayFor(menu => item.post_hits)</td>
-                    <td>@(db.buser.First(u => u.id == item.user_id).username)</td>
+                    <td>@(db.buser.First(u => u.id == item.user_id).nickname)</td>
                     <td>@(bsuc.common.Common.IntToDateTime(item.published_time,"yy/MM/dd"))</td>
                     <td>
                         <input type="checkbox" name="status" @(item.post_status == 1 ? "checked" : "")
