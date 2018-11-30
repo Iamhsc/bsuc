@@ -1,0 +1,84 @@
+﻿ <form class="layui-form layui-form-pane" action="Add" method="post">
+        <div class="layui-form-item">
+        <label class="layui-form-label">角色分组</label>
+        <div class="layui-input-inline">
+            <select name="user_type" class="field-role_id" type="select">
+                <option value="2">管理员</option>
+                <option value="3">普通用户</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input field-username" name="username" lay-verify="required" autocomplete="off" placeholder="请输入用户名">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">昵&nbsp;&nbsp;&nbsp;&nbsp;称</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input field-nick" name="nickname" lay-verify="required" autocomplete="off" placeholder="请输入昵称">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">登陆密码</label>
+        <div class="layui-input-inline">
+            <input type="password" class="layui-input" name="password" lay-verify="password" value="123456" autocomplete="off" placeholder="******">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系邮箱</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input field-email" name="email" autocomplete="off" placeholder="请输入邮箱地址">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系手机</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input field-mobile" name="mobile" lay-verify="required" autocomplete="off" placeholder="请输入手机号码">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">状&nbsp;&nbsp;&nbsp;&nbsp;态</label>
+        <div class="layui-input-inline">
+            <input type="radio" class="field-status" name="status" value="1" title="启用" checked>
+            <input type="radio" class="field-status" name="status" value="0" title="禁用">
+        </div>
+    </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-filter="formReg" lay-submit>立即提交</button>
+                <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+            </div>
+        </div>
+    </form>
+     <script type="text/javascript">
+         layui.define('form', function (exports) {
+             var $ = layui.jquery, layer = layui.layer, form = layui.form;
+             form.on('submit(formReg)', function (data) {
+                 var _form = $(this).parents('form');
+                 layer.msg('数据提交中...', { time: 500000 });
+                 $.ajax({
+                     type: "POST",
+                     url: _form.attr('action'),
+                     dataType: 'json',
+                     data: _form.serialize(),
+                     success: function (res) {
+                         console.log(res);
+                         layer.msg(res.msg, {}, function () {
+                             if (res.code == 1) {
+                                 if (typeof (res.url) != 'undefined' && res.url != null && res.url != '') {
+                                     location.href = res.url;
+                                 } else {
+                                     location.reload();
+                                 }
+                             } else {
+                                 location.reload();
+                             }
+                         });
+                     }
+                 });
+                 return false;
+             });
+         });
+    </script>

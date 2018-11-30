@@ -1,0 +1,58 @@
+﻿@using PagedList.Mvc;
+@using bsuc.common.Model;
+@model PagedList.IPagedList<Bsuc_Protal_Post>
+@{
+    var catnameA = ViewBag.catnameA as IEnumerable<Bsuc_Protal_Category>;
+    ViewBag.Title = "文章列表";
+}
+@Scripts.Render("~/static/index/js/dynclicks.js")
+<div class="bannerT">
+    <div class="bannerT">
+        <img class="imgfull" src="~/static/index/images/bannerT.jpg" alt="">
+    </div>
+</div>
+<div class="box-main container mlra">
+
+    <div class="left_nav">
+        <div class="column_name">
+            <h4>新闻中心<span class="songti pl10"></span></h4>
+        </div>
+        @foreach (var item in catnameA)
+        {
+            <ul>
+                <li style="border-bottom: 1px solid #ccc;"><a href="/home/wznr?id=@Html.DisplayFor(n => item.id)&title=@Html.DisplayFor(n => item.catname)"  title="@Html.DisplayFor(n => item.catname)">@Html.DisplayFor(n => item.catname)</a></li>
+            </ul>
+        }
+    </div>
+
+    <div class="right_main">
+        <div class="menu-name pr">
+            <h3>@ViewBag.Title</h3>
+            <div class="position">
+                当前位置:<a href="~/home/index">首页</a>>><a>@ViewBag.Title</a>
+            </div>
+        </div>
+        <div class="box-list">
+            <script language="javascript" src="~/static/index/js/statpagedown.js"></script>
+            <ol class="pt20" id="news-title-img-icon">
+                @foreach (var item in Model)
+                {
+                    var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
+                    <li id="line_u10_0" class="oh txtleft">
+                        <a class="fl fs14 c333" href="/home/Details?id=@Html.DisplayFor(p => item.id)" target="_blank">@Html.DisplayFor(p => item.post_title)</a>
+                        <a class="fr fs14 c333" href="#" target="_blank">@pushTime</a>
+                    </li>
+                }
+            </ol>
+            <div class="pageId text-center" align="center">
+                <p>
+                    @Styles.Render("~/Content/PagedList.css")
+                    @Html.PagedListPager(Model, page => Url.Action("wznr", new { page,id=ViewBag.id,title=ViewBag.title }))
+                </p>
+            </div>
+            <br>
+            <br>
+            <script>_showDynClickBatch(['dynclicks_u10_42596', 'dynclicks_u10_42590', 'dynclicks_u10_42581', 'dynclicks_u10_42577', 'dynclicks_u10_42568', 'dynclicks_u10_42565', 'dynclicks_u10_42564', 'dynclicks_u10_42561', 'dynclicks_u10_42587', 'dynclicks_u10_42591', 'dynclicks_u10_42558', 'dynclicks_u10_42569', 'dynclicks_u10_37088', 'dynclicks_u10_37085', 'dynclicks_u10_37070'], [42596, 42590, 42581, 42577, 42568, 42565, 42564, 42561, 42587, 42591, 42558, 42569, 37088, 37085, 37070], "wbnews", 1445304395)</script>
+        </div>
+    </div>
+</div>

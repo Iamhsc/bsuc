@@ -1,8 +1,11 @@
-﻿@{
-    var modulemenu = ViewBag.modulemenu as IEnumerable<bsuc.common.Model.Bsuc_Menu>;
+﻿@using bsuc.common.Model;
+@{
+    var modulemenu = ViewBag.modulemenu as IEnumerable<Bsuc_Menu>;
     var topmenu = ViewBag.topmenu;
-    bsuc.common.Model.BsucConnectext db = new bsuc.common.Model.BsucConnectext();
-    int styledisplay = 0;
+    BsucConnectext db = new BsucConnectext();
+    var u = Request.Url.AbsolutePath.ToLower();//当前url
+    int id = db.bmenu.First(m => m.url == u).parent_id;//当前节点父节点id
+    int parid = db.bmenu.First(m => m.id == id).parent_id;
 }
 <!DOCTYPE html>
 <html>
@@ -24,7 +27,7 @@
             <ul class="layui-nav fl nobg main-nav">
                 @foreach (var item in modulemenu)
                 {
-                    if (item.id == ViewBag.id)
+                    if (item.id == parid)
                     {                                                 
                     <li class="layui-nav-item layui-this"><a href="javascript:;">@Html.DisplayFor(modelItem => item.title)</a></li>
                     }
@@ -52,13 +55,16 @@
                 @foreach (var top in topmenu)
                 {
                     var dis = "none";
-                    if (styledisplay == 0)
+                    for (int i = 0;  i < top.ToArray().Length; i++)
                     {
-                        dis = "block";
+                        if (top[i].id == id)
+                        {
+                            dis = "block";
+                            break;
+                        }
                     }
-                    styledisplay++;
                     <ul class="layui-nav layui-nav-tree" style="display:@dis;">
-                        @foreach (bsuc.common.Model.Bsuc_Menu topitem in top)
+                        @foreach (Bsuc_Menu topitem in top)
                         {
                             var second = db.bmenu.Where(s => s.parent_id == topitem.id && s.nav == 1);
                             <li class="layui-nav-item ">

@@ -1,0 +1,46 @@
+body {
+	background-image: url(../images/bg-1.gif)/*tpa=http://www.bsuc.cn:8007/images/imageslogin/bg.gif*/;
+	background-repeat: repeat-x;
+	background-position: center top;
+	color:#444;
+	font-size:12px;
+	line-height: 150%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	padding: 0px;
+	margin-top: 200px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+td {color:#444;	font-size:12px;	line-height: 150%;}
+a{text-decoration: none;} /* 链接无下划线,有为underline */ 
+a:link {color: #4282D7;} /* 未访问的链接 */
+a:visited {color: #4282D7;} /* 已访问的链接 */
+a:hover{color: #f60;} /* 鼠标在链接上 */ 
+a:active {color: #f60;} /* 点击激活链接 */
+.input{	COLOR:#969696;	text-decoration: none;	line-height: 150%;	margin-right: 4px;	border:1px solid #ccc;	padding-top: 0px;	padding-right: 3px;	padding-bottom: 0px;	padding-left: 3px;	font-size:12px;}
+.input_1{	COLOR:#369;	text-decoration: none;	background:#FFFFFF;	padding:0px;	border: 1px solid #ddd;	margin: 0px;}
+
+.copyright {text-align:right;color: #aaaaaa;font-size: 12px;  }
+.copyright span{ margin-right:50px;}
+
+.select * {margin: 0;padding: 0;}
+.select {border:1px solid #cccccc;float: left;display: inline;}
+.select div {border:1px solid #f9f9f9;float: left;}
+/* 子选择器，在FF等非IE浏览器中识别 */
+.select>div {width:120px;height: 17px;overflow:hidden;}
+
+/* 通配选择符，只在IE浏览器中识别 */
+* html .select div select {display:block;float: left;margin: -2px;}
+.select div>select {display:block;width:124px;float:none;margin: -2px;padding: 0px;}
+.select:hover {border:1px solid #666666; }
+.select select>option {text-indent: 2px; }
+
+.Main{ }
+table {  }
+
+.input1{ width: 120px; height: 20px; padding-top:3px; border:1px solid #4EA0D1; text-indent:2px;}
+.button1 { background:url(login2.gif)/*tpa=http://www.bsuc.cn:8007/images/imageslogin/login2.gif*/; border:0; line-height:22px; cursor:pointer;height:21px; width:69px; }
+
+.inputCode{ width: 60px; height: 20px; padding-top:3px; border:1px solid #4EA0D1; text-indent:2px;}
+.imageCode{ width:100px;height:30px; margin-bottom:-10px;}

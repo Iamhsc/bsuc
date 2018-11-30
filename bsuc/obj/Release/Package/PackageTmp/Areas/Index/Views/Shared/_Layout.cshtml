@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    @Styles.Render("~/static/index/css/_sitegray_d.css")
+    @Styles.Render("~/static/index/css/index.vsb.css")
+    @Styles.Render("~/static/index/css/other.css")
+    @Styles.Render("~/static/index/css/animate.css")
+    @Styles.Render("~/static/index/css/iconfont.css")
+    @Styles.Render("~/static/index/css/default.css")
+    @Styles.Render("~/static/index/css/style.css")
+    @Styles.Render("~/static/index/css/common.css")
+    @Styles.Render("~/static/index/css/other.css")
+    @Scripts.Render("~/static/index/js/engine.js")
+    @Scripts.Render("~/static/index/js/util.js")
+    @Scripts.Render("~/static/index/js/NewsSearchDWR.js")
+    @Scripts.Render("~/static/index/js/vsb_news_search.js")
+    @Scripts.Render("~/static/index/js/vsb_news_search_entry.js")
+    @Scripts.Render("~/static/index/js/language.js")
+    @Scripts.Render("~/static/index/js/base64.js")
+    @Scripts.Render("~/static/index/js/formfunc.js")
+    @Scripts.Render("~/static/index/js/jquery.min.js")
+    @Scripts.Render("~/static/index/js/app.js")     
+ 
+</head>
+<body>
+    <div class="hedaer">
+        <div class="box-top">
+            <div class="container oh">
+                <div class="fl logo">
+                    <a href="~/home/index" title="官方网站">
+                        <img src="~/static/index/images/pc_logo.png" width="262" height="87" border="0" alt="官方网站" title="官方网站"></a>
+                    </div>
+                    <div class="fr link">
+                        <div class="box-top-link oh">
+                            <ul class="white">
+                                <li><a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36564)">门户</a></li>
+                                <li><a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36565)">信息公开</a></li>
+                                <li><a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36566)">书记校长信箱</a></li>
+                                <li><a href="#" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 37278)">旧版主页</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="pc-search">
+                                <form action="#" method="post" name="a190598a" onsubmit="return subsearchdataa190598a()" style="display: inline;">
+                                    <input type="hidden" name="Find" value="find">
+                                    <input type="hidden" name="entrymode" value="1">
+                                    <input type="hidden" id="INTEXT2" name="INTEXT2" value="">
+                                    <input type="hidden" name="news_search_code">
+                                    <input type="text" name="INTEXT" placeholder="Search" />
+                                    <button type="submit" name="FindButton"></button>
+                                </form>
+                                <script>
+                                    String.prototype.trim = function () {
+                                        var t = this.replace(/(^\s*)|(\s*$)/g, "");
+                                        return t.replace(/(^　*)|(　*$)/g, "");
+                                    }
+                                    function subsearchdataa190598a() {
+                                        if (document.a190598a.INTEXT.value.trim() == "") {
+                                            alert("请输入查询关键字！");
+                                            return false;
+                                        }
+                                        if (checkDataa190598a(document.a190598a)) {
+                                            return true;
+                                        }
+                                        return false;
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textimg fr oh">
+                        <img alt="text" src="~/static/index/images/con_txt_img.png">
+                    </div>
+                </div>
+            </div>
+            <div id="boxNav">
+                <div class="boxNav container p0">
+                    <ul class="navOne">
+                        <li class="active">
+                            <a href="~/home/index" title="首页">首页</a>
+                        </li>
+                        <li>
+                            <a href="~/home/xxgk" target="_blank" title="学校概况">学校概况</a>
+                            <ol class="navTwo container">
+                                <li class="navList">
+                                    <a href="~/home/xxgk" title="学校简介">学校简介</a>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="~/home/zzjg" target="_blank" title="组织机构">组织机构</a>
+                            <ol class="navTwo container">
+                                <li class="navList">
+                                    <a href="dqbm1.htm" title="党群部门">党群部门</a>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="http://www.gxeea.cn/" target="_blank" title="招生就业">招生就业</a>
+                            <ol class="navTwo container">
+                                <li class="navList">
+                                    <a href="http://www.gxeea.cn/" title="招生网">招生网</a>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="http://jwc.bsuc.edu.cn/" target="_blank" title="人才培养">人才培养</a>
+                            <ol class="navTwo container">
+                                <li class="navList">
+                                    <a href="rcpy.htm" title="教务处">教务处</a>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="~/home/wznr?id=7&title=科学研究" target="_blank" title="科学研究">科学研究</a>
+                            <ol class="navTwo container">
+                                <li class="navList">
+                                    <a href="#" title="科研处">科研处</a>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="~/home/index" target="_blank" title="师资队伍">师资队伍</a>
+                            <ol class="navTwo container">
+                                <li class="navList">
+                                    <a href="http://rsc.bsuc.edu.cn/" title="人事处">人事处</a>
+                                </li>
+                                <li class="navList">
+                                    <a href="http://jsfz.bsuc.edu.cn/" title="教师发展中心">教师发展中心</a>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="~/home/xyfg" target="_blank" title="校园文化">校园文化</a>
+                            <ol class="navTwo container">
+                                <li class="navList">
+                                    <a href="#" title="学生工作部（处）">学生工作部（处）</a>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--主体开始-->
+        <div>
+            <section>
+                @RenderBody()
+            </section>
+            @RenderSection("scripts", required: false)
+        </div>
+        <!--主体结束-->
+        <div class="footer">
+            <div class="w1200 mlra">
+                <div class="fl mr20">
+                    <a href="#">
+                        <img src="~/static/index/images/wj.png" alt=""></a>
+                    </div>
+                    <div class="fl txtleft cp">
+                        <p>
+                            版权所有 © 百色学院&nbsp;&nbsp;&nbsp; 中文域名：百色学院.公益&nbsp;&nbsp; 百色学院.中国<br />
+                            网站备案号：桂ICP备05003217号&nbsp;&nbsp;&nbsp; 桂公网安备 45100202000169号&nbsp;&nbsp;&nbsp;&nbsp; 前置审核：桂JS200701-130<br />
+                            学校地址：中国·百色·右江区中山二路21号&nbsp;&nbsp;&nbsp; 邮政编码：533000&nbsp;&nbsp; 联系电话：0776-2848088<span style="font-size: 14px; font-family: 微软雅黑,Microsoft YaHei"></span>
+                        </p>
+                    </div>
+                    <div class="fr">
+                        <div class="mod-link">
+                            <div class="drop-down fr ml15 pr">
+                                <span>校内链接</span>
+                                <ul class="none">
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36586)">OA系统</a></li>
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36587)">财务查询</a></li>
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36588)">工资查询</a></li>
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36589)">统一门户查询</a></li>
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36591)">资产管理</a></li>
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36597)">教学平台</a></li>
+                                </ul>
+                            </div>
+                            <div class="drop-down fr ml15 pr">
+                                <span>友情链接</span>
+                                <ul class="none">
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36592)">广西大学</a></li>
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36593)">广西民族大学</a></li>
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36594)">河池学院</a></li>
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36595)">钦州学院</a></li>
+                                    <li><a a href="#" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1445304395, 36596)">梧州学院</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="icon-links pt10">
+                            <ol class="txtright">
+                                <li class="pos1 nlb ml10 pr">
+                                    <a class="fs0" href="">微信</a>
+                                    <div class="pa r0 t0 none">
+                                        <img src="~/static/index/images/XXgzh.jpg" alt="">
+                                    </div>
+                                </li>
+                                <li class="pos2 nlb ml10 pr">
+                                    <a class="fs0" href="">招生</a>
+                                    <div class="pa r0 t0 none">
+                                        <img src="~/static/index/images/ZSgzh.jpg" alt="">
+                                    </div>
+                                </li>
+                                <li class="pos3 nlb ml10 pr">
+                                    <a class="fs0" href="">QQ</a>
+                                    <div class="pa r0 t0 none">
+                                        <img src="~/static/index/images/QQgzh.jpg" alt="">
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+        </html>

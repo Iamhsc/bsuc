@@ -1,0 +1,55 @@
+﻿<div class="fl" style="width:49%">
+    <table class="layui-table" lay-skin="line">
+        <colgroup>
+            <col width="160">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th colspan="2">系统信息</th>
+            </tr> 
+        </thead>
+        <tbody>
+            <tr>
+                <td>系统</td>
+                <td>@bsuc.common.Common.GetOSVersion()</td>
+            </tr>
+            <tr>
+                <td>IIS版本</td>
+                <td>@Request.ServerVariables["SERVER_SOFTWARE"].ToString()</td>
+            </tr>
+            <tr>
+                <td>数据库</td>
+                <td>SQL server</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="fr" style="width:49%">
+    <table class="layui-table" lay-skin="line">
+        <colgroup>
+            <col width="160">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th colspan="2">产品信息</th>
+            </tr> 
+        </thead>
+        <tbody>
+            <tr>
+                <td>产品名称</td>
+                <td>百色学院后台管理</td>
+            </tr>
+             <tr>
+                <td>产品版本</td>
+                <td>v1.0</td>
+            </tr
+            
+            <tr>
+                <td>联系我们</td>
+                <td><a href="#" target="_blank" rel="noreferrer">1038036246@qq.com</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

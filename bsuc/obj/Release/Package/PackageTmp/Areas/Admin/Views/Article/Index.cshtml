@@ -1,0 +1,80 @@
+﻿@model PagedList.IPagedList<bsuc.common.Model.Bsuc_Protal_Post>
+@using PagedList.Mvc;
+@using bsuc.common.Model;
+@{
+    BsucConnectext db = new BsucConnectext();
+}
+
+@Styles.Render("~/Content/PagedList.css")
+<div class="page-toolbar">
+    <div class="page-filter fr">
+        <form class="layui-form layui-form-pane" action="{:url()}" method="get">
+            <div class="layui-form-item">
+                <label class="layui-form-label">搜索</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="q" value="@ViewBag.searchString" lay-verify="required" placeholder="请输入关键词搜索" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </form>
+    </div>
+    <form class="page-list-form">
+        <div class="layui-btn-group fl">
+            <a href="/admin/article/add" class="layui-btn layui-btn-primary"><i class="aicon ai-tianjia"></i>添加新文章</a>
+            <a data-href="/admin/article/stu?val=1" class="layui-btn layui-btn-primary j-page-btns"><i class="aicon ai-qiyong"></i>发布</a>
+            <a data-href="/admin/article/stu?val=0" class="layui-btn layui-btn-primary j-page-btns"><i class="aicon ai-jinyong1"></i>取消发布</a>
+            <a data-href="/admin/article/dels" class="layui-btn layui-btn-primary j-page-btns confirm"><i class="aicon ai-jinyong"></i>删除</a>
+        </div>
+</div>
+<div class="layui-form">
+    <table class="layui-table mt10" lay-even="" lay-skin="row">
+        <colgroup>
+            <col width="40">
+            <col>
+            <col>
+            <col>
+            <col width="90">
+            <col width="110">
+            <col width="200">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" lay-skin="primary" lay-filter="allChoose"></th>
+                <th>文章标题</th>
+                <th>查看数</th>
+                <th>作者</th>
+                <th>添加时间</th>
+                <th>是否发布</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" class="layui-checkbox checkbox-ids" value="@item.id" name="ids" lay-skin="primary"></td>
+                    <td>@Html.DisplayFor(menu => item.post_title)</td>
+                    <td>@Html.DisplayFor(menu => item.post_hits)</td>
+                    <td>@(db.buser.First(u => u.id == item.user_id).nickname)</td>
+                    <td>@(bsuc.common.Common.IntToDateTime(item.published_time,"yy/MM/dd"))</td>
+                    <td>
+                        <input type="checkbox" name="status" @(item.post_status == 1 ? "checked" : "")
+                value="@Html.DisplayFor(s => item.post_status)" lay-skin="switch"
+                lay-filter="switchStatus" lay-text="已发布|未发布" data-href="/admin/article/status?id=@Html.DisplayFor(s => item.id)"></td>
+                    <td>
+                        <div class="layui-btn-group">
+                            <div class="layui-btn-group">
+                                <a href="/admin/article/details?id=@Html.DisplayFor(itemmodel => item.id)" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">详情</i></a>
+                                <a href="/admin/article/edit?id=@Html.DisplayFor(itemmodel => item.id)" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">编辑</i></a>
+                                <a data-href="/admin/article/Delete?id=@Html.DisplayFor(itemmodel => item.id)" class="layui-btn layui-btn-primary layui-btn-sm j-tr-del"><i class="layui-icon">删除</i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+</form>

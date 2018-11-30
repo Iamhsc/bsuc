@@ -1,0 +1,107 @@
+﻿@{
+    var modulemenu = ViewBag.modulemenu as IEnumerable<bsuc.common.Model.Bsuc_Menu>;
+    var topmenu = ViewBag.topmenu;
+    bsuc.common.Model.BsucConnectext db = new bsuc.common.Model.BsucConnectext();
+    int styledisplay = 0;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/static/layui/css/layui.css")
+    @Styles.Render("~/static/admin/css/theme.css")
+    @Styles.Render("~/static/admin/css/style.css")
+    @Scripts.Render("~/static/layui/layui.js")
+    @Scripts.Render("~/static/admin/js/global.js")
+</head>
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header" style="z-index: 999!important;">
+            <div class="fl header-logo">管理控制台</div>
+            <div class="fl header-fold"><a href="javascript:;" title="打开/关闭左侧导航" class="aicon ai-caidan" id="foldSwitch"></a></div>
+            <ul class="layui-nav fl nobg main-nav">
+                @foreach (var item in modulemenu)
+                {
+                    if (item.id == ViewBag.id)
+                    {                                                 
+                    <li class="layui-nav-item layui-this"><a href="javascript:;">@Html.DisplayFor(modelItem => item.title)</a></li>
+                    }
+                    else
+                    {                            
+                    <li class="layui-nav-item"><a href="javascript:;">@Html.DisplayFor(modelItem => item.title)</a></li>
+                    }
+                }
+            </ul>
+            <ul class="layui-nav fr nobg head-info">
+                <li class="layui-nav-item"><a href="/" target="_blank" class="aicon ai-ai-home" title="前台"></a></li>
+                <li class="layui-nav-item"><a href="#" class="j-ajax aicon ai-qingchu" refresh="yes" title="清缓存"></a></li>
+                <li class="layui-nav-item"><a href="javascript:void(0);" class="aicon ai-suo" id="lockScreen" title="锁屏"></a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:void(0);">@Session["nick_name"]&nbsp;&nbsp;</a>
+                    <dl class="layui-nav-child">
+                        <dd><a data-id="00" class="admin-nav-item top-nav-item" href="#">个人设置</a></dd>
+                        <dd><a href="/admin/public/logout">退出登陆</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <div class="layui-side layui-bg-black" id="switchNav">
+            <div class="layui-side-scroll">
+                @foreach (var top in topmenu)
+                {
+                    var dis = "none";
+                    if (styledisplay == 0)
+                    {
+                        dis = "block";
+                    }
+                    styledisplay++;
+                    <ul class="layui-nav layui-nav-tree" style="display:@dis;">
+                        @foreach (bsuc.common.Model.Bsuc_Menu topitem in top)
+                        {
+                            var second = db.bmenu.Where(s => s.parent_id == topitem.id && s.nav == 1);
+                            <li class="layui-nav-item ">
+                                <a href="javascript:;"><i class="aicon ai-huiyuanliebiao"></i>@Html.DisplayFor(t => topitem.title)<span class="layui-nav-more"></span></a>
+                                <dl class="layui-nav-child">
+                                    @foreach (var item in second)
+                                    {
+                                        <dd><a class="admin-nav-item" data-id="20" href="@Html.DisplayFor(se => item.url)"><i class="aicon ai-huiyuandengji"></i>
+                                            @Html.DisplayFor(se => item.title)
+                                        </a>
+                                        </dd>
+                                    }
+                                </dl>
+                            </li> }
+                    </ul>
+                }
+            </div>
+        </div>
+        <div class="layui-body" id="switchBody">
+            <div class="page-body">
+                <div class="layui-tab layui-tab-card">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">
+                            <a href="">@ViewBag.Title</a>
+                        </li>
+                        <div class="tool-btns">
+                            <a href="javascript:location.reload();" title="刷新当前页面" class="aicon ai-shuaxin2 font18"></a>
+                            <a href="javascript:;" class="aicon ai-quanping1 font18" id="fullscreen-btn" title="打开/关闭全屏"></a>
+                        </div>
+                    </ul>
+                    <div class="layui-tab-content page-tab-content">
+                        <section>
+                            @RenderBody()
+                        </section>
+                        @RenderSection("scripts", required: false)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-footer footer">
+            <span class="fl">Powered by <a>BSUC Back-stage Management</a> v1.0</span>
+            <span class="fr">© 2018 <a>bsuc.imhsc.cn</a> All Rights Reserved.</span>
+        </div>
+    </div>
+</body>
+</html>

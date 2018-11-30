@@ -37,7 +37,7 @@ namespace bsuc.Areas.Admin.Controllers
             JObject obj = new JObject();
             obj["code"] = 1;
             obj["msg"] = "添加成功";
-            obj["url"] = "/admin/category";
+            obj["url"] = "/admin/category/index";
             return obj;
         }
 
@@ -61,7 +61,7 @@ namespace bsuc.Areas.Admin.Controllers
             JObject obj = new JObject();
             obj["code"] = 1;
             obj["msg"] = "修改成功";
-            obj["url"] = "/admin/category";
+            obj["url"] = "/admin/category/index";
             return obj;
         }
 

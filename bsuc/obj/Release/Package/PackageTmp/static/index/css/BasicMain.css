@@ -1,0 +1,85 @@
+
+/*普通按钮样式 85px*//**/
+.submitll { background:url(butn.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/butn.gif*/; border:1px solid #7AADC8; line-height:22px; cursor:pointer;height:22px; width:85px; }
+.submitll:hover{background:url(butnhover.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/butnhover.gif*/; border:1px solid #BE950B;}/*按钮样式宽度85px*//**/
+
+/*普通按钮样式 65px*//**/
+.submit1 { background:url(butn.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/butn.gif*/; border:1px solid #7AADC8; line-height:22px; cursor:pointer; width:65px; height:22px;}
+.submit1:hover{background:url(butnhover.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/butnhover.gif*/; border:1px solid #BE950B;}/*按钮样式65px*//**/
+
+/*留言--表格中按钮 按钮样式 68px*//**/
+.submiti { background:url(buthov.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/buthov.gif*/; line-height:23px; cursor:pointer; width:68px; height:20px; }
+.submiti:hover{background:url(buthover.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/buthover.gif*/;}/*按钮样式68px*//**/
+
+/*表格中按钮 按钮样式 48px*//**/
+.submitii { background:url(buthovi.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/buthovi.gif*/; line-height:23px; cursor:pointer; width:48px; height:20px; }
+.submitii:hover{background:url(buthoveri.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/buthoveri.gif*/;}/*按钮样式48px*//**/
+
+/*小按钮样式*//**/
+.buton{ width:48px; line-height:19px; background:url(buton.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/buton.gif*/ no-repeat; text-align:center; color:#FFF; cursor:pointer;
+}/*按钮*//**/
+.butonn{ width:51px; height:18px; background:url(butonn.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/butonn.gif*/ no-repeat; text-align:center; line-height:20px; color:#FFF; font-weight:bold; cursor:pointer;}/*按钮2*//**/
+
+
+.submita { background:url(sub.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/sub.gif*/; border:1px solid #7AADC8; line-height:25px; cursor:pointer; width:85px; height:25px; }
+.submita:hover{background:url(subhover.gif)/*tpa=http://www.bsuc.cn:8007/imagesList/subhover.gif*/; border:1px solid #BE950B;}/*按钮样式*//**/
+
+
+/*文本框样式 17px*//**/
+.Text_Box17{padding-top:1px; height:14px; border:1px solid #4EA0D1; text-indent:2px;}/*文本框样式 17*//**/
+
+/*通用--文本框样式*//**/
+.Text_Box{padding-top:3px; height:17px; border:1px solid #4EA0D1; text-indent:2px;}/*文本框样式 padding-top:3px; 17*//**/
+/*通用---下拉框样式 *//**/
+.down_box{ border:1px solid #4EA0D1; height:22px;}/*下拉框*//**/
+* html .down_box, *+html .down_box {height:20px;}/*IE6,IE7高度设为20PX*/
+
+
+.line_box{ border:1px solid #4EA0D1; font-size:12px; padding-left:3px;}/*多行文本框*//**/
+
+
+.width96{width:96%;}
+.width97{ width:100%; _width:97%;}
+.width98{ width:99%; *width:98%;_width:98%; float:left;}
+.width100{width:100%;}
+
+
+.width150{width:150px;}
+.width130{width:130px;}
+.width120{width:120px;}
+.width100px{width:100px;}
+.width90px{width:90px;}
+.width80px{width:80px;}
+.width60px{width:60px;}
+.width50px{width:50px;}
+.width30px{width:30px;}
+.width20px{width:20px;}
+
+.width600{width:600px;}
+.width500{width:500px;}
+.width450{width:450px;}
+.width400{width:400px;}
+.width360{width:360px;}
+.width250{width:250px;}
+.width240{width:240px;}
+.width200{width:200px;}
+
+/*上边框*//**//**//**/
+.topborder{border-top:1px solid #CCC;}
+/*距离顶部下部 10px*//**/
+.MarginTopBottom10{margin-top:10px;margin-bottom:10px;}
+
+.MarginLeft50{margin-left:50px;}
+
+/*浮动居左*//**/
+.floatleft{ float:left;}
+/*浮动居左5*//**/
+.floatleft5{margin:5px; float:left;}
+/*浮动居右*//**/
+.floatright{ float:right;}
+/*浮动居右 边距5px*//**/
+.floatright5{margin:5px; float:right;}
+/*浮动居右 右填充10px*//**/
+.floatright10P{float:right; padding-right:10px;}
+
+

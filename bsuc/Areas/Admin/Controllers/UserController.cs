@@ -46,7 +46,7 @@ namespace bsuc.Areas.Admin.Controllers
             JObject obj = new JObject();
             obj["code"] = 1;
             obj["msg"] = "添加成功";
-            obj["url"] = "/admin/user";
+            obj["url"] = "/admin/user/index";
             return obj;
         }
 

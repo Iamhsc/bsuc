@@ -72,6 +72,7 @@ namespace bsuc.Areas.Admin.Controllers
             obj["msg"] = "登陆成功";
             obj["url"] = "/admin";
             Session["user_id"] = user.id;
+            Session["user_type"] = user.user_type;
             Session["user_name"] = user.username;
             Session["nick_name"] = user.nickname;
             return obj;

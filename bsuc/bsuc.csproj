@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
     <ExcludeApp_Data>true</ExcludeApp_Data>
     <PrecompileBeforePublish>true</PrecompileBeforePublish>
+    <PublishDatabases>true</PublishDatabases>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -150,6 +151,7 @@
     <Compile Include="common\Model\Bsuc_Protal_Post.cs" />
     <Compile Include="common\Model\BsucConnectext.cs" />
     <Compile Include="common\Model\Bsuc_Menu.cs" />
+    <Compile Include="common\Model\Bsuc_Role.cs" />
     <Compile Include="common\Model\Bsuc_User.cs" />
     <Compile Include="common\Common.cs" />
     <Compile Include="common\Model\LayoutView.cs" />
@@ -165,6 +167,122 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Global.asax" />
+    <Content Include="static\admin\css\install.css" />
+    <Content Include="static\admin\css\style.css" />
+    <Content Include="static\admin\css\theme.css" />
+    <Content Include="static\admin\iconfont\iconfont.svg" />
+    <Content Include="static\admin\image\app.png" />
+    <Content Include="static\admin\image\avatar.png" />
+    <Content Include="static\admin\image\if0.png" />
+    <Content Include="static\admin\image\if1.png" />
+    <Content Include="static\admin\image\theme.png" />
+    <Content Include="static\admin\image\tooltip.png" />
+    <Content Include="static\admin\js\footer.js" />
+    <Content Include="static\admin\js\global.js" />
+    <Content Include="static\admin\js\layui\css\layui.css" />
+    <Content Include="static\admin\js\layui\css\layui.mobile.css" />
+    <Content Include="static\admin\js\layui\css\modules\code.css" />
+    <Content Include="static\admin\js\layui\css\modules\laydate\default\laydate.css" />
+    <Content Include="static\admin\js\layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="static\admin\js\layui\css\modules\layer\default\icon.png" />
+    <Content Include="static\admin\js\layui\css\modules\layer\default\layer.css" />
+    <Content Include="static\admin\js\layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="static\admin\js\layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="static\admin\js\layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="static\admin\js\layui\font\iconfont.svg" />
+    <Content Include="static\admin\js\layui\images\face\0.gif" />
+    <Content Include="static\admin\js\layui\images\face\1.gif" />
+    <Content Include="static\admin\js\layui\images\face\10.gif" />
+    <Content Include="static\admin\js\layui\images\face\11.gif" />
+    <Content Include="static\admin\js\layui\images\face\12.gif" />
+    <Content Include="static\admin\js\layui\images\face\13.gif" />
+    <Content Include="static\admin\js\layui\images\face\14.gif" />
+    <Content Include="static\admin\js\layui\images\face\15.gif" />
+    <Content Include="static\admin\js\layui\images\face\16.gif" />
+    <Content Include="static\admin\js\layui\images\face\17.gif" />
+    <Content Include="static\admin\js\layui\images\face\18.gif" />
+    <Content Include="static\admin\js\layui\images\face\19.gif" />
+    <Content Include="static\admin\js\layui\images\face\2.gif" />
+    <Content Include="static\admin\js\layui\images\face\20.gif" />
+    <Content Include="static\admin\js\layui\images\face\21.gif" />
+    <Content Include="static\admin\js\layui\images\face\22.gif" />
+    <Content Include="static\admin\js\layui\images\face\23.gif" />
+    <Content Include="static\admin\js\layui\images\face\24.gif" />
+    <Content Include="static\admin\js\layui\images\face\25.gif" />
+    <Content Include="static\admin\js\layui\images\face\26.gif" />
+    <Content Include="static\admin\js\layui\images\face\27.gif" />
+    <Content Include="static\admin\js\layui\images\face\28.gif" />
+    <Content Include="static\admin\js\layui\images\face\29.gif" />
+    <Content Include="static\admin\js\layui\images\face\3.gif" />
+    <Content Include="static\admin\js\layui\images\face\30.gif" />
+    <Content Include="static\admin\js\layui\images\face\31.gif" />
+    <Content Include="static\admin\js\layui\images\face\32.gif" />
+    <Content Include="static\admin\js\layui\images\face\33.gif" />
+    <Content Include="static\admin\js\layui\images\face\34.gif" />
+    <Content Include="static\admin\js\layui\images\face\35.gif" />
+    <Content Include="static\admin\js\layui\images\face\36.gif" />
+    <Content Include="static\admin\js\layui\images\face\37.gif" />
+    <Content Include="static\admin\js\layui\images\face\38.gif" />
+    <Content Include="static\admin\js\layui\images\face\39.gif" />
+    <Content Include="static\admin\js\layui\images\face\4.gif" />
+    <Content Include="static\admin\js\layui\images\face\40.gif" />
+    <Content Include="static\admin\js\layui\images\face\41.gif" />
+    <Content Include="static\admin\js\layui\images\face\42.gif" />
+    <Content Include="static\admin\js\layui\images\face\43.gif" />
+    <Content Include="static\admin\js\layui\images\face\44.gif" />
+    <Content Include="static\admin\js\layui\images\face\45.gif" />
+    <Content Include="static\admin\js\layui\images\face\46.gif" />
+    <Content Include="static\admin\js\layui\images\face\47.gif" />
+    <Content Include="static\admin\js\layui\images\face\48.gif" />
+    <Content Include="static\admin\js\layui\images\face\49.gif" />
+    <Content Include="static\admin\js\layui\images\face\5.gif" />
+    <Content Include="static\admin\js\layui\images\face\50.gif" />
+    <Content Include="static\admin\js\layui\images\face\51.gif" />
+    <Content Include="static\admin\js\layui\images\face\52.gif" />
+    <Content Include="static\admin\js\layui\images\face\53.gif" />
+    <Content Include="static\admin\js\layui\images\face\54.gif" />
+    <Content Include="static\admin\js\layui\images\face\55.gif" />
+    <Content Include="static\admin\js\layui\images\face\56.gif" />
+    <Content Include="static\admin\js\layui\images\face\57.gif" />
+    <Content Include="static\admin\js\layui\images\face\58.gif" />
+    <Content Include="static\admin\js\layui\images\face\59.gif" />
+    <Content Include="static\admin\js\layui\images\face\6.gif" />
+    <Content Include="static\admin\js\layui\images\face\60.gif" />
+    <Content Include="static\admin\js\layui\images\face\61.gif" />
+    <Content Include="static\admin\js\layui\images\face\62.gif" />
+    <Content Include="static\admin\js\layui\images\face\63.gif" />
+    <Content Include="static\admin\js\layui\images\face\64.gif" />
+    <Content Include="static\admin\js\layui\images\face\65.gif" />
+    <Content Include="static\admin\js\layui\images\face\66.gif" />
+    <Content Include="static\admin\js\layui\images\face\67.gif" />
+    <Content Include="static\admin\js\layui\images\face\68.gif" />
+    <Content Include="static\admin\js\layui\images\face\69.gif" />
+    <Content Include="static\admin\js\layui\images\face\7.gif" />
+    <Content Include="static\admin\js\layui\images\face\70.gif" />
+    <Content Include="static\admin\js\layui\images\face\71.gif" />
+    <Content Include="static\admin\js\layui\images\face\8.gif" />
+    <Content Include="static\admin\js\layui\images\face\9.gif" />
+    <Content Include="static\admin\js\layui\layui.js" />
+    <Content Include="static\admin\js\layui\layui.txt" />
+    <Content Include="static\admin\js\layui\lay\modules\carousel.js" />
+    <Content Include="static\admin\js\layui\lay\modules\code.js" />
+    <Content Include="static\admin\js\layui\lay\modules\colorpicker.js" />
+    <Content Include="static\admin\js\layui\lay\modules\element.js" />
+    <Content Include="static\admin\js\layui\lay\modules\flow.js" />
+    <Content Include="static\admin\js\layui\lay\modules\form.js" />
+    <Content Include="static\admin\js\layui\lay\modules\jquery.js" />
+    <Content Include="static\admin\js\layui\lay\modules\laydate.js" />
+    <Content Include="static\admin\js\layui\lay\modules\layedit.js" />
+    <Content Include="static\admin\js\layui\lay\modules\layer.js" />
+    <Content Include="static\admin\js\layui\lay\modules\laypage.js" />
+    <Content Include="static\admin\js\layui\lay\modules\laytpl.js" />
+    <Content Include="static\admin\js\layui\lay\modules\mobile.js" />
+    <Content Include="static\admin\js\layui\lay\modules\rate.js" />
+    <Content Include="static\admin\js\layui\lay\modules\slider.js" />
+    <Content Include="static\admin\js\layui\lay\modules\table.js" />
+    <Content Include="static\admin\js\layui\lay\modules\tree.js" />
+    <Content Include="static\admin\js\layui\lay\modules\upload.js" />
+    <Content Include="static\admin\js\layui\lay\modules\util.js" />
     <Content Include="static\index\css\animate.css" />
     <Content Include="static\index\css\Basic.css" />
     <Content Include="static\index\css\BasicGlobal.css" />
@@ -194,122 +312,13 @@
     <Content Include="static\index\css\xxgk.vsb.css" />
     <Content Include="static\index\css\ztimglist.vsb.css" />
     <Content Include="static\index\css\_sitegray_d.css" />
-    <Content Include="static\index\images\005A8FC8E787C0725D70D36B93A_D4536899_2BDDB.jpg-e=.jpg" />
-    <Content Include="static\index\images\006B25FDC94572518CE60EDD023_1FAF62CA_1B29C.jpg" />
-    <Content Include="static\index\images\01.gif" />
-    <Content Include="static\index\images\0266450AE04C651C9BC5B0F3AAF_3723B9F0_1B9C4.jpg" />
-    <Content Include="static\index\images\02CD4DCD5E8097B1F3F9624DCA4_7DB4B3D3_4D9C6.jpg" />
-    <Content Include="static\index\images\02E14E210A8B74A8C51364D48EF_2DA3D292_2B9E9.jpg" />
-    <Content Include="static\index\images\04D9C6FB9A8F3FEF767ED72EC43_1115F5B5_15700.jpg" />
-    <Content Include="static\index\images\06C4C5CA938B9888359F765F162_A36FDB52_15A5A.jpg" />
-    <Content Include="static\index\images\073BC2E7BAD8F73D39E124A5126_7FC0E15D_173B9.jpg" />
-    <Content Include="static\index\images\099794933B2FCAD5535F7C159C1_8ED049F3_293D1.jpg-e=.jpg" />
-    <Content Include="static\index\images\0A66EBF91E65E004F19DD78B985_5B94D9EC_123E6.jpg-e=.jpg" />
-    <Content Include="static\index\images\0D6BDAEC4E90E87C82F22AB421E_EB8FBF50_16420.jpg" />
-    <Content Include="static\index\images\0EDADDA041F4D1543D1C7A3FF3E_D28D5F57_15E43.jpg" />
-    <Content Include="static\index\images\1-1.jpg" />
-    <Content Include="static\index\images\1.jpg" />
-    <Content Include="static\index\images\151387787A945B9058A800F69C6_BE37DB08_481B.jpg-e=.jpg" />
-    <Content Include="static\index\images\157C4C8F99C4BA7DA280A207431_19397489_117C9.jpg" />
-    <Content Include="static\index\images\158BE3AD734A646E549BF06CF87_656D79B6_176DA.jpg" />
-    <Content Include="static\index\images\183264818D91FC6B855D0ED31D3_46898094_157A7.jpg" />
-    <Content Include="static\index\images\18E45385461C1B6888F72858D8D_69D7D759_2CBB2.jpg" />
-    <Content Include="static\index\images\1974DE7243383FFC12DE4034220_C83D3F27_6F5AE.jpg" />
-    <Content Include="static\index\images\19A7DDC7CC30A053A2260B8E5FF_CA905A40_23B4E.jpg" />
     <Content Include="static\index\images\1BC2A66B67C7290B989D45785A6_682D5277_1D1F3.jpg" />
-    <Content Include="static\index\images\1D4755C7E6686DC7FBA6EE68E92_0D6B3923_1F652.jpg" />
-    <Content Include="static\index\images\2-1.jpg" />
-    <Content Include="static\index\images\2.jpg" />
-    <Content Include="static\index\images\201805231129121133.png" />
-    <Content Include="static\index\images\201805231138197296.png" />
-    <Content Include="static\index\images\201805231157312578.png" />
-    <Content Include="static\index\images\201805240823471997.png" />
-    <Content Include="static\index\images\201809101102413167.png" />
-    <Content Include="static\index\images\2018nyxdt1.jpg" />
-    <Content Include="static\index\images\24BA5C1B4481547641073BDCF87_FB5E0B11_84048.png" />
-    <Content Include="static\index\images\25464090208F02CBAE4090B27D7_ABC37353_20098.jpg" />
-    <Content Include="static\index\images\25878D05FD643974DD45BF55325_E87DAA73_19D7B.png" />
-    <Content Include="static\index\images\27C295D1D4D6FC039D46AA99717_C51616ED_3A5A.jpg-e=.jpg" />
-    <Content Include="static\index\images\27E76D77200646D60144DA94056_23E211DF_1A27D.jpg" />
-    <Content Include="static\index\images\2A96C1E29CEFACDFB9898905185_CA70806A_22777.jpg-e=.jpg" />
-    <Content Include="static\index\images\2AA2C95ECFED363116E8A661526_F77D30AE_20626.jpg" />
-    <Content Include="static\index\images\2AECED2873FF4A69AC5807E2424_B7F70E96_E18D0.png" />
-    <Content Include="static\index\images\2D4943001408689C7D87924471C_A63151F2_334CA.jpg" />
-    <Content Include="static\index\images\2E36CDC4198508DB1DE1387AEB9_38C7035F_13E0B.jpg" />
-    <Content Include="static\index\images\3-1.jpg" />
-    <Content Include="static\index\images\3.jpg" />
-    <Content Include="static\index\images\33A2269559A34523F47227979BC_C18BB759_D5EA.jpg" />
-    <Content Include="static\index\images\343DD4C9AC681EAE0D8ABDDBDC3_11E277DA_2BDD9.jpg" />
-    <Content Include="static\index\images\344D5604F51A5AED6BBB6377D7D_C02A2BF3_16DB6.jpg" />
-    <Content Include="static\index\images\3EC6D924FF0FB8527C6FF69518E_0ACB54DC_14F19.jpg" />
-    <Content Include="static\index\images\3F7480AABD55A22EFC800AED102_2EC270DC_15CFD.jpg" />
-    <Content Include="static\index\images\3F8BBD4D2746D0E86846B920203_8E7A2AE5_139A5.jpg" />
-    <Content Include="static\index\images\3FB25A4F9EDAFF7FCCFD52FFF70_6F0C3226_E18D0.png" />
-    <Content Include="static\index\images\3FEDED51CE0E7826F330F24F86E_4C63AA4D_17956.jpg" />
-    <Content Include="static\index\images\4-1.jpg" />
-    <Content Include="static\index\images\4.jpg" />
-    <Content Include="static\index\images\407D51C63FDEC62A2936D079E7E_65C94AB6_E136.jpg" />
-    <Content Include="static\index\images\4086F40BB80588E00E554AE4ECB_558E951C_14F16.jpg" />
-    <Content Include="static\index\images\40AF2E7426C2BBAE43A9DEE070A_E6B7B518_1061F.jpg" />
-    <Content Include="static\index\images\4218642FF8EDEDD880536736DEA_1E0AC448_1F5E2.jpg" />
-    <Content Include="static\index\images\44B4FADE84CB06AB7CB816B12E0_903AEB91_22F65.jpg" />
-    <Content Include="static\index\images\450B45CCF4044B4A0477B76B79A_8BE5385C_1B1E4.jpg" />
-    <Content Include="static\index\images\47533127F0527518D6CDFA4A002_4946FD15_2109D.jpg" />
-    <Content Include="static\index\images\4A8244DDCA122F2C7D5ABF624A8_3B0D8041_13593.jpg" />
-    <Content Include="static\index\images\4CBDA14C47EA74B42BC319AF482_06E880D5_24218.jpg" />
-    <Content Include="static\index\images\4D15897551A1A02505EF25D70C1_6474FAEE_2B52A.jpg" />
-    <Content Include="static\index\images\5.jpg" />
-    <Content Include="static\index\images\59E7ACA67C692D1EA9411EFE38D_029FE8CA_1F454.jpg" />
-    <Content Include="static\index\images\5A118F9464C7478972CDA0F82A5_9D4ACFBB_D6C2.jpg-e=.jpg" />
-    <Content Include="static\index\images\5C76EE4A03B910ED19459E60B4B_76F065CB_11C27.jpg" />
-    <Content Include="static\index\images\5E739A8245526D64B2D31CA2134_C036CC02_7C52D.png" />
-    <Content Include="static\index\images\64FDFAAD675D49620AFD091E1A3_BA1C80DC_170F2.jpg" />
-    <Content Include="static\index\images\67D10311BB0CD2B8AFC0B93B816_24DD9704_291AB.jpg" />
     <Content Include="static\index\images\69zngqdt1.jpg" />
     <Content Include="static\index\images\69zngqdt2.jpg" />
-    <Content Include="static\index\images\6CE2A58FE31332614A102ACA2AD_786511A4_1EBD9.jpg-e=.jpg" />
-    <Content Include="static\index\images\6D427B5D4935FD8EFC676797E2E_09E4D60C_177BF.jpg" />
-    <Content Include="static\index\images\6E4CC2B65EBA1E02B1F26D29FF1_CDB38DC0_1C171.jpg" />
-    <Content Include="static\index\images\72E276C47BB855B07DB87E16370_8B6E3159_22222.jpg-e=.jpg" />
-    <Content Include="static\index\images\739880554828B4F65C7B93F2404_8FACDBAD_35DD5.jpg" />
-    <Content Include="static\index\images\7433106D8C351ECB2B5CBEDD3FA_81F53BCD_1507E.jpg" />
-    <Content Include="static\index\images\77376276E345DC8EC7EDEA2CE47_D548F700_17C20.jpg" />
-    <Content Include="static\index\images\78701845D281F30E2A9A0519210_B6D8D332_1C9E4.jpg" />
-    <Content Include="static\index\images\79B5A88BCF8A507CB993F980B18_BBD5F585_200FF.jpg-e=.jpg" />
-    <Content Include="static\index\images\8127F9553EA7B54509E79E36DF2_57EE7A1F_1CC94.jpg" />
-    <Content Include="static\index\images\8315ACC9A0003AC2E7351D4A8C2_FB172B56_123F5.jpg" />
-    <Content Include="static\index\images\8324727E7DF825B6817130927EB_F29DB334_1368C.jpg" />
-    <Content Include="static\index\images\853091A0626E64F81A16DB5613C_8A67DB5E_17DEB.jpg-e=.jpg" />
-    <Content Include="static\index\images\856BD7FEDEE72BB0AE4132AF429_4BCAAD9A_2AF02.jpg-e=.jpg" />
-    <Content Include="static\index\images\8D14B5C542EAA65F7A1FCA1F77D_9A6B5133_2B5A9.jpg-e=.jpg" />
-    <Content Include="static\index\images\8E681B3F0F792D2B5DDA6FF2795_98A1EAA4_1FE57.jpg" />
-    <Content Include="static\index\images\8EAB4256A3800C1C44872DF168B_7E7E7269_1A18B.jpg" />
-    <Content Include="static\index\images\904D4E2D7FBDFCEC157F0DA52CB_539B44A3_17B00.jpg" />
-    <Content Include="static\index\images\905A6418EAEC5688ADF5FE1FA7A_4BCD0C4C_F697.jpg" />
-    <Content Include="static\index\images\91441E7A687B1B9AFCF03F4BB00_FA3E87DE_21D23.jpg" />
-    <Content Include="static\index\images\94F9F2FA3EF0D619B3543E73B51_73D9B068_E09AB.png" />
-    <Content Include="static\index\images\97C7EBB409FF135F45768DB9049_75844019_E09AB.png" />
-    <Content Include="static\index\images\986FF192515B503ADB9D6208EFE_3E691B9F_23BB5.jpg" />
-    <Content Include="static\index\images\9F296002CB7AEDA49F163DF72E3_80B9C0ED_28EF4.jpg" />
-    <Content Include="static\index\images\A128E8FA5FCA122E6ACC65AEDD4_FEF3A104_1DC07.jpg-e=.jpg" />
-    <Content Include="static\index\images\A144EF9EC840B51F92E7882ADCA_01AEB224_11F24.jpg" />
-    <Content Include="static\index\images\A1A570C86B77F3FEF0E98B8E7E4_EF6E44BE_4C56.jpg-e=.jpg" />
-    <Content Include="static\index\images\A1C681A95EC08636F4858E48B87_FFD4BCCE_23259.jpg" />
-    <Content Include="static\index\images\A27C88968D9AD6087DF9795A07B_96337633_29D03.jpg-e=.jpg" />
-    <Content Include="static\index\images\A76BBC6F99F8DA2D5228F163E9D_7497516E_2EFA0.jpg-e=.jpg" />
     <Content Include="static\index\images\A8AFA52878F87A653FA81B9E40F_7EFC4FBA_5E56.jpg" />
-    <Content Include="static\index\images\ABC15CC5C2D55AD9907BB5C5A6E_D4526171_2BDE0.jpg-e=.jpg" />
     <Content Include="static\index\images\AD3CD66A243E76F8DDAF4BC7426_86917708_4AB2.jpg" />
-    <Content Include="static\index\images\ADE3FAAB0DA963BC6B45A81DBF6_CD6673C3_DEB6D.png" />
-    <Content Include="static\index\images\B0794E205CCE55503CB74B358A8_503BD360_246E0.jpg" />
-    <Content Include="static\index\images\B209CEC1129E1B97EE398F68BAE_AD6E242F_C91A.jpg" />
-    <Content Include="static\index\images\B64A7D8A49803874CFDBFFA068D_502EAE2A_25928.png" />
-    <Content Include="static\index\images\B727606F5F3B9D532014766D044_C6E4480B_2347E.jpg" />
-    <Content Include="static\index\images\B8FA33E75EEB70EA1DE871EE4E0_9BDAD311_61FC4.jpg" />
     <Content Include="static\index\images\bannerController.png" />
     <Content Include="static\index\images\bannerT.jpg" />
-    <Content Include="static\index\images\BDEFD30F5F77162D5132881CA85_DE3602FA_22AFD.jpg" />
-    <Content Include="static\index\images\beian.gif" />
     <Content Include="static\index\images\bg-1.gif" />
     <Content Include="static\index\images\bg.gif" />
     <Content Include="static\index\images\bg_black_50.png" />
@@ -319,8 +328,6 @@
     <Content Include="static\index\images\bottom_left_bg.gif" />
     <Content Include="static\index\images\bottom_re_bg.gif" />
     <Content Include="static\index\images\bottom_right_bg.gif" />
-    <Content Include="static\index\images\bsznxqdt1.jpg" />
-    <Content Include="static\index\images\bsznxqdt2.jpg" />
     <Content Include="static\index\images\btn_top_link.png" />
     <Content Include="static\index\images\buthov.gif" />
     <Content Include="static\index\images\buthover.gif" />
@@ -330,64 +337,15 @@
     <Content Include="static\index\images\butnhover.gif" />
     <Content Include="static\index\images\buton.gif" />
     <Content Include="static\index\images\butonn.gif" />
-    <Content Include="static\index\images\C206E96F2276D05A91111651979_AC7B6827_2A784.jpg-e=.JPG" />
-    <Content Include="static\index\images\C64F662E4A60CB06A86121FC876_9048C0AB_2B395.jpg-e=.jpg" />
-    <Content Include="static\index\images\C6EAEC29F258C658E1666E5951B_ED4692D4_11E27.jpg" />
-    <Content Include="static\index\images\C7F2FBD9B845E54302F919F186A_178FD90B_1C608.jpg" />
-    <Content Include="static\index\images\C81917E6E87DA4E4176A8521A3C_26715EC6_9408A.png" />
-    <Content Include="static\index\images\CAF97950E6C94AC06D5ADBFF9C0_F6937D5B_2D125.jpg-e=.JPG" />
-    <Content Include="static\index\images\CB50AED666E523E3B8639052FE2_025AA034_22406.jpg" />
-    <Content Include="static\index\images\CBB2C0968E7CC54E6594C649782_571A96D2_56CF.jpg-e=.jpg" />
-    <Content Include="static\index\images\CBD92F947941E81C899F77B42B5_518C981C_FEB7.jpg" />
     <Content Include="static\index\images\CBFAE64A2C7A68438D64CA1F87D_F1B14967_334C.jpg" />
-    <Content Include="static\index\images\CC14DA6FA38CFB790E3867BD254_F2BE7366_E776.jpg" />
-    <Content Include="static\index\images\CCDBE95BB70E0231DAF514C1B6B_B886BAC5_17156.jpg" />
-    <Content Include="static\index\images\CF06E55D611C59068D4320E37E6_84BA6220_DEB6D.png" />
-    <Content Include="static\index\images\CF7CA9E1C851CE24C4FBFC55EAB_77261643_19BBE.jpg-e=.jpg" />
     <Content Include="static\index\images\con_txt_img.png" />
-    <Content Include="static\index\images\createimage.jsp.jpg" />
-    <Content Include="static\index\images\D2D1203CBABC177CCEB73B31BDA_C8A165E7_2D1E8.jpg-e=.jpg" />
-    <Content Include="static\index\images\DD580C1885012F4C800A2EF4F21_9D6387A4_AD266.png" />
-    <Content Include="static\index\images\DECE373CD22D24E0FE1FA3012F7_5ADD64E7_1BB47.jpg" />
     <Content Include="static\index\images\defaultImg.jpg" />
-    <Content Include="static\index\images\DF8989D08B0A693F2301F7FFF38_6FD1193A_21EC8.jpg" />
-    <Content Include="static\index\images\DFCB901F47751327AE5B2A16270_93A98611_131DA.jpg" />
-    <Content Include="static\index\images\E00E5992FF3A8C4CAA7208E3DC5_8FDF3A42_2304A.jpg-e=.jpg" />
-    <Content Include="static\index\images\E016F54537E49DCF5B4106EBA5B_2B7A4837_29EC1.jpg-e=.jpg" />
-    <Content Include="static\index\images\E034E18564021478A3152243C22_D997F55C_1C2E9.jpg" />
-    <Content Include="static\index\images\E25B14D77FB365549331C19D397_7B922266_1D50B.jpg" />
-    <Content Include="static\index\images\E418931C8A1DE13C1E1C5BB7EB2_813BE16D_FA80.jpg-e=.jpg" />
-    <Content Include="static\index\images\E4B8E97BDA8888BA761C5340F4D_2B5159A4_EA92.jpg-e=.jpg" />
-    <Content Include="static\index\images\E60519FCCC9904D67199A71F42A_420DC012_39695.jpg" />
-    <Content Include="static\index\images\EA4AA4E33686D9233585403F5CB_4F76C29D_16D88.png" />
-    <Content Include="static\index\images\EC68EAD2524C76FB55473FD435B_F95D057C_31E32.jpg" />
-    <Content Include="static\index\images\EE177C4DD253734E20CDFF4DF5D_C73562F1_10F93.jpg" />
-    <Content Include="static\index\images\EF6475BC08DCAB3CBF8C24949D3_3A8E5FF5_15A7D.jpg" />
-    <Content Include="static\index\images\EFD8F19072985F0A379771780E1_06622E54_24278.jpg-e=.jpg" />
     <Content Include="static\index\images\error.gif" />
-    <Content Include="static\index\images\F00A7BF234B9E3E763BCD4C3363_6C1656EA_29F1A.jpg" />
-    <Content Include="static\index\images\F31B30C1FC63E6A970462025458_04648BAD_17986.jpg" />
-    <Content Include="static\index\images\F379CAEC129825359ECEACF590D_E12A0EDD_1DCAC.jpg" />
-    <Content Include="static\index\images\F468B0BCF8552B83046B7F0E20D_DDD05241_1299B.jpg" />
-    <Content Include="static\index\images\F6D17CE0189575927078CE633E1_8147C1FE_19A6C.jpg" />
-    <Content Include="static\index\images\F6FC8EF5554D3E536F0BA9032B0_DDADBE8D_1152A.jpg" />
-    <Content Include="static\index\images\F9659FA136F2CDE7536B3288144_789AB90A_21F7A.jpg" />
-    <Content Include="static\index\images\FBE5783159CF79868FF6AC6688A_672ABE1F_16224.jpg" />
-    <Content Include="static\index\images\FD3C5C059201604D1A6E0ACAF56_9D043D04_25E08.jpg" />
-    <Content Include="static\index\images\FD785537423AA798D2F29875E3A_DB16EADB_2BEE9.jpg-e=.jpg" />
-    <Content Include="static\index\images\FE5207140F118535EBC83753D36_4A5085FD_22D27.jpg" />
-    <Content Include="static\index\images\FFA2D610ABB32B3B9C0C08E22DA_886406D3_DEB6D.png" />
-    <Content Include="static\index\images\FFE698696B02737A0CFF4662833_CAC786F5_5084.jpg-e=.jpg" />
     <Content Include="static\index\images\friendline.gif" />
-    <Content Include="static\index\images\gangting.gif" />
-    <Content Include="static\index\images\guide_title.gif" />
     <Content Include="static\index\images\header_bg.jpg" />
     <Content Include="static\index\images\icons.png" />
     <Content Include="static\index\images\icon_xls.gif" />
     <Content Include="static\index\images\index_icons.png" />
-    <Content Include="static\index\images\jnggkfdt1.jpg" />
-    <Content Include="static\index\images\jnggkfdt2.jpg" />
-    <Content Include="static\index\images\jnggkfdt3.jpg" />
     <Content Include="static\index\images\l1.jpg" />
     <Content Include="static\index\images\l2.jpg" />
     <Content Include="static\index\images\l3.jpg" />
@@ -406,9 +364,6 @@
     <Content Include="static\index\images\Notice_bottom_bg.gif" />
     <Content Include="static\index\images\Notice_re_bg.gif" />
     <Content Include="static\index\images\Notice_title_bg.gif" />
-    <Content Include="static\index\images\nyxdt2.jpg" />
-    <Content Include="static\index\images\nyxdt3.jpg" />
-    <Content Include="static\index\images\nyxdt4.jpg" />
     <Content Include="static\index\images\pc_logo.png" />
     <Content Include="static\index\images\pc_search_btn.png" />
     <Content Include="static\index\images\Picture_bg.gif" />
@@ -417,7 +372,6 @@
     <Content Include="static\index\images\ring.gif" />
     <Content Include="static\index\images\share_core_square.jpg" />
     <Content Include="static\index\images\Site_bg.gif" />
-    <Content Include="static\index\images\social.png" />
     <Content Include="static\index\images\sub.gif" />
     <Content Include="static\index\images\subhover.gif" />
     <Content Include="static\index\images\ValidateCode.ashx.jpg" />
@@ -663,6 +617,110 @@
     <Content Include="static\kindeditor\themes\qq\editor.gif" />
     <Content Include="static\kindeditor\themes\qq\qq.css" />
     <Content Include="static\kindeditor\themes\simple\simple.css" />
+    <Content Include="static\layui\css\layui.css" />
+    <Content Include="static\layui\css\layui.mobile.css" />
+    <Content Include="static\layui\css\modules\code.css" />
+    <Content Include="static\layui\css\modules\laydate\default\laydate.css" />
+    <Content Include="static\layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="static\layui\css\modules\layer\default\icon.png" />
+    <Content Include="static\layui\css\modules\layer\default\layer.css" />
+    <Content Include="static\layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="static\layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="static\layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="static\layui\font\iconfont.svg" />
+    <Content Include="static\layui\images\face\0.gif" />
+    <Content Include="static\layui\images\face\1.gif" />
+    <Content Include="static\layui\images\face\10.gif" />
+    <Content Include="static\layui\images\face\11.gif" />
+    <Content Include="static\layui\images\face\12.gif" />
+    <Content Include="static\layui\images\face\13.gif" />
+    <Content Include="static\layui\images\face\14.gif" />
+    <Content Include="static\layui\images\face\15.gif" />
+    <Content Include="static\layui\images\face\16.gif" />
+    <Content Include="static\layui\images\face\17.gif" />
+    <Content Include="static\layui\images\face\18.gif" />
+    <Content Include="static\layui\images\face\19.gif" />
+    <Content Include="static\layui\images\face\2.gif" />
+    <Content Include="static\layui\images\face\20.gif" />
+    <Content Include="static\layui\images\face\21.gif" />
+    <Content Include="static\layui\images\face\22.gif" />
+    <Content Include="static\layui\images\face\23.gif" />
+    <Content Include="static\layui\images\face\24.gif" />
+    <Content Include="static\layui\images\face\25.gif" />
+    <Content Include="static\layui\images\face\26.gif" />
+    <Content Include="static\layui\images\face\27.gif" />
+    <Content Include="static\layui\images\face\28.gif" />
+    <Content Include="static\layui\images\face\29.gif" />
+    <Content Include="static\layui\images\face\3.gif" />
+    <Content Include="static\layui\images\face\30.gif" />
+    <Content Include="static\layui\images\face\31.gif" />
+    <Content Include="static\layui\images\face\32.gif" />
+    <Content Include="static\layui\images\face\33.gif" />
+    <Content Include="static\layui\images\face\34.gif" />
+    <Content Include="static\layui\images\face\35.gif" />
+    <Content Include="static\layui\images\face\36.gif" />
+    <Content Include="static\layui\images\face\37.gif" />
+    <Content Include="static\layui\images\face\38.gif" />
+    <Content Include="static\layui\images\face\39.gif" />
+    <Content Include="static\layui\images\face\4.gif" />
+    <Content Include="static\layui\images\face\40.gif" />
+    <Content Include="static\layui\images\face\41.gif" />
+    <Content Include="static\layui\images\face\42.gif" />
+    <Content Include="static\layui\images\face\43.gif" />
+    <Content Include="static\layui\images\face\44.gif" />
+    <Content Include="static\layui\images\face\45.gif" />
+    <Content Include="static\layui\images\face\46.gif" />
+    <Content Include="static\layui\images\face\47.gif" />
+    <Content Include="static\layui\images\face\48.gif" />
+    <Content Include="static\layui\images\face\49.gif" />
+    <Content Include="static\layui\images\face\5.gif" />
+    <Content Include="static\layui\images\face\50.gif" />
+    <Content Include="static\layui\images\face\51.gif" />
+    <Content Include="static\layui\images\face\52.gif" />
+    <Content Include="static\layui\images\face\53.gif" />
+    <Content Include="static\layui\images\face\54.gif" />
+    <Content Include="static\layui\images\face\55.gif" />
+    <Content Include="static\layui\images\face\56.gif" />
+    <Content Include="static\layui\images\face\57.gif" />
+    <Content Include="static\layui\images\face\58.gif" />
+    <Content Include="static\layui\images\face\59.gif" />
+    <Content Include="static\layui\images\face\6.gif" />
+    <Content Include="static\layui\images\face\60.gif" />
+    <Content Include="static\layui\images\face\61.gif" />
+    <Content Include="static\layui\images\face\62.gif" />
+    <Content Include="static\layui\images\face\63.gif" />
+    <Content Include="static\layui\images\face\64.gif" />
+    <Content Include="static\layui\images\face\65.gif" />
+    <Content Include="static\layui\images\face\66.gif" />
+    <Content Include="static\layui\images\face\67.gif" />
+    <Content Include="static\layui\images\face\68.gif" />
+    <Content Include="static\layui\images\face\69.gif" />
+    <Content Include="static\layui\images\face\7.gif" />
+    <Content Include="static\layui\images\face\70.gif" />
+    <Content Include="static\layui\images\face\71.gif" />
+    <Content Include="static\layui\images\face\8.gif" />
+    <Content Include="static\layui\images\face\9.gif" />
+    <Content Include="static\layui\layui.all.js" />
+    <Content Include="static\layui\layui.js" />
+    <Content Include="static\layui\lay\modules\carousel.js" />
+    <Content Include="static\layui\lay\modules\code.js" />
+    <Content Include="static\layui\lay\modules\colorpicker.js" />
+    <Content Include="static\layui\lay\modules\element.js" />
+    <Content Include="static\layui\lay\modules\flow.js" />
+    <Content Include="static\layui\lay\modules\form.js" />
+    <Content Include="static\layui\lay\modules\jquery.js" />
+    <Content Include="static\layui\lay\modules\laydate.js" />
+    <Content Include="static\layui\lay\modules\layedit.js" />
+    <Content Include="static\layui\lay\modules\layer.js" />
+    <Content Include="static\layui\lay\modules\laypage.js" />
+    <Content Include="static\layui\lay\modules\laytpl.js" />
+    <Content Include="static\layui\lay\modules\mobile.js" />
+    <Content Include="static\layui\lay\modules\rate.js" />
+    <Content Include="static\layui\lay\modules\slider.js" />
+    <Content Include="static\layui\lay\modules\table.js" />
+    <Content Include="static\layui\lay\modules\tree.js" />
+    <Content Include="static\layui\lay\modules\upload.js" />
+    <Content Include="static\layui\lay\modules\util.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -764,6 +822,18 @@
     <Content Include="Areas\Admin\Views\Public\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Public\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Public\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\bsuc.pubxml" />
+    <Content Include="static\admin\iconfont\iconfont.eot" />
+    <Content Include="static\admin\iconfont\iconfont.ttf" />
+    <Content Include="static\admin\iconfont\iconfont.woff" />
+    <Content Include="static\admin\js\layui\font\iconfont.eot" />
+    <Content Include="static\admin\js\layui\font\iconfont.ttf" />
+    <Content Include="static\admin\js\layui\font\iconfont.woff" />
+    <Content Include="static\layui\font\iconfont.eot" />
+    <Content Include="static\layui\font\iconfont.ttf" />
+    <Content Include="static\layui\font\iconfont.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

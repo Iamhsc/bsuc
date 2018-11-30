@@ -1,0 +1,45 @@
+﻿@model IEnumerable<bsuc.common.Model.Bsuc_Menu>
+@{
+    ViewBag.Title = "菜单管理";
+}
+<div class="layui-form">
+    <table class="layui-table mt10" lay-even="" lay-skin="row">
+        <colgroup>
+            <col width="50">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" lay-skin="primary" lay-filter="allChoose"></th>
+                <th>菜单ID</th>
+                <th>菜单名称</th>
+                <th>URL</th>
+                <th>排序</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" class="layui-checkbox checkbox-ids" name="ids[]" lay-skin="primary"></td>
+                    <td>@Html.DisplayFor(menu => item.id)</td>
+                    <td>@Html.DisplayFor(menu => item.title)</td>
+                    <td>@Html.DisplayFor(menu => item.url)</td>
+                    <td>@Html.DisplayFor(menu => item.sort)</td>
+                    <td>@{string stat = "禁用"; if (item.status == 1) { stat = "启用"; }}@stat</td>
+                    <td>
+                        <div class="layui-btn-group">
+                            <div class="layui-btn-group">
+                                <a data-href="" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">编辑 &#xe642;</i></a>
+                                <a data-href="" class="layui-btn layui-btn-primary layui-btn-sm j-tr-del"><i class="layui-icon">删除 &#xe640;</i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

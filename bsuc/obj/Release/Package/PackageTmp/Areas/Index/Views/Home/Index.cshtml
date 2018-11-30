@@ -1,0 +1,354 @@
+﻿@{
+    var news = ViewBag.news as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//学校要闻
+    var newa = ViewBag.newa as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//通知公告
+    var newb = ViewBag.newb as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//招标信息
+    var bmdt = ViewBag.bmdt as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//部门动态
+    var ztbd = ViewBag.ztbd as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//专题报道
+    var bymt = ViewBag.bymt as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//百院媒体
+    var kxyj = ViewBag.kxyj as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//科学研究
+    var postsali = ViewBag.postsali as IEnumerable<bsuc.common.Model.Bsuc_Protal_Post>;//科学研究
+
+    var sali = ViewBag.sali as IEnumerable<bsuc.common.Model.Bsuc_Protal_Photo>;
+    var sull = ViewBag.sull as IEnumerable<bsuc.common.Model.Bsuc_Protal_Photo>; 
+}
+@Styles.Render("~/static/index/css/index.css")
+@Scripts.Render("~/static/index/js/jquery.min.js")
+@Scripts.Render("~/static/index/js/jquery.SuperSlide.2.1.2.js")
+@Scripts.Render("~/static/index/js/dynclicks.js")
+
+
+
+<div class="banner">
+    <div class="fullSlide pr">
+        <div class="bd">
+            <ul>
+                @foreach (var item in sali)
+                {
+                <li class="pr">
+                    <a href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37077)" target="_blank">
+                        <img class="imgfull" src="@Html.DisplayFor(p=>item.photourl)" alt=""></a>
+                    <a class="title" href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37077)" target="_blank"></a>
+                </li>
+                }
+            </ul>
+        </div>
+        <div class="hd">
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+        <!-- Add Arrows -->
+        <a class="prev" href="javascript:void(0)"></a><a class="next" href="javascript:void(0)"></a>
+    </div>
+    <script type="text/javascript">
+        //banner
+        jQuery(".banner .fullSlide").slide({
+            titCell: ".hd ul",
+            mainCell: ".bd ul",
+            effect: "leftLoop",
+            vis: "auto",
+            delayTime: 400,
+            interTime: 5000,
+            autoPlay: true,
+            autoPage: true,
+            trigger: "click"
+        });
+    </script>
+</div>
+<div class="box-main">
+    <div class="row1 oh">
+        <div class="w1200 mlra oh">
+            <div class="fl mod1">
+                <div class="menu-name oh">
+                    <div class="fl">
+                        <span class="fs20 bold">学校要闻</span>
+                        <span class="fs14 ml10">HOT NEWS</span>
+                    </div>
+                    <div class="fr pr15 pt10">
+                        <a class="more" href="http://bsuc.imhsc.cn/home/wznr?id=1&title=%E5%AD%A6%E6%A0%A1%E8%A6%81%E9%97%BB">更多>></a>
+                    </div>
+                </div>
+                <div class="fl tab-wrap mt20">
+                    <div class="fullSlide pr">
+                        <div class="bd">
+                            <ul>
+                                @foreach (var item in postsali)
+                                {
+                                <li class="pr">
+                                    <a href="~/home/Details?id=@Html.DisplayFor( so => item.id)" target="_blank" title="">
+                                        <img height="300" src="@Html.DisplayFor(so=>item.cober)" alt=""></a>
+                                    <a class="title" href="~/home/Details?id=@Html.DisplayFor( so => item.id)" target="_blank" title="">@Html.DisplayFor(so=>item.post_title)</a>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="hd">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="wrap-mak"></div>
+                    </div>
+                    <script type="text/javascript">
+                        jQuery(".tab-wrap .fullSlide").slide({
+                            titCell: ".hd ul",
+                            mainCell: ".bd ul",
+                            effect: "leftLoop",
+                            vis: "auto",
+                            delayTime: 400,
+                            interTime: 2000,
+                            autoPlay: true,
+                            autoPage: true,
+                            trigger: "click"
+                        });
+                    </script>
+                </div>
+                <script>_showDynClickBatch(['dynclicks_u6_42594', 'dynclicks_u6_42578', 'dynclicks_u6_42598', 'dynclicks_u6_42571', 'dynclicks_u6_42570'], [42594, 42578, 42598, 42571, 42570], "wbnews", 1445304395)</script>
+
+                <div class="fr wrap-list mt20 oh">
+                    <ul>
+                        @foreach (var item in news)
+                        {
+                            var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
+                            <li class="oh">
+                                <a class="fl fs14 c333" href="/home/Details?id=@Html.DisplayFor(n => item.id)"  target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="font-weight:bold;width:266.233px; text-align:left; color:#f20a25;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                                <a class="fr fs14 c333" href="#">@pushTime</a>
+                            </li>
+                        }
+                    </ul>
+                    <script>_showDynClickBatch(['dynclicks_u7_42453', 'dynclicks_u7_42597', 'dynclicks_u7_42592', 'dynclicks_u7_42594', 'dynclicks_u7_42599', 'dynclicks_u7_42578', 'dynclicks_u7_42598', 'dynclicks_u7_42572', 'dynclicks_u7_42571', 'dynclicks_u7_42570'], [42453, 42597, 42592, 42594, 42599, 42578, 42598, 42572, 42571, 42570], "wbnews", 1445304395)</script>
+                </div>
+            </div>
+            <div class="fr mod2">
+                <div class="menu-name oh">
+                    <div class="fl controller active"><span class="fs20 bold">通知公告</span> <a class="fs20 ml10" href="#"><span class="fs20 ml10">+</span></a> </div>
+                    <div class="fl controller"><span class="fs20 bold">招标信息</span> <a class="fs20 ml10" href="#"><span class="fs20 ml10">+</span></a> </div>
+                </div>
+                <div class="mt20 wrap-list">
+                    <div class="oh txtScroll-top1">
+                        <div class="bd">
+
+                            <ul>
+                                @foreach (var item in newa)
+                                {
+                                     var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "yyyy-MM");
+                                     var pushTime1 = bsuc.common.Common.IntToDateTime(item.published_time, "dd");
+                                <li class="oh">
+                                    <div class="fl time mr10">
+                                        <p class="y fs12">@pushTime</p>
+                                        <p class="d fs20">@pushTime1</p>
+                                    </div>
+                                    <a class="fr title fs14 black txtleft" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)">@Html.DisplayFor(n => item.post_title)</a>
+                                </li>  
+                                }        
+                            </ul>
+                        </div>
+                        <script>_showDynClickBatch(['dynclicks_u8_42582', 'dynclicks_u8_42583', 'dynclicks_u8_42557', 'dynclicks_u8_37076', 'dynclicks_u8_37077', 'dynclicks_u8_37073', 'dynclicks_u8_36979', 'dynclicks_u8_36976', 'dynclicks_u8_36951', 'dynclicks_u8_36780', 'dynclicks_u8_36778', 'dynclicks_u8_36776', 'dynclicks_u8_36772', 'dynclicks_u8_36731', 'dynclicks_u8_36729', 'dynclicks_u8_36714', 'dynclicks_u8_36684', 'dynclicks_u8_36683', 'dynclicks_u8_28752', 'dynclicks_u8_29592'], [42582, 42583, 42557, 37076, 37077, 37073, 36979, 36976, 36951, 36780, 36778, 36776, 36772, 36731, 36729, 36714, 36684, 36683, 28752, 29592], "wbnews", 1445304395)</script>
+                    </div>
+                    <div class="oh txtScroll-top2">
+                        <div class="bd">
+                            <ul>
+                                @foreach (var item in newb)
+                                {
+                                     var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "yyyy-MM");
+                                     var pushTime1 = bsuc.common.Common.IntToDateTime(item.published_time, "dd");
+                                <li class="oh">
+                                    <div class="fl time mr10">
+                                        <p class="y fs12">@pushTime</p>
+                                        <p class="d fs20">@pushTime1</p>
+                                    </div>
+                                    <a class="fr title fs14 black txtleft" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                        <script>_showDynClickBatch(['dynclicks_u9_37049', 'dynclicks_u9_37048', 'dynclicks_u9_37047', 'dynclicks_u9_37018', 'dynclicks_u9_37017', 'dynclicks_u9_36983', 'dynclicks_u9_36982', 'dynclicks_u9_36861', 'dynclicks_u9_36826', 'dynclicks_u9_36825', 'dynclicks_u9_36824', 'dynclicks_u9_36807', 'dynclicks_u9_36757', 'dynclicks_u9_36758', 'dynclicks_u9_36728', 'dynclicks_u9_36715', 'dynclicks_u9_36673', 'dynclicks_u9_36672', 'dynclicks_u9_36671', 'dynclicks_u9_28292'], [37049, 37048, 37047, 37018, 37017, 36983, 36982, 36861, 36826, 36825, 36824, 36807, 36757, 36758, 36728, 36715, 36673, 36672, 36671, 28292], "wbnews", 1445304395)</script>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    jQuery(".txtScroll-top1").slide({
+                        autoPlay: true,
+                        mainCell: ".bd ul",
+                        scroll: 1,
+                        easing: "swing",
+                        pnLoop: true,
+                        mouseOverStop: true,
+                        vis: 4,
+                        delayTime: 500,
+                        trigger: "mouseover",
+                        effect: "topLoop"
+                    })
+                    jQuery(".txtScroll-top2").slide({
+                        autoPlay: true,
+                        mainCell: ".bd ul",
+                        scroll: 1,
+                        easing: "swing",
+                        pnLoop: true,
+                        mouseOverStop: true,
+                        vis: 4,
+                        delayTime: 500,
+                        trigger: "mouseover",
+                        effect: "topLoop"
+                    })
+                    jQuery(".mod2 .wrap-list>div").eq(1).hide(10)
+                    jQuery(".mod2 .menu-name>div").hover(function () {
+                        var index = jQuery(this).index();
+                        jQuery(this).addClass("active").siblings().removeClass("active");
+                        jQuery(".mod2 .wrap-list>div").stop(true, true).eq(index).show(10).siblings().hide(10);
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row2">
+    <div class="w1200 mlra oh">
+        <div id="news-tab1" class="fl news-tab mr20">
+            <div class="wrap-controller oh">
+                <div class="tab-controller fl active"><span>部门动态</span></div>
+                <div class="tab-controller fl"><span>专题报道</span> </div>
+            </div>
+            <div class="tab-content bcwhite">
+                <div class="wrap pt25">
+                    @foreach (var item in bmdt)
+                    {
+                        var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
+                    <ul>
+                        <li class="oh">
+                            <a class="fl block title c333 fs14" href="~/home/Details?id=@Html.DisplayFor(n =>item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                            <a class="fr time c333 fs14" href="#">@pushTime</a>
+                        </li>
+                    </ul>
+                    }
+                    <script>_showDynClickBatch(['dynclicks_u10_42596', 'dynclicks_u10_42590', 'dynclicks_u10_42581', 'dynclicks_u10_42577', 'dynclicks_u10_42568', 'dynclicks_u10_42565', 'dynclicks_u10_42564', 'dynclicks_u10_42561'], [42596, 42590, 42581, 42577, 42568, 42565, 42564, 42561], "wbnews", 1445304395)</script>
+                </div>
+                <div class="wrap pt25">
+                    @foreach (var item in ztbd)
+                    {
+                        var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
+                    <ul>
+                        <li class="oh">
+                            <a class="fl block title c333 fs14" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title="@Html.DisplayFor(n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                            <a class="fr time c333 fs14" href="36882.htm">@pushTime</a>
+                        </li>
+
+                    </ul>
+                    }
+                    <script>_showDynClickBatch(['dynclicks_u11_36882', 'dynclicks_u11_36777', 'dynclicks_u11_16036', 'dynclicks_u11_16034', 'dynclicks_u11_16032', 'dynclicks_u11_16028', 'dynclicks_u11_16026', 'dynclicks_u11_16025'], [36882, 36777, 16036, 16034, 16032, 16028, 16026, 16025], "wbnews", 1445304395)</script>
+                </div>
+            </div>
+        </div>
+        <div id="news-tab2" class="fl news-tab mr20">
+            <div class="wrap-controller oh">
+                <div class="tab-controller active"><span>媒体百院</span></div>
+                <div class="tab-controller"><span>科学研究</span> </div>
+            </div>
+            <div class="tab-content bcwhite">
+                <div class="wrap pt25">
+                    @foreach(var item in bymt)
+                    {
+                        var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
+                    <ul>
+                        <li class="oh">
+                            <a class="fl block title c333 fs14" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title=" @Html.DisplayFor( n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor(n => item.post_title)</a>
+                            <a class="fr time c333 fs14" href="#">@pushTime</a>
+                        </li>
+
+                    </ul>
+                    }
+                    <script>_showDynClickBatch(['dynclicks_u12_42584', 'dynclicks_u12_37000', 'dynclicks_u12_36919', 'dynclicks_u12_36892', 'dynclicks_u12_36896', 'dynclicks_u12_36895', 'dynclicks_u12_36799', 'dynclicks_u12_36767'], [42584, 37000, 36919, 36892, 36896, 36895, 36799, 36767], "wbnews", 1445304395)</script>
+                </div>
+                <div class="wrap pt25">
+                    @foreach(var item in kxyj)
+                    {
+                        var pushTime = bsuc.common.Common.IntToDateTime(item.published_time, "MM-dd");
+                    <ul>
+                        <li class="oh">
+                            <a class="fl block title c333 fs14" href="~/home/Details?id=@Html.DisplayFor( n => item.id)" target="_blank" title=" @Html.DisplayFor( n => item.post_title)" style="width:266.240px; text-align:left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">@Html.DisplayFor( n => item.post_title)</a>
+                            <a class="fr time c333 fs14" href="#">@pushTime</a>
+                        </li>
+                    </ul>
+                    }
+                    <script>_showDynClickBatch(['dynclicks_u13_36788', 'dynclicks_u13_28582', 'dynclicks_u13_28581', 'dynclicks_u13_28580', 'dynclicks_u13_28579', 'dynclicks_u13_28578', 'dynclicks_u13_28577', 'dynclicks_u13_28576'], [36788, 28582, 28581, 28580, 28579, 28578, 28577, 28576], "wbnews", 1445304395)</script>
+                </div>
+            </div>
+        </div>
+        <div class="fl mod3">
+            <div class="column-name">
+                <span class="fl fs20 white bold">快速导航</span>
+                <a class="block oh" href="#"><span class="fr fs20 white bold">+</span></a>
+            </div>
+<ul class="bcwhite oh pt20 pb20">
+    <li class="pos1">
+    <a class="icon" target="_blank" href="http://www.yiban.cn/school/index/id/5000120"></a>
+    <a class="title block fs14 c333 mlra" href="http://www.yiban.cn/school/index/id/5000120" target="_blank">百院易班</a>
+    </li>
+    <li class="pos2">
+    <a class="icon" href="http://jwgl.bsuc.edu.cn/jwweb/" target="_blank"></a>
+    <a class="title block fs14 c333 mlra" href="http://jwgl.bsuc.edu.cn/jwweb/" target="_blank">教务系统</a>
+    </li>
+    <li class="pos3">
+    <a class="icon" href="http://zs.bsuc.edu.cn/" target="_blank"></a>
+    <a class="title block fs14 c333 mlra" target="_blank" href="http://zs.bsuc.edu.cn/">招生网</a>
+    </li>
+    <li class="pos4">
+    <a class="icon" href="http://bsuc.cn/" target="_blank"></a>
+    <a class="title block fs14 c333 mlra" href="http://bsuc.cn/" target="_blank">邮件系统</a>
+    </li>
+    <li class="pos5">
+    <a class="icon" href="http://bsuc.fanya.chaoxing.com/portal" target="_blank"></a>
+    <a class="title block fs14 c333 mlra" target="_blank" href="http://bsuc.fanya.chaoxing.com/portal" >精品课程</a>
+    </li>
+    <li class="pos6">
+    <a class="icon" target="_blank" href="http://tsg.bsuc.edu.cn/"></a>
+    <a class="title block fs14 c333 mlra" href="http://tsg.bsuc.edu.cn/" target="_blank">图书馆</a>
+    </li>
+</ul>
+        </div>
+    </div>
+    <div class="w1200 mlra oh">
+        <div class="left-scroll oh">
+            <div class="menu-name oh">
+                <div class="fl">
+                    <span class="fs20 bold">专题栏目</span>
+                </div>
+                <div class="fr pr15 pt10">
+                    <a class="more" href="ztlm.htm">更多>></a>
+                </div>
+            </div>
+            <div class="bd oh pr">
+                <ul class="oh">
+                    @foreach (var item in sull)
+                    {
+                    <li><a href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1445304395, 37045)" target="_blank">
+                        <img src="@Html.DisplayFor(s=>item.photourl)" alt=""></a></li>
+                    }
+                                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function newsTabMove(obj) {
+        jQuery(obj).find(".wrap-controller").find(".tab-controller").hover(function () {
+            var index = jQuery(this).index();
+            jQuery(this).addClass("active").siblings(".tab-controller").removeClass("active");
+            jQuery(obj).find(".tab-content").find(".wrap").stop(true, true).eq(index).show(1).siblings(".wrap").hide(1);
+        })
+    }
+    newsTabMove("#news-tab1");
+    newsTabMove("#news-tab2");
+    /*底部左无缝滚动*/
+    jQuery(".left-scroll").slide({
+        mainCell: ".bd ul",
+        autoPlay: true,
+        effect: "leftMarquee",
+        vis: 4,
+        interTime: 50,
+        easing: "swing",
+        pnLoop: true,
+        mouseOverStop: true,
+        opp: false,
+        trigger: "click"
+    });
+</script>

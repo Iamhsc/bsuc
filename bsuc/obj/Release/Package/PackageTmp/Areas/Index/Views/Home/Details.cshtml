@@ -1,0 +1,61 @@
+﻿
+@model bsuc.common.Model.Bsuc_Protal_Post
+@{
+    var natnameB = ViewBag.catnameB as IEnumerable<bsuc.common.Model.Bsuc_Protal_Category>;//科学研究
+    ViewBag.Title = "文章内容";
+}
+@Scripts.Render("~/static/index/js/dynclicks.js")
+<div class="bannerT">
+    <div class="bannerT">
+        <img class="imgfull" src="~/static/index/images/bannerT.jpg" alt="">
+    </div>
+</div>
+<div class="box-main container mlra">
+    <div class="page-centent text-left">
+        <div class="menu-name pr">
+            <div class="this-place txtleft">
+                <p>当前位置: <a href="~/home/index">首页</a>>>正文</p>
+            </div>
+        </div>
+    </div>
+    <div class="left_nav">
+        <div class="column_name">
+            <h4>新闻中心<span class="songti pl10"></span></h4>
+        </div>
+        @foreach (var item in natnameB)
+        {
+            <ul>
+                <li><a href="/home/wznr?id=@Html.DisplayFor(n => item.id)&title=@Html.DisplayFor(n => item.catname)" title="@Html.DisplayFor(n => item.catname)">@Html.DisplayFor(n => item.catname)</a></li>
+            </ul>
+        }
+    </div>
+    <div class="right_main">
+        <form name="_newscontent_fromname">
+            <div class="box-centent">
+                <div class="title">
+                    <h3>@Html.DisplayFor(model => model.post_title)</h3>
+                    <div class="news-msg text-center" style="text-align: center;">
+                        <span>来源：百色学院</span>
+                        <span>编辑：邓民胜</span>
+                        <span>作者：@ViewBag.author</span>
+                        <span>发布时间：@ViewBag.PushTime</span>
+                        <span>浏览量：@Html.DisplayFor(model => model.post_hits)</span>
+                    </div>
+                </div>
+                <div style="border-bottom: 1px solid #e8e8e8; margin-top: 10px;"></div>
+                <div class="con-txt" id="vsb_content">
+                    <p class="indent2"></p>
+                    @Html.DisplayTextFor(model => model.post_content)
+                    <p></p>
+                </div>
+         
+@*                    <ul class="page pt20">
+                    <li class="mb15 fs16 lh1">上一条：<a class="fs16 lh1" href="/home/Details?id=@Html.DisplayFor(p => item.id)"</a></li>
+                    <li class="fs16 lh1">下一条：<a class="fs16 lh1" href="42699.htm">【80周年校庆】音乐学院舞蹈学专业教学成果展演汇报演出精彩上演</a></li>
+                    </ul>*@
+                
+	<br /><br />
+            </div>
+        </form>
+    </div>
+</div>

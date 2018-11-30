@@ -1,0 +1,337 @@
+﻿@charset "utf-8";
+/*banner start*/
+.banner,
+.banner .fullSlide,
+.banner .fullSlide .bd{
+    width: 100%;
+    overflow: hidden;
+}
+.banner .fullSlide,
+.img-link-tab .slideTxtBox{
+    position: relative;
+    z-index: 1;
+}
+.banner .fullSlide .hd{
+    position: absolute;
+    bottom: 3%;
+    right: 18%;
+    text-align: center;
+}
+.banner .fullSlide .hd ul li,
+.mod1 .tab-wrap .fullSlide .hd ul li{
+    background: transparent url("../images/bannerController.png")/*tpa=http://www.bsuc.cn/images/bannerController.png*/ no-repeat -12px 0;
+    width: 12px;
+    height: 13px;
+    opacity: 1;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin-left: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+    font-size: 0;
+    z-index: 20;
+}
+.banner .fullSlide .hd ul li.on,
+.mod1 .tab-wrap .fullSlide .hd ul li.on{
+    background-position: 0 0;
+}
+.banner .fullSlide .prev,
+.banner .fullSlide .next{
+    position: absolute;
+    width: 46px;
+    height: 48px;
+    top: 50%;
+    margin-top: -24px;
+    opacity: .4;
+    filter:alpha(opacity=40);
+}
+.banner .fullSlide .prev{
+    background: url("../images/prevBtnTop.png") no-repeat center;
+    left: 6%;
+
+}
+.banner .fullSlide .next{
+    background: url("../images/nextBtnTop.png") no-repeat center;
+    right: 6%;
+}
+.banner .fullSlide .bd ul li .title{
+    display: block;
+    position: absolute;
+    left: 18%;
+    bottom: 3%;
+    padding: 0 20px;
+    background: url("../images/bg_black_50.png");
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    line-height: 44px;
+}
+/*bannr end*/
+.menu-name{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #267bd4;
+}
+.menu-name span,
+.menu-name .more{
+    color: #267bd4;
+}
+
+/*row1 start*/
+.notice{ margin:0 auto; width:1200px; height:20px; padding:10px; line-height:20px;
+}
+.row1{
+    padding-top: 40px;
+    padding-bottom: 70px;
+    background-color: white;
+}
+/*mod1*/
+.row1 .mod1{
+    width: 790px;
+}
+.row1 .mod1 .tab-wrap{
+    width: 410px;
+    height: 300px;
+}
+.row1 .mod1 .tab-wrap .fullSlide{
+    width: 100%;
+}
+.mod1 .tab-wrap .fullSlide .bd ul li .title{
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    color: white;
+    font-size: 14px;
+    line-height: 1;
+    z-index: 99;
+}
+.mod1 .tab-wrap .fullSlide .hd{
+    position: absolute;
+    right: 5px;
+    bottom: 15px;
+    z-index: 99;
+}
+.mod1 .fullSlide .wrap-mak{
+    background: url("../images/bg_black_50.png");
+    height: 45px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+.mod1 .wrap-list{
+    width: 355px;
+    height: 300px;
+    border-bottom: 1px solid #f8f8f8;
+}
+.mod1 .wrap-list ul li{
+    padding-left: 15px;
+    background: url("../images/news_title_list_icon.png") no-repeat 0px 16px;
+    line-height: 30px;
+}
+/*mod2*/
+.mod2{
+    width: 370px;
+    overflow: hidden;
+}
+.mod2 .wrap-list{
+    height: 300px;
+    width: 370px;
+    overflow: hidden;
+}
+.mod2 .wrap-list ul li{
+    border: 1px solid #267bd4;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    padding: 10px 15px;
+}
+.mod2 .menu-name{
+    padding: 0;
+}
+.mod2 .menu-name span,
+.mod2 .menu-name .more{
+    color: #267bd4;
+    line-height: 42px;
+
+}
+.mod2 .menu-name .active span,
+.mod2 .menu-name .active .more{
+    color: #fff;
+}
+.mod2 .menu-name .controller{
+    width: 49.9%;
+    text-align: center;
+}
+.mod2 .menu-name .active{
+    background: #267bd4;
+}
+.mod2 .wrap-list ul li .time{
+    background: url("../images/index_icons.png") no-repeat 0 -185px;
+    width: 59px;
+    height: 48px;
+}
+.mod2 .wrap-list ul li .time .y{
+    line-height: 1;
+    color: #767676;
+    margin-top: 8px;
+}
+.mod2 .wrap-list ul li .time .d{
+    color: #267bd4;
+    line-height: 1;
+    margin-top: 4px;
+}
+.mod2 .wrap-list ul li .title{
+    display: block;
+    width: 268px;
+    line-height: 1.6;
+}
+/*row1 end*/
+/*row2 start*/
+.row2{
+    background:#8cc0fd url("../images/m_bg.png") no-repeat center center;
+    height: 710px;
+    width: 100%;
+}
+.row2 .w1200{
+    padding-top: 60px;
+}
+.row2 .news-tab{
+    width: 435px;
+}
+.news-tab .wrap-controller{
+    position: relative;
+    bottom: -2px;
+}
+.news-tab .tab-controller{
+    width: 49.7%;
+    float: left;
+}
+.news-tab .active{
+    border: 1px solid #267bd4;
+    background-color: white;
+}
+.news-tab .tab-controller{
+    display: block;
+    border-radius: 4px;
+    line-height: 1;
+}
+.news-tab .tab-controller span{
+    font-size: 20px;
+    color: #267bd4;
+    font-weight: bold;
+    margin: 0 15px;
+    line-height: 56px;
+}
+.news-tab .tab-content{
+    border-top: 2px solid #267bd4;
+    height: 284px;
+    overflow: hidden;
+}
+.news-tab .tab-content .wrap ul{
+    width: 90%;
+    margin: 0 auto;
+}
+.news-tab .tab-content .wrap ul li{
+    padding-left: 15px;
+    background: url("../images/news_title_list_icon.png") no-repeat 0px 16px;
+    line-height: 31px;
+}
+/*mod3 start*/
+.mod3{
+    width: 290px;
+}
+.mod3 .column-name{
+    background-color: #267bd4;
+}
+.mod3 .column-name span{
+    padding: 0 25px;
+    line-height: 58px;
+}
+.mod3 ul li{
+    float: left;
+    width: 33.33%;
+    *width: 33%;
+    text-align: center;
+    padding-top: 5px;
+}
+.mod3 ul li .icon{
+    display: block;
+    background: url("../images/index_icons.png") no-repeat 0 0;
+    width: 69px;
+    height: 69px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: .8;
+    filter:alpha(opacity=80);
+}
+.mod3 ul li.pos1 .icon{
+    background-position: 0px 0;
+}
+.mod3 ul li.pos2 .icon{
+    background-position: -69px 0;
+}
+.mod3 ul li.pos3 .icon{
+    background-position: -138px 0;
+}
+.mod3 ul li.pos4 .icon{
+    background-position: 0px -69px;
+}
+.mod3 ul li.pos5 .icon{
+    background-position: -69px -69px;
+}
+.mod3 ul li.pos6 .icon{
+    background-position: -138px -69px;
+}
+.mod3 ul li .title{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+/*mod3 end*/
+/*left-scroll start*/
+.left-scroll .bd{
+    padding-top: 35px;
+}
+.left-scroll ul li{
+    float: left;
+    height: 90px;
+    border: 4px solid white;
+    margin-right: 40px;
+	width:260px;
+}
+/*left-scroll end*/
+/*row2 end*/
+
+/*hover*/
+.row02 .box-parent-list ul li a:hover{
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .6);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .6);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .6);
+}
+.box-top-title-list .box-list li:hover a,
+.txtScroll-top ul li a:hover,
+.box-top-title-list .top-news a:hover,
+.news-tab .tab-content .wrap ul li:hover a,
+.mod1 .wrap-list ul li:hover a,
+.mod2 .wrap-list ul li:hover a,
+.mod3 ul li:hover a,
+.banner .fullSlide .bd ul li .title:hover{
+    color: #128AE7;
+}
+.banner .fullSlide .prev:hover,
+.banner .fullSlide .next:hover,
+.mod3 ul li:hover .icon{
+    opacity: 1;
+    filter:alpha(opacity=100);
+}
+.left-scroll ul li:hover img{
+    opacity: .8;
+    filter:alpha(opacity=80);
+}
+.left-scroll ul li:hover{
+    border-color: #128AE7;
+}
+a.more:hover,
+.mod1 .tab-wrap .fullSlide .bd ul li:hover .title{
+    color: #eb796b;
+}

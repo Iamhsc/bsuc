@@ -22,7 +22,7 @@ namespace bsuc.Areas.Admin.Controllers
                 db.bmenu.Add(menu);
                 db.SaveChanges();
                 obj["code"] = 1;
-                obj["url"] = "/admin";
+                obj["url"] = "/admin/sys/index";
                 obj["msg"] = "添加成功";
             }
             else { 

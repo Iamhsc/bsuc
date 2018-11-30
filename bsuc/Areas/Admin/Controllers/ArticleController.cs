@@ -49,7 +49,7 @@ namespace bsuc.Areas.Admin.Controllers
             JObject obj = new JObject();
             obj["code"] = 1;
             obj["msg"] = "添加成功";
-            obj["url"] = "/admin/article";
+            obj["url"] = "/admin/article/index";
             return obj;
         }
 
@@ -76,7 +76,7 @@ namespace bsuc.Areas.Admin.Controllers
             db.SaveChanges();
             obj["code"] = 1;
             obj["msg"] = "文章修改成功";
-            obj["url"] = "/admin/article";
+            obj["url"] = "/admin/article/index";
             return obj;
         }
 
